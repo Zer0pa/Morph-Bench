@@ -9,17 +9,18 @@
     "current_phase": "02",
     "current_phase_name": "Neutral Module Extraction",
     "total_phases": 4,
-    "current_plan": "02-01",
+    "current_plan": "02-02",
     "total_plans_in_phase": 2,
-    "status": "Planned, ready to execute",
+    "status": "Plan 02-01 complete; 02-02 ready to execute",
     "last_activity": "2026-04-24",
-    "last_activity_desc": "Phase 02 plans 02-01 (adapter) and 02-02 (stability battery + replay CLI) drafted; 02-CONTEXT.md published",
-    "progress_percent": 45,
+    "last_activity_desc": "Plan 02-01 executed end-to-end: adapter, _utils, fixtures, 16 pytest cases green, forbidden-pattern lint clean, contract coverage complete",
+    "progress_percent": 55,
     "paused_at": null
   },
   "active_calculations": [
     "Synthetic smoke benchmark on `fixtures/tiny_benchmark_manifest.json`",
-    "Indus Phase 4 adapter contract drafted at"
+    "Indus Phase 4 v1 adapter implemented at `src/gnosis_morph_bench/adapters/indus_phase4.py`",
+    "Plan 02-02 queued: stability-battery modes + `replay.py` + CLI refactor + STABILITY_BATTERY_v1.md"
   ],
   "intermediate_results": [
     "The staged repo is installable and exposes a corpus-neutral starter contract.",
@@ -93,22 +94,21 @@
   },
   "propagated_uncertainties": [],
   "pending_todos": [
-    "Obtain admitted access to the Phase 3c feature manifest for repo-custody",
-    "Implement the Phase 02 v1 adapter under",
-    "Port live route-selection math from `scripts/indus/phase4_route_selection.py`",
-    "Port live stability and replay helpers from",
-    "Draft a separate cuneiform adapter contract before any cuneiform work",
-    "Run blind-clone verification."
+    "Obtain admitted access to the Phase 3c feature manifest for repo-custody runs (Phase 03).",
+    "Plan 02-02: stability battery modes (noise, k-sensitivity, seed variance) + replay.py + CLI refactor + STABILITY_BATTERY_v1.md.",
+    "Port live route-selection math onto the neutral manifest path (Phase 03; requires admitted data).",
+    "Draft a separate cuneiform adapter contract before any cuneiform work begins.",
+    "Run blind-clone verification (Phase 03)."
   ],
   "blockers": [
     "Final license text is still owner-deferred.",
     "Real-source replay is still pending; Phase 02 is blocked on admitted"
   ],
   "session": {
-    "last_date": "`2026-04-24T00:00:00Z`",
-    "stopped_at": "Phase 01 plan 01-01 complete; replay target and v1 adapter",
-    "resume_file": "`.gpd/phases/02-neutral-module-extraction/` (to be created"
+    "last_date": "2026-04-24T00:00:00Z",
+    "stopped_at": "Plan 02-01 complete (adapter + utils + fixtures + 16 pytest cases green); ready to execute Plan 02-02",
+    "resume_file": ".gpd/phases/02-neutral-module-extraction/02-02-PLAN.md"
   },
   "_version": 1,
-  "_synced_at": "2026-04-23T23:28:04.372162+00:00"
+  "_synced_at": "2026-04-24T00:00:00+00:00"
 }

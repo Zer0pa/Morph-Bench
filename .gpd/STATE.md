@@ -17,31 +17,42 @@ accessible from repo custody.
 **Current Phase:** 02
 **Current Phase Name:** Neutral Module Extraction
 **Total Phases:** `4`
-**Current Plan:** 02-01
+**Current Plan:** 02-02
 **Total Plans In Phase:** 2
-**Status:** Planned, ready to execute
-**Status Detail:** Phase 02 planning complete. Two plans drafted:
-02-01 implements the Indus Phase 4 v1 adapter, utils module, synthetic
-Phase-4-like fixtures, forbidden-pattern lint, and ADAPTER_CONTRACT_v1
-MUST-clause coverage test. 02-02 extends the stability battery with
-noise injection, k-sensitivity, and seed variance, adds `replay.py`
-emitting a neutral `ReplayRecord`, refactors the CLI into `smoke` /
-`replay` subcommands, and publishes `STABILITY_BATTERY_v1.md`. No live
-Phase 3c data is required; all tests use synthetic fixtures.
+**Status:** Plan 02-01 complete; 02-02 ready to execute
+**Status Detail:** Plan 02-01 landed the Indus Phase 4 v1 adapter at
+`src/gnosis_morph_bench/adapters/indus_phase4.py`, the `_utils.py`
+helper module, three synthetic Phase-4-shaped fixtures under
+`tests/fixtures/`, and a 16-case pytest suite covering CLI surface,
+round-trip into `load_manifest`/`evaluate_route`, freeze parity and
+mismatch (exit code 2), NaN handling (strict + drop), label-surface
+carry/drop, forbidden-pattern lint (with positive control), and
+ADAPTER_CONTRACT_v1 MUST-clause coverage. Zero unsatisfied contract
+clauses; zero forbidden-pattern hits under `src/`. The console
+entrypoint `gnosis-morph-bench-adapter-indus-phase4` is wired. Plan
+02-02 extends the stability battery with noise injection,
+k-sensitivity, and seed variance, adds `replay.py` emitting a neutral
+`ReplayRecord`, refactors the CLI into `smoke` / `replay` subcommands,
+and publishes `STABILITY_BATTERY_v1.md`. No live Phase 3c data is
+required; 02-02 continues to use synthetic fixtures.
 **Last Activity:** 2026-04-24
-**Last Activity Description:** Phase 02 plans 02-01 and 02-02 drafted;
-`.gpd/phases/02-neutral-module-extraction/02-CONTEXT.md` published.
+**Last Activity Description:** Plan 02-01 executed end-to-end; six
+atomic commits (ccbee89, e61cb0c, 7a7457d, 6abe835, 9664e5d, 9a5ad6b);
+pytest 16/16 pass; SUMMARY.md written.
 
 **Execution Doctrine:** no interim reporting unless there is a real blocker
 that cannot be removed locally or on admitted surfaces.
 
-**Progress:** [####------] `40%`
+**Progress:** [######----] `55%`
 
 ## Active Calculations
 
 - Synthetic smoke benchmark on `fixtures/tiny_benchmark_manifest.json`
-- Indus Phase 4 adapter contract drafted at
-  `docs/family/ADAPTER_CONTRACT_v1.md`; implementation deferred to Phase 02
+- Indus Phase 4 v1 adapter implemented at
+  `src/gnosis_morph_bench/adapters/indus_phase4.py`; exercised on the
+  three synthetic Phase-4-shaped fixtures under `tests/fixtures/`.
+- Plan 02-02 in queue: stability-battery modes (noise, k-sensitivity,
+  seed variance) + `replay.py` + CLI refactor + STABILITY_BATTERY_v1.md.
 
 ## Intermediate Results
 
@@ -89,16 +100,17 @@ that cannot be removed locally or on admitted surfaces.
 ### Pending Todos
 
 - Obtain admitted access to the Phase 3c feature manifest for repo-custody
-  adapter runs.
-- Implement the Phase 02 v1 adapter under
-  `src/gnosis_morph_bench/adapters/indus_phase4.py`.
+  adapter runs (Phase 03).
 - Port live route-selection math from `scripts/indus/phase4_route_selection.py`
-  onto the neutral manifest path produced by the v1 adapter.
+  onto the neutral manifest path produced by the v1 adapter (Phase 03;
+  requires admitted data).
 - Port live stability and replay helpers from
-  `scripts/indus/phase4_stability.py` and `scripts/indus/stability_tester.py`.
+  `scripts/indus/phase4_stability.py` and `scripts/indus/stability_tester.py`
+  — Plan 02-02 covers the repo-local pieces (noise, k-sensitivity,
+  seed variance, `replay.py`).
 - Draft a separate cuneiform adapter contract before any cuneiform work
   begins.
-- Run blind-clone verification.
+- Run blind-clone verification (Phase 03).
 
 ### Blockers/Concerns
 
@@ -109,7 +121,6 @@ that cannot be removed locally or on admitted surfaces.
 ## Session Continuity
 
 **Last session:** `2026-04-24T00:00:00Z`
-**Stopped at:** Phase 01 plan 01-01 complete; replay target and v1 adapter
-contract frozen.
-**Resume file:** `.gpd/phases/02-neutral-module-extraction/` (to be created
-when Phase 02 starts).
+**Stopped at:** Plan 02-01 complete (adapter + utils + fixtures + 16
+pytest cases green); ready to execute Plan 02-02.
+**Resume file:** `.gpd/phases/02-neutral-module-extraction/02-02-PLAN.md`.
