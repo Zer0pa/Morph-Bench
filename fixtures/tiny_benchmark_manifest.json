@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "manifest_name": "tiny-smoke",
+  "items": [
+    {
+      "item_id": "1",
+      "reference_labels": {"family": "alpha"},
+      "route_features": {
+        "route_clear": [0.0, 0.1],
+        "route_blurry": [0.0, 0.0]
+      }
+    },
+    {
+      "item_id": "2",
+      "reference_labels": {"family": "alpha"},
+      "route_features": {
+        "route_clear": [0.1, 0.0],
+        "route_blurry": [1.0, 1.0]
+      }
+    },
+    {
+      "item_id": "3",
+      "reference_labels": {"family": "alpha"},
+      "route_features": {
+        "route_clear": [0.2, -0.1],
+        "route_blurry": [3.0, 3.0]
+      }
+    },
+    {
+      "item_id": "4",
+      "reference_labels": {"family": "beta"},
+      "route_features": {
+        "route_clear": [4.8, 5.0],
+        "route_blurry": [2.8, 3.2]
+      }
+    },
+    {
+      "item_id": "5",
+      "reference_labels": {"family": "beta"},
+      "route_features": {
+        "route_clear": [5.1, 5.2],
+        "route_blurry": [4.0, 4.0]
+      }
+    },
+    {
+      "item_id": "6",
+      "reference_labels": {"family": "beta"},
+      "route_features": {
+        "route_clear": [5.0, 4.9],
+        "route_blurry": [6.0, 6.0]
+      }
+    },
+    {
+      "item_id": "7",
+      "reference_labels": {"family": "gamma"},
+      "route_features": {
+        "route_clear": [10.0, 10.1],
+        "route_blurry": [6.2, 6.1]
+      }
+    },
+    {
+      "item_id": "8",
+      "reference_labels": {"family": "gamma"},
+      "route_features": {
+        "route_clear": [10.2, 9.8],
+        "route_blurry": [8.0, 8.0]
+      }
+    },
+    {
+      "item_id": "9",
+      "reference_labels": {"family": "gamma"},
+      "route_features": {
+        "route_clear": [9.8, 10.0],
+        "route_blurry": [10.0, 10.0]
+      }
+    }
+  ]
+}

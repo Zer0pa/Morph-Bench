@@ -1,0 +1,17 @@
+{
+  "autonomy": "balanced",
+  "research_mode": "adaptive",
+  "parallelization": true,
+  "commit_docs": true,
+  "model_profile": "deep-theory",
+  "execution": {
+    "review_cadence": "adaptive",
+    "reporting": "blockers_only",
+    "completion_contract": "stage_gate_then_repo_custody_replay"
+  },
+  "workflow": {
+    "research": true,
+    "plan_checker": true,
+    "verifier": true
+  }
+}

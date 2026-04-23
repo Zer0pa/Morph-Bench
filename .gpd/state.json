@@ -1,0 +1,51 @@
+{
+  "_version": 1,
+  "_synced_at": "2026-04-23T00:00:00Z",
+  "project_reference": {
+    "project_md_updated": "2026-04-23",
+    "core_research_question": "Can the benchmark and replay logic behind the live Phase 4 finding be extracted into a standalone methods repo that installs and runs from repo custody while keeping domain verdicts outside the boundary?",
+    "current_focus": "Freeze the first real source-manifest replay target after the bootstrap pass."
+  },
+  "position": {
+    "current_phase": "01",
+    "current_phase_name": "Source Admission And Replay Design",
+    "total_phases": 4,
+    "current_plan": "1",
+    "total_plans_in_phase": 1,
+    "status": "IN_PROGRESS",
+    "last_activity": "2026-04-23",
+    "last_activity_desc": "Instantiated the staged repo, docs, and smoke package.",
+    "progress_percent": 30,
+    "paused_at": null
+  },
+  "open_questions": [
+    "Which real source-manifest family should become the first repo-custody replay gate?",
+    "Which cuneiform helper subset belongs in this repo versus the consuming domain repo?"
+  ],
+  "decisions": [
+    {
+      "phase": "00",
+      "summary": "Keep a synthetic smoke fixture in the staged repo.",
+      "rationale": "Needed for a real standalone install gate without rights drift."
+    },
+    {
+      "phase": "00",
+      "summary": "Treat live Phase 4 artifacts as source authority until rerun here.",
+      "rationale": "Prevents overclaiming repo-custody proof."
+    }
+  ],
+  "pending_todos": [
+    "Select the first real replay target.",
+    "Port live route-selection helpers.",
+    "Port live stability and replay helpers.",
+    "Run blind-clone verification."
+  ],
+  "blockers": [
+    "Final license text is still owner-deferred."
+  ],
+  "session": {
+    "last_date": "2026-04-23T00:00:00Z",
+    "stopped_at": "Staged repo created; first real replay target still pending.",
+    "resume_file": ".gpd/phases/01-source-admission-and-replay-design/01-01-PLAN.md"
+  }
+}
