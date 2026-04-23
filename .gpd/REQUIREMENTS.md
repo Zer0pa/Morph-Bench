@@ -14,15 +14,20 @@ boundary?
       package.
 - [x] **DATA-02**: Freeze the live source boundary, authority bundle, and
       benchmark-first posture.
-- [ ] **DATA-03**: Admit the first real source-manifest adapter to replace the
-      synthetic-only path.
+- [~] **DATA-03**: Admit the first real source-manifest adapter to replace the
+      synthetic-only path. _Progressing: adapter contract drafted at
+      `docs/family/ADAPTER_CONTRACT_v1.md`; real manifest admission still
+      pending upstream access to the Phase 3c feature manifest._
 
 ### Derivations And Contracts
 
 - [x] **DERV-01**: Define the neutral benchmark schema contract.
 - [x] **DERV-02**: Define the migration boundary and data policy.
-- [ ] **DERV-03**: Define the first repo-custody replay contract against a real
-      source manifest.
+- [~] **DERV-03**: Define the first repo-custody replay contract against a real
+      source manifest. _Progressing: first target chosen (Indus Phase 4) in
+      `docs/family/FIRST_REPLAY_TARGET_DECISION.md`; v1 adapter contract
+      frozen in `docs/family/ADAPTER_CONTRACT_v1.md`; replay execution
+      deferred to Phase 02._
 
 ### Calculations And Analysis
 
@@ -74,6 +79,6 @@ boundary?
 | Requirement | Phase | Status |
 | ----------- | ----- | ------ |
 | `DATA-01`, `DERV-01`, `DERV-02`, `SIMU-01`, `VALD-01`, `VALD-02`, `WRIT-01` | Phase 00: Bootstrap | Done |
-| `DATA-03`, `DERV-03` | Phase 01: Source Admission And Replay Design | Pending |
+| `DATA-03`, `DERV-03` | Phase 01: Source Admission And Replay Design | Progressing (adapter contract drafted; real manifest admission pending) |
 | `CALC-02`, `CALC-03`, `SIMU-02`, `VALD-03` | Phase 02: Neutral Module Extraction | Pending |
 | `VALD-04`, `WRIT-02` | Phase 03: Blind Clone And Promotion Review | Pending |

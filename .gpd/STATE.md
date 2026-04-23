@@ -8,8 +8,9 @@ See: `.gpd/PROJECT.md`
 the live Phase 4 finding be extracted into a standalone methods repo that
 installs and runs from repo custody while keeping domain verdicts outside the
 boundary?
-**Current focus:** Freeze the first real source-manifest replay target after the
-bootstrap pass.
+**Current focus:** Phase 01 complete at design tier; begin the Phase 02 adapter
+implementation once an admitted copy of the Phase 3c feature manifest is
+accessible from repo custody.
 
 ## Current Position
 
@@ -18,35 +19,49 @@ bootstrap pass.
 **Total Phases:** `4`
 **Current Plan:** `1`
 **Total Plans In Phase:** `1`
-**Status:** `IN_PROGRESS`
-**Status Detail:** bootstrap is complete; the repo now needs its first real
-source-manifest replay target and adapter design.
-**Last Activity:** `2026-04-23`
-**Last Activity Description:** instantiated the migration-ready workstream pack,
-specialized the repo docs, and added the standalone smoke path
+**Status:** `COMPLETE`
+**Status Detail:** first repo-custody replay target chosen (Indus Phase 4) and
+v1 adapter contract frozen at `docs/family/ADAPTER_CONTRACT_v1.md`. No live
+code ported yet; no heavy data vendored; no Phase 4 numeric value promoted to
+repo-custody proof.
+**Last Activity:** `2026-04-24`
+**Last Activity Description:** authored `FIRST_REPLAY_TARGET_DECISION.md` and
+`ADAPTER_CONTRACT_v1.md`, updated Phase 01 verification record, advanced state.
 
 **Execution Doctrine:** no interim reporting unless there is a real blocker
 that cannot be removed locally or on admitted surfaces.
 
-**Progress:** [###-------] `30%`
+**Progress:** [####------] `40%`
 
 ## Active Calculations
 
 - Synthetic smoke benchmark on `fixtures/tiny_benchmark_manifest.json`
-- Source-boundary freeze for the live Phase 4 and cuneiform helper families
+- Indus Phase 4 adapter contract drafted at
+  `docs/family/ADAPTER_CONTRACT_v1.md`; implementation deferred to Phase 02
 
 ## Intermediate Results
 
 - The staged repo is installable and exposes a corpus-neutral starter contract.
 - Source-repo authority is cited cleanly without being misrepresented as
   repo-custody proof.
+- First repo-custody replay target is frozen to the Indus Phase 4 source
+  family. Rationale recorded in
+  `docs/family/FIRST_REPLAY_TARGET_DECISION.md` across six extraction-risk
+  axes (path coupling, domain leakage, heavy-data dependence, schema
+  alignment, helpers to neutralize, authority-bundle strength).
+- v1 adapter contract names every path-rewrite-ledger forbidden pattern and
+  pins output conformance to `BenchmarkManifest` in
+  `src/gnosis_morph_bench/schema.py`.
 
 ## Open Questions
 
-- Which real source-manifest family should become the first repo-custody replay
-  gate?
-- Which cuneiform helper subset belongs in this repo versus the consuming
-  domain repo?
+- Can an admitted copy of the Phase 3c feature manifest be made accessible to
+  this staged repo without vendoring heavy data, so the v1 adapter can run?
+- Does the v1 adapter need a second reference key (ICIT Graph) before Phase
+  02 begins, or is the governing ICIT Set key sufficient for the first
+  replay pass?
+- Which cuneiform helper subset will belong in this repo versus the consuming
+  domain repo once a separate cuneiform adapter contract is drafted?
 
 ## Performance Metrics
 
@@ -62,21 +77,35 @@ that cannot be removed locally or on admitted surfaces.
 - [Phase 00]: treat live Phase 4 metrics as source authority until rerun here.
 - [Phase 00]: use a synthetic smoke fixture as the minimum standalone install
   gate.
+- [Phase 01]: first repo-custody replay target is the Indus Phase 4 source
+  family; rationale tied to six extraction-risk axes.
+- [Phase 01]: v1 adapter is design only — no live code ported, no heavy data
+  vendored in this plan.
 
 ### Pending Todos
 
-- Select the first real replay target.
-- Port live route-selection helpers.
-- Port live stability and replay helpers.
+- Obtain admitted access to the Phase 3c feature manifest for repo-custody
+  adapter runs.
+- Implement the Phase 02 v1 adapter under
+  `src/gnosis_morph_bench/adapters/indus_phase4.py`.
+- Port live route-selection math from `scripts/indus/phase4_route_selection.py`
+  onto the neutral manifest path produced by the v1 adapter.
+- Port live stability and replay helpers from
+  `scripts/indus/phase4_stability.py` and `scripts/indus/stability_tester.py`.
+- Draft a separate cuneiform adapter contract before any cuneiform work
+  begins.
 - Run blind-clone verification.
 
 ### Blockers/Concerns
 
 - Final license text is still owner-deferred.
-- Real-source replay is still pending.
+- Real-source replay is still pending; Phase 02 is blocked on admitted
+  Phase 3c feature manifest access.
 
 ## Session Continuity
 
-**Last session:** `2026-04-23T00:00:00Z`
-**Stopped at:** staged repo created, awaiting first real replay-target design
-**Resume file:** `.gpd/phases/01-source-admission-and-replay-design/01-01-PLAN.md`
+**Last session:** `2026-04-24T00:00:00Z`
+**Stopped at:** Phase 01 plan 01-01 complete; replay target and v1 adapter
+contract frozen.
+**Resume file:** `.gpd/phases/02-neutral-module-extraction/` (to be created
+when Phase 02 starts).

@@ -1,10 +1,10 @@
 {
   "_version": 1,
-  "_synced_at": "2026-04-23T00:00:00Z",
+  "_synced_at": "2026-04-24T00:00:00Z",
   "project_reference": {
     "project_md_updated": "2026-04-23",
     "core_research_question": "Can the benchmark and replay logic behind the live Phase 4 finding be extracted into a standalone methods repo that installs and runs from repo custody while keeping domain verdicts outside the boundary?",
-    "current_focus": "Freeze the first real source-manifest replay target after the bootstrap pass."
+    "current_focus": "Phase 01 complete at design tier; begin the Phase 02 adapter implementation once an admitted copy of the Phase 3c feature manifest is accessible from repo custody."
   },
   "position": {
     "current_phase": "01",
@@ -12,15 +12,16 @@
     "total_phases": 4,
     "current_plan": "1",
     "total_plans_in_phase": 1,
-    "status": "IN_PROGRESS",
-    "last_activity": "2026-04-23",
-    "last_activity_desc": "Instantiated the staged repo, docs, and smoke package.",
-    "progress_percent": 30,
+    "status": "COMPLETE",
+    "last_activity": "2026-04-24",
+    "last_activity_desc": "Froze the first repo-custody replay target (Indus Phase 4) and the v1 adapter contract; no live code ported.",
+    "progress_percent": 40,
     "paused_at": null
   },
   "open_questions": [
-    "Which real source-manifest family should become the first repo-custody replay gate?",
-    "Which cuneiform helper subset belongs in this repo versus the consuming domain repo?"
+    "Can an admitted copy of the Phase 3c feature manifest be made accessible to this staged repo without vendoring heavy data, so the v1 adapter can run?",
+    "Does the v1 adapter need a second reference key (ICIT Graph) before Phase 02 begins, or is the governing ICIT Set key sufficient for the first replay pass?",
+    "Which cuneiform helper subset will belong in this repo versus the consuming domain repo once a separate cuneiform adapter contract is drafted?"
   ],
   "decisions": [
     {
@@ -32,20 +33,33 @@
       "phase": "00",
       "summary": "Treat live Phase 4 artifacts as source authority until rerun here.",
       "rationale": "Prevents overclaiming repo-custody proof."
+    },
+    {
+      "phase": "01",
+      "summary": "First repo-custody replay target is the Indus Phase 4 source family.",
+      "rationale": "Phase 4 bundle provides recoverable numeric targets (NMI, Sigma, Jaccard, replay verdict) and its native evaluation shape maps almost 1-to-1 onto BenchmarkManifest; cuneiform bundle lacks an equivalent numeric-target set and is heavier."
+    },
+    {
+      "phase": "01",
+      "summary": "v1 adapter contract is design only.",
+      "rationale": "No live code is ported and no heavy data is vendored in plan 01-01; implementation is deferred to Phase 02 once admitted manifest access is available."
     }
   ],
   "pending_todos": [
-    "Select the first real replay target.",
-    "Port live route-selection helpers.",
-    "Port live stability and replay helpers.",
+    "Obtain admitted access to the Phase 3c feature manifest for repo-custody adapter runs.",
+    "Implement the Phase 02 v1 adapter under src/gnosis_morph_bench/adapters/indus_phase4.py.",
+    "Port live route-selection math from scripts/indus/phase4_route_selection.py.",
+    "Port live stability and replay helpers from scripts/indus/phase4_stability.py and scripts/indus/stability_tester.py.",
+    "Draft a separate cuneiform adapter contract before any cuneiform work begins.",
     "Run blind-clone verification."
   ],
   "blockers": [
-    "Final license text is still owner-deferred."
+    "Final license text is still owner-deferred.",
+    "Phase 02 adapter implementation is blocked on admitted Phase 3c feature manifest access."
   ],
   "session": {
-    "last_date": "2026-04-23T00:00:00Z",
-    "stopped_at": "Staged repo created; first real replay target still pending.",
-    "resume_file": ".gpd/phases/01-source-admission-and-replay-design/01-01-PLAN.md"
+    "last_date": "2026-04-24T00:00:00Z",
+    "stopped_at": "Phase 01 plan 01-01 complete; replay target and v1 adapter contract frozen.",
+    "resume_file": ".gpd/phases/02-neutral-module-extraction/"
   }
 }
