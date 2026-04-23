@@ -53,10 +53,16 @@ Plans:
 2. live-source rerun artifacts exist under repo custody
 3. domain claims remain outside the repo boundary
 
+**Plans:** 2 plans
+
 Plans:
 
-- [ ] **02-01**: Extract route scoring and null metrics
-- [ ] **02-02**: Extract stability and replay helpers
+- [ ] **02-01**: Indus Phase 4 v1 adapter (`src/gnosis_morph_bench/adapters/indus_phase4.py`) with forbidden-pattern lint and MUST-clause coverage against `docs/family/ADAPTER_CONTRACT_v1.md`.
+- [ ] **02-02**: Complete Phase-4-style stability battery (noise injection, k-sensitivity, seed variance) + `replay.py` + two-subcommand CLI (`smoke` / `replay`) + `STABILITY_BATTERY_v1.md`.
+
+Plan chain: 02-01 lands first (adapter surface), then 02-02 (stability + replay CLI that consumes adapter-emitted manifests).
+
+Phase 02 does NOT run the admitted Phase 3c replay — that is a Phase 03 concern.
 
 ### Phase 03: Blind Clone And Promotion Review
 

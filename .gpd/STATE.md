@@ -14,19 +14,23 @@ accessible from repo custody.
 
 ## Current Position
 
-**Current Phase:** `01`
-**Current Phase Name:** Source Admission And Replay Design
+**Current Phase:** 02
+**Current Phase Name:** Neutral Module Extraction
 **Total Phases:** `4`
-**Current Plan:** `1`
-**Total Plans In Phase:** `1`
-**Status:** `COMPLETE`
-**Status Detail:** first repo-custody replay target chosen (Indus Phase 4) and
-v1 adapter contract frozen at `docs/family/ADAPTER_CONTRACT_v1.md`. No live
-code ported yet; no heavy data vendored; no Phase 4 numeric value promoted to
-repo-custody proof.
-**Last Activity:** `2026-04-24`
-**Last Activity Description:** authored `FIRST_REPLAY_TARGET_DECISION.md` and
-`ADAPTER_CONTRACT_v1.md`, updated Phase 01 verification record, advanced state.
+**Current Plan:** 02-01
+**Total Plans In Phase:** 2
+**Status:** Planned, ready to execute
+**Status Detail:** Phase 02 planning complete. Two plans drafted:
+02-01 implements the Indus Phase 4 v1 adapter, utils module, synthetic
+Phase-4-like fixtures, forbidden-pattern lint, and ADAPTER_CONTRACT_v1
+MUST-clause coverage test. 02-02 extends the stability battery with
+noise injection, k-sensitivity, and seed variance, adds `replay.py`
+emitting a neutral `ReplayRecord`, refactors the CLI into `smoke` /
+`replay` subcommands, and publishes `STABILITY_BATTERY_v1.md`. No live
+Phase 3c data is required; all tests use synthetic fixtures.
+**Last Activity:** 2026-04-24
+**Last Activity Description:** Phase 02 plans 02-01 and 02-02 drafted;
+`.gpd/phases/02-neutral-module-extraction/02-CONTEXT.md` published.
 
 **Execution Doctrine:** no interim reporting unless there is a real blocker
 that cannot be removed locally or on admitted surfaces.
