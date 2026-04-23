@@ -15,6 +15,12 @@ dependencies = [
 
 [project.scripts]
 gnosis-morph-bench-smoke = "gnosis_morph_bench.cli:main"
+gnosis-morph-bench-adapter-indus-phase4 = "gnosis_morph_bench.adapters.indus_phase4:main"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
