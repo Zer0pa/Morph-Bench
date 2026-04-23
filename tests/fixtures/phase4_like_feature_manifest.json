@@ -1,0 +1,347 @@
+{
+  "items": [
+    {
+      "item_id": "syn_item_01",
+      "reference_labels": {
+        "icit_set": "alpha",
+        "provenance_url": "synthetic://note/0"
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "pixel_full_concat_16d_single": [
+          0.1,
+          0.05,
+          0.02,
+          0.01,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pixel_full_concat_31d_single": [
+          3.0,
+          0.0,
+          0.0,
+          0.1,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "item_id": "syn_item_02",
+      "reference_labels": {
+        "authorial_note": "synthetic authorial commentary 1",
+        "icit_set": "alpha"
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "pixel_full_concat_16d_single": [
+          0.11,
+          0.06,
+          0.03,
+          0.02,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ],
+        "pixel_full_concat_31d_single": [
+          3.01,
+          0.01,
+          0.01,
+          0.11,
+          0.01,
+          0.01
+        ]
+      }
+    },
+    {
+      "item_id": "syn_item_03",
+      "reference_labels": {
+        "icit_set": "alpha",
+        "stroke_encoding": [
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "pixel_full_concat_16d_single": [
+          0.12,
+          0.07,
+          0.04,
+          0.03,
+          0.02,
+          0.02,
+          0.02,
+          0.02
+        ],
+        "pixel_full_concat_31d_single": [
+          3.02,
+          0.02,
+          0.02,
+          0.12,
+          0.02,
+          0.02
+        ]
+      }
+    },
+    {
+      "item_id": "syn_item_04",
+      "reference_labels": {
+        "icit_set": "beta"
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "broken_route_nonnumeric": [
+          "a",
+          "b",
+          "c"
+        ],
+        "pixel_full_concat_16d_single": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.1,
+          0.05,
+          0.02,
+          0.01
+        ],
+        "pixel_full_concat_31d_single": [
+          0.0,
+          3.0,
+          0.0,
+          0.0,
+          0.1,
+          0.0
+        ]
+      }
+    },
+    {
+      "item_id": "syn_item_05",
+      "reference_labels": {
+        "icit_set": "beta",
+        "provenance_url": "synthetic://note/4"
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "pixel_full_concat_16d_single": [
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.11,
+          0.06,
+          0.03,
+          0.02
+        ],
+        "pixel_full_concat_31d_single": [
+          0.01,
+          3.01,
+          0.01,
+          0.01,
+          0.11,
+          0.01
+        ]
+      }
+    },
+    {
+      "item_id": "syn_item_06",
+      "reference_labels": {
+        "icit_set": "beta"
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ],
+        "pixel_full_concat_16d_single": [
+          0.02,
+          0.02,
+          0.02,
+          0.02,
+          0.12,
+          0.07,
+          0.04,
+          0.03
+        ],
+        "pixel_full_concat_31d_single": [
+          0.02,
+          3.02,
+          0.02,
+          0.02,
+          0.12,
+          0.02
+        ]
+      }
+    },
+    {
+      "item_id": "syn_item_07",
+      "reference_labels": {
+        "authorial_note": "synthetic authorial commentary 6",
+        "icit_set": "gamma"
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "pixel_full_concat_16d_single": [
+          0.02,
+          0.02,
+          0.1,
+          0.08,
+          0.02,
+          0.02,
+          0.1,
+          0.08
+        ],
+        "pixel_full_concat_31d_single": [
+          0.0,
+          0.0,
+          3.0,
+          0.0,
+          0.0,
+          0.1
+        ]
+      }
+    },
+    {
+      "item_id": "syn_item_08",
+      "reference_labels": {
+        "icit_set": "gamma",
+        "stroke_encoding": [
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "pixel_full_concat_16d_single": [
+          0.03,
+          0.03,
+          0.11,
+          0.09,
+          0.03,
+          0.03,
+          0.11,
+          0.09
+        ],
+        "pixel_full_concat_31d_single": [
+          0.01,
+          0.01,
+          3.01,
+          0.01,
+          0.01,
+          0.11
+        ]
+      }
+    },
+    {
+      "item_id": "syn_item_09",
+      "reference_labels": {
+        "icit_set": "gamma"
+      },
+      "route_features": {
+        "broken_route_mixed_lengths": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8
+        ],
+        "pixel_full_concat_16d_single": [
+          0.04,
+          0.04,
+          0.12,
+          0.1,
+          0.04,
+          0.04,
+          0.12,
+          0.1
+        ],
+        "pixel_full_concat_31d_single": [
+          0.02,
+          0.02,
+          3.02,
+          0.02,
+          0.02,
+          0.12
+        ]
+      }
+    }
+  ],
+  "manifest_name": "synthetic-phase4-like"
+}
