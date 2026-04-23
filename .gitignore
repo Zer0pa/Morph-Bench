@@ -51,3 +51,4 @@ artifacts/**/*.pt
 runs/
 logs/
 *.log
+.venv/
