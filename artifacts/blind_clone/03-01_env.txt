@@ -30,3 +30,42 @@ scipy              1.17.1
 setuptools         82.0.1
 threadpoolctl      3.6.0
 wheel              0.47.0
+
+
+## secondary (RunPod pod 7k3riasglemecu)
+
+### starting-state probe
+python3 --version  →  Python 3.8.10   (legacy symlink /usr/bin/python3 → python3.8)
+pip3 --version     →  pip 25.1.1 from /usr/local/lib/python3.13/dist-packages/pip (python 3.13)
+uname -a           →  Linux b7fb18eddf65 6.8.0-100-generic #100-Ubuntu SMP PREEMPT_DYNAMIC Tue Jan 13 16:40:06 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+whoami             →  root
+SHELL              →  /bin/bash
+
+### interpreter landscape (the pod has many Pythons)
+/usr/bin/python      → /usr/bin/python3 → /usr/bin/python3.8
+/usr/bin/python3.8   → Python 3.8.10
+/usr/bin/python3.9   (present; config symlink present)
+/usr/bin/python3.10  (present; size 5,810,040 bytes)
+/usr/bin/python3.11  → Python 3.11.13
+/usr/bin/python3.12  (present; size 8,476,400 bytes)
+/usr/bin/python3.13  → Python 3.13.5
+
+### chosen secondary venv
+/usr/bin/python3.11 -m venv "$CLONE_ROOT/clone/.venv"   → Python 3.11.13 in venv
+
+### post-install pip list (secondary)
+Package            Version Editable project location
+------------------ ------- ---------------------------------------
+gnosis-morph-bench 0.1.0   /workspace/blind-clone-1777002679/clone
+iniconfig          2.3.0
+joblib             1.5.3
+numpy              2.4.4
+packaging          26.1
+pip                26.0.1
+pluggy             1.6.0
+Pygments           2.20.0
+pytest             9.0.3
+scikit-learn       1.8.0
+...
+setuptools         82.0.1
+wheel              0.47.0
