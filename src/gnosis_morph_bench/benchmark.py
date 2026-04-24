@@ -21,7 +21,23 @@ class EvaluationConfig:
     seed: int = 42
 
 
-def _cluster_labels(matrix: np.ndarray, n_clusters: int) -> np.ndarray:
+def cluster_labels(
+    matrix: np.ndarray,
+    n_clusters: int,
+    *,
+    seed: int = 42,
+) -> np.ndarray:
+    """Return cluster labels for ``matrix`` at ``n_clusters`` ward linkage.
+
+    The ``seed`` argument is accepted (and documented) even though the
+    StandardScaler + AgglomerativeClustering(ward) pipeline is
+    deterministic given its inputs. Stability modes that rely on a
+    numeric seed hook -- chiefly ``seed_variance`` -- still re-trigger
+    the full ``evaluate_route`` chain with different seeds, so the
+    permutation null and any future non-ward backend pick up the seed.
+    Keeping the seed in the public signature means callers never have
+    to special-case the ward path when they route a seed through.
+    """
     if n_clusters < 2 or n_clusters >= len(matrix):
         raise ValueError("n_clusters must be at least 2 and less than the item count")
     scaled = StandardScaler().fit_transform(matrix)
@@ -70,16 +86,16 @@ def evaluate_route(
         route_name,
         config.reference_key,
     )
-    cluster_labels = _cluster_labels(matrix, config.n_clusters)
+    labels_array = cluster_labels(matrix, config.n_clusters, seed=config.seed)
     payload = nmi_with_null(
         reference_labels,
-        cluster_labels,
+        labels_array,
         repeats=config.null_repeats,
         seed=config.seed,
     )
     scaled = StandardScaler().fit_transform(matrix)
-    if len(set(cluster_labels.tolist())) >= 2:
-        silhouette = float(silhouette_score(scaled, cluster_labels))
+    if len(set(labels_array.tolist())) >= 2:
+        silhouette = float(silhouette_score(scaled, labels_array))
     else:
         silhouette = None
     return {
@@ -95,7 +111,7 @@ def evaluate_route(
         "silhouette": None if silhouette is None else round(silhouette, 6),
         "labels_by_item": {
             item_id: int(label)
-            for item_id, label in zip(item_ids, cluster_labels.tolist())
+            for item_id, label in zip(item_ids, labels_array.tolist())
         },
     }
 
