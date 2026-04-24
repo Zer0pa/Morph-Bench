@@ -108,6 +108,21 @@ subcommand writes `artifacts/replay/replay_record.json` by default; the
 directory is created on demand and is tracked under repo custody by a
 `.gitkeep` file so a blind clone can find it.
 
+### Committed Smoke Byte-Reference (post-`mode`-field, post-`sort_keys`)
+
+The committed byte-reference at `artifacts/smoke/smoke_report.json` is
+frozen against the current CLI output, which uses JSON `sort_keys=True`
+and carries the additive `mode` and `repeats` fields on every
+stability-mode payload. The canonical SHA-256 of the reference is
+`020f97b83b2948c2cd529b975010e6e5132799d89e395539d6f6f928c97c184e`, which
+matches blind-clone output byte-for-byte on macOS and Linux on Python
+3.11. Any later serializer change (key-ordering, trailing-newline, or
+additive stability fields) MUST re-run `python -m gnosis_morph_bench
+smoke fixtures/tiny_benchmark_manifest.json --output
+artifacts/smoke/smoke_report.json` and update this SHA, or the
+`test-smoke-byte-equal` fallback in the blind-clone transcript protocol
+will flag drift.
+
 ## Validity Bounds
 
 - `noise_sigma` is in **standardized-feature units** (post-StandardScaler),

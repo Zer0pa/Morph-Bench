@@ -1,10 +1,16 @@
 {
-  "schema_version": 1,
+  "best_route": "route_clear",
+  "leave_fraction_out": {
+    "fraction": 0.25,
+    "max_jaccard": 1.0,
+    "mean_jaccard": 1.0,
+    "min_jaccard": 1.0,
+    "mode": "leave_fraction_out",
+    "repeats": 6,
+    "route_name": "route_clear"
+  },
   "manifest_name": "tiny-smoke",
   "reference_freeze": {
-    "reference_key": "family",
-    "item_count": 9,
-    "sha256": "ebfffd56bf433200c646f8d215a4832385f7ab80ed55ab78655495aa56aa360c",
     "assignments": {
       "1": "alpha",
       "2": "alpha",
@@ -15,20 +21,25 @@
       "7": "gamma",
       "8": "gamma",
       "9": "gamma"
-    }
+    },
+    "item_count": 9,
+    "reference_key": "family",
+    "sha256": "ebfffd56bf433200c646f8d215a4832385f7ab80ed55ab78655495aa56aa360c"
+  },
+  "replay": {
+    "all_identical": true,
+    "hashes": [
+      "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31",
+      "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31",
+      "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31"
+    ],
+    "mode": "deterministic_replay",
+    "repeats": 3,
+    "route_name": "route_clear"
   },
   "route_results": [
     {
-      "route_name": "route_clear",
-      "reference_key": "family",
-      "n_items": 9,
       "dim": 2,
-      "n_clusters": 3,
-      "nmi": 1.0,
-      "sigma": 5.298892,
-      "null_mean": 0.262887,
-      "null_std": 0.139107,
-      "silhouette": 0.960196,
       "labels_by_item": {
         "1": 2,
         "2": 2,
@@ -39,19 +50,19 @@
         "7": 0,
         "8": 0,
         "9": 0
-      }
+      },
+      "n_clusters": 3,
+      "n_items": 9,
+      "nmi": 1.0,
+      "null_mean": 0.262887,
+      "null_std": 0.139107,
+      "reference_key": "family",
+      "route_name": "route_clear",
+      "sigma": 5.298892,
+      "silhouette": 0.960196
     },
     {
-      "route_name": "route_blurry",
-      "reference_key": "family",
-      "n_items": 9,
       "dim": 2,
-      "n_clusters": 3,
-      "nmi": 0.58951,
-      "sigma": 1.547524,
-      "null_mean": 0.335139,
-      "null_std": 0.164373,
-      "silhouette": 0.569896,
       "labels_by_item": {
         "1": 2,
         "2": 2,
@@ -62,25 +73,17 @@
         "7": 0,
         "8": 0,
         "9": 0
-      }
+      },
+      "n_clusters": 3,
+      "n_items": 9,
+      "nmi": 0.58951,
+      "null_mean": 0.335139,
+      "null_std": 0.164373,
+      "reference_key": "family",
+      "route_name": "route_blurry",
+      "sigma": 1.547524,
+      "silhouette": 0.569896
     }
   ],
-  "best_route": "route_clear",
-  "replay": {
-    "route_name": "route_clear",
-    "hashes": [
-      "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31",
-      "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31",
-      "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31"
-    ],
-    "all_identical": true
-  },
-  "leave_fraction_out": {
-    "route_name": "route_clear",
-    "fraction": 0.25,
-    "repeats": 6,
-    "mean_jaccard": 1.0,
-    "min_jaccard": 1.0,
-    "max_jaccard": 1.0
-  }
+  "schema_version": 1
 }
