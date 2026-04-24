@@ -8,13 +8,13 @@
   "position": {
     "current_phase": "03",
     "current_phase_name": "Blind Clone And Promotion Review",
-    "total_phases": null,
-    "current_plan": null,
-    "total_plans_in_phase": null,
-    "status": "Ready to plan",
+    "total_phases": 4,
+    "current_plan": "03-01",
+    "total_plans_in_phase": 2,
+    "status": "Planned, ready to execute",
     "last_activity": "2026-04-24",
-    "last_activity_desc": "Phase 02 complete, transitioned to Phase 03",
-    "progress_percent": 55,
+    "last_activity_desc": "Phase 03 planned: 03-01 blind-clone verification (macOS primary, RunPod secondary) + 03-02 promotion-readiness documentation. Admitted Phase 3c live replay carried as named unblock item.",
+    "progress_percent": 65,
     "paused_at": null
   },
   "active_calculations": [
@@ -94,11 +94,12 @@
   },
   "propagated_uncertainties": [],
   "pending_todos": [
-    "Obtain admitted access to the Phase 3c feature manifest for repo-custody",
-    "Port live route-selection math from `scripts/indus/phase4_route_selection.py`",
-    "Port live stability and replay helpers from",
-    "Draft a separate cuneiform adapter contract before any cuneiform work",
-    "Run blind-clone verification (Phase 03)."
+    "Run Plan 03-01: blind-clone verification (macOS primary, RunPod secondary).",
+    "Run Plan 03-02: author docs/PROMOTION_READINESS.md and update TODO.md cross-references.",
+    "Obtain admitted access to the Phase 3c feature manifest for a future repo-custody live replay (carried as named unblock item in PROMOTION_READINESS).",
+    "Owner decision on canonical license text (OWNER_DEFERRED; carried as named unblock item).",
+    "Owner decision on heavy-data release policy for image-bearing assets (carried as named unblock item).",
+    "Draft a separate cuneiform adapter contract before any cuneiform work (deferred by scope)."
   ],
   "blockers": [
     "Final license text is still owner-deferred.",
@@ -106,8 +107,8 @@
   ],
   "session": {
     "last_date": "`2026-04-24T00:00:00Z`",
-    "stopped_at": "Plan 02-01 complete (adapter + utils + fixtures + 16",
-    "resume_file": "`.gpd/phases/02-neutral-module-extraction/02-02-PLAN.md`."
+    "stopped_at": "Phase 03 planned with two plans: 03-01 (blind clone) and 03-02 (promotion readiness).",
+    "resume_file": "`.gpd/phases/03-blind-clone-and-promotion-review/03-01-PLAN.md`."
   },
   "_version": 1,
   "_synced_at": "2026-04-24T03:30:56.723949+00:00"

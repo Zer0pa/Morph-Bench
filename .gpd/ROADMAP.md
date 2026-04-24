@@ -73,9 +73,31 @@ Phase 02 does NOT run the admitted Phase 3c replay — that is a Phase 03 concer
 2. release blockers are explicit
 3. legal and data boundaries remain visible
 
+**Plans:** 2 plans
+
 Plans:
 
-- [ ] **03-01**: Run blind-clone verification
+- [ ] **03-01**: Blind-clone verification — primary macOS clone into
+      `/tmp/blind-clone-<epoch>/` with fresh venv on Python >= 3.10; secondary
+      RunPod clone on pod `7k3riasglemecu` that reports the Python 3.8.10
+      floor gap honestly. Emits `artifacts/blind_clone/03-01_transcript.md`
+      and five carry-back evidence files. Covers the executable subset of
+      PRD-P3 "Replay And Blind Clone"; the admitted live Phase 3c replay is
+      out of scope and is carried forward as a named unblock item.
+- [ ] **03-02**: Promotion-readiness documentation — authors
+      `docs/PROMOTION_READINESS.md` with Pass Now / Blocked On External
+      Dependencies / Deferred By Scope / License Posture / Data Release
+      Posture / Trust Boundary sections. Updates `TODO.md` with
+      cross-references; no fabricated LICENSE. Covers the documentation
+      subset of PRD-P4 "Promotion Readiness".
+
+Plan chain: 03-01 lands first (its transcript is the anchor 03-02 cites),
+then 03-02. 03-02 may still land if 03-01 is PARTIAL, in which case
+PROMOTION_READINESS reflects PARTIAL honestly.
+
+Phase 03 does NOT run the admitted Phase 3c live replay — that is an
+external-data blocker carried as a documented unblock item in
+`docs/PROMOTION_READINESS.md`.
 
 ## Progress
 
@@ -83,5 +105,5 @@ Plans:
 | ----- | -------------- | ------ | --------- |
 | 00. Bootstrap | 1/1 | Done | 2026-04-23 |
 | 01. Source Admission And Replay Design | 0/1 | In progress | - |
-| 02. Neutral Module Extraction | 0/2 | Pending | - |
-| 03. Blind Clone And Promotion Review | 0/1 | Pending | - |
+| 02. Neutral Module Extraction | 2/2 | Done | 2026-04-24 |
+| 03. Blind Clone And Promotion Review | 0/2 | Planned, ready to execute | - |

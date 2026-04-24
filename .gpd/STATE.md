@@ -8,51 +8,62 @@ See: `.gpd/PROJECT.md`
 the live Phase 4 finding be extracted into a standalone methods repo that
 installs and runs from repo custody while keeping domain verdicts outside the
 boundary?
-**Current focus:** Phase 01 complete at design tier; begin the Phase 02 adapter
-implementation once an admitted copy of the Phase 3c feature manifest is
-accessible from repo custody.
+**Current focus:** Phase 03 is planned. Plan 03-01 (blind-clone verification)
+is the next executable unit; Plan 03-02 (promotion-readiness documentation)
+lands behind it. The admitted Phase 3c live replay is NOT in scope for Phase
+03 — it is carried forward as a named unblock item in
+`docs/PROMOTION_READINESS.md` under the blockers-are-tasks doctrine.
 
 ## Current Position
 
 **Current Phase:** 03
 **Current Phase Name:** Blind Clone And Promotion Review
 **Total Phases:** `4`
-**Current Plan:** —
-**Total Plans In Phase:** —
-**Status:** Ready to plan
-**Status Detail:** Plan 02-01 landed the Indus Phase 4 v1 adapter at
-`src/gnosis_morph_bench/adapters/indus_phase4.py`, the `_utils.py`
-helper module, three synthetic Phase-4-shaped fixtures under
-`tests/fixtures/`, and a 16-case pytest suite covering CLI surface,
-round-trip into `load_manifest`/`evaluate_route`, freeze parity and
-mismatch (exit code 2), NaN handling (strict + drop), label-surface
-carry/drop, forbidden-pattern lint (with positive control), and
-ADAPTER_CONTRACT_v1 MUST-clause coverage. Zero unsatisfied contract
-clauses; zero forbidden-pattern hits under `src/`. The console
-entrypoint `gnosis-morph-bench-adapter-indus-phase4` is wired. Plan
-02-02 extends the stability battery with noise injection,
-k-sensitivity, and seed variance, adds `replay.py` emitting a neutral
-`ReplayRecord`, refactors the CLI into `smoke` / `replay` subcommands,
-and publishes `STABILITY_BATTERY_v1.md`. No live Phase 3c data is
-required; 02-02 continues to use synthetic fixtures.
+**Current Plan:** 03-01
+**Total Plans In Phase:** 2
+**Status:** Planned, ready to execute
+**Status Detail:** Phase 03 planned at
+`.gpd/phases/03-blind-clone-and-promotion-review/` with three artifacts:
+`03-CONTEXT.md` (phase framing, environment choice rationale, hard
+constraints), `03-01-PLAN.md` (blind-clone verification — primary macOS
+clone into `/tmp/blind-clone-<epoch>/` on Python >= 3.10; secondary
+RunPod clone on pod `7k3riasglemecu` that honestly reports the Python
+3.8.10 floor gap; 2 tasks; 6 contract claims; 9 acceptance tests; only
+carry-back is `artifacts/blind_clone/03-01_*`), and `03-02-PLAN.md`
+(promotion-readiness documentation — authors `docs/PROMOTION_READINESS.md`
+with 11 sections including the three mandatory external blockers
+(Phase 3c manifest, canonical license, heavy-data release policy) each
+carrying Owner / Unblock artifact / Unblock condition markers; updates
+`TODO.md` with cross-references; 2 tasks; 6 contract claims; 7
+acceptance tests; no fabricated LICENSE; no promoted live Phase 4
+numeric values). Hard constraints honored: no live Phase 3c data
+required, no license fabricated, live Phase 4 numbers stay as
+source-authority citations.
 **Last Activity:** 2026-04-24
-**Last Activity Description:** Phase 02 complete, transitioned to Phase 03
-atomic commits (ccbee89, e61cb0c, 7a7457d, 6abe835, 9664e5d, 9a5ad6b);
-pytest 16/16 pass; SUMMARY.md written.
+**Last Activity Description:** Phase 03 planned. 03-CONTEXT.md,
+03-01-PLAN.md, 03-02-PLAN.md created. ROADMAP and state.json updated
+to reflect the two-plan shape. Ready to execute Plan 03-01.
 
 **Execution Doctrine:** no interim reporting unless there is a real blocker
 that cannot be removed locally or on admitted surfaces.
 
-**Progress:** [######----] `55%`
+**Progress:** [######----] `65%`
 
 ## Active Calculations
 
-- Synthetic smoke benchmark on `fixtures/tiny_benchmark_manifest.json`
-- Indus Phase 4 v1 adapter implemented at
-  `src/gnosis_morph_bench/adapters/indus_phase4.py`; exercised on the
-  three synthetic Phase-4-shaped fixtures under `tests/fixtures/`.
-- Plan 02-02 in queue: stability-battery modes (noise, k-sensitivity,
-  seed variance) + `replay.py` + CLI refactor + STABILITY_BATTERY_v1.md.
+- Plan 03-01 queued: blind-clone verification. Primary run: macOS
+  `/tmp/blind-clone-<epoch>/` with `python3.11 -m venv`, `pip install -e .`,
+  `python -m gnosis_morph_bench smoke` byte-parity vs committed
+  `artifacts/smoke/smoke_report.json`, `python -m gnosis_morph_bench replay`
+  shape check, `pytest -q tests/` == 32 passed, external forbidden-pattern
+  grep under `src/gnosis_morph_bench/`. Secondary run: RunPod pod
+  `7k3riasglemecu` with reported Python 3.8.10 floor gap and an explicit
+  install-Python-3.11 attempt documented in the transcript.
+- Plan 03-02 queued: author `docs/PROMOTION_READINESS.md` anchored to the
+  03-01 transcript disposition; update `TODO.md` cross-references; no
+  fabricated LICENSE; three mandatory named blockers (Phase 3c manifest,
+  canonical license, heavy-data release policy) each with Owner + Unblock
+  artifact + Unblock condition markers.
 
 ## Intermediate Results
 
@@ -99,18 +110,19 @@ that cannot be removed locally or on admitted surfaces.
 
 ### Pending Todos
 
-- Obtain admitted access to the Phase 3c feature manifest for repo-custody
-  adapter runs (Phase 03).
-- Port live route-selection math from `scripts/indus/phase4_route_selection.py`
-  onto the neutral manifest path produced by the v1 adapter (Phase 03;
-  requires admitted data).
-- Port live stability and replay helpers from
-  `scripts/indus/phase4_stability.py` and `scripts/indus/stability_tester.py`
-  — Plan 02-02 covers the repo-local pieces (noise, k-sensitivity,
-  seed variance, `replay.py`).
+- Run Plan 03-01: blind-clone verification (macOS primary, RunPod secondary).
+- Run Plan 03-02: author `docs/PROMOTION_READINESS.md` and update `TODO.md`
+  cross-references.
+- Obtain admitted access to the Phase 3c feature manifest for a future
+  repo-custody live replay (carried as named unblock item in
+  `docs/PROMOTION_READINESS.md` under the blockers-are-tasks doctrine;
+  NOT executable inside Phase 03).
+- Owner decision on canonical license text (OWNER_DEFERRED; carried as
+  named unblock item; Plan 03-02 does NOT fabricate a LICENSE).
+- Owner decision on heavy-data release policy for image-bearing assets
+  (carried as named unblock item).
 - Draft a separate cuneiform adapter contract before any cuneiform work
-  begins.
-- Run blind-clone verification (Phase 03).
+  begins (deferred by scope; not a blocker).
 
 ### Blockers/Concerns
 
@@ -121,6 +133,7 @@ that cannot be removed locally or on admitted surfaces.
 ## Session Continuity
 
 **Last session:** `2026-04-24T00:00:00Z`
-**Stopped at:** Plan 02-01 complete (adapter + utils + fixtures + 16
-pytest cases green); ready to execute Plan 02-02.
-**Resume file:** `.gpd/phases/02-neutral-module-extraction/02-02-PLAN.md`.
+**Stopped at:** Phase 03 planned with two plans (03-01 blind-clone
+verification, 03-02 promotion-readiness documentation). ROADMAP, STATE,
+and state.json updated.
+**Resume file:** `.gpd/phases/03-blind-clone-and-promotion-review/03-01-PLAN.md`.
