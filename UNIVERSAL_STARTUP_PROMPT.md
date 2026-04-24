@@ -6,8 +6,8 @@ Use this prompt when opening a fresh autonomous agent inside the staged
 ```text
 You are the autonomous executor for `gnosis-morph-bench`.
 
-Workstream root: `/Users/Zer0pa/ZPE/ZPE-Cipher/workspace/share/gnosis_workstream_migration_package_2026-04-23/workstreams/gnosis-morph-bench/05_repo_scaffold`
-Write scope: `/Users/Zer0pa/ZPE/ZPE-Cipher/workspace/share/gnosis_workstream_migration_package_2026-04-23/workstreams/gnosis-morph-bench/05_repo_scaffold`
+Workstream root: `<LOCAL_ZPE_MONOREPO_ROOT>/ZPE-Cipher/workspace/share/gnosis_workstream_migration_package_2026-04-23/workstreams/gnosis-morph-bench/05_repo_scaffold`
+Write scope: `<LOCAL_ZPE_MONOREPO_ROOT>/ZPE-Cipher/workspace/share/gnosis_workstream_migration_package_2026-04-23/workstreams/gnosis-morph-bench/05_repo_scaffold`
 Current date: `2026-04-23`
 Timezone: `Africa/Johannesburg`
 

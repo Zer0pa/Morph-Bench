@@ -6,11 +6,11 @@ Date: 2026-04-24
 ## Clone provenance
 
 - commit_sha: `0c323026ba0195d3c615916a952fb2f5a8d40745`
-- source (primary clone): `"/Users/zer0palab/Gnosis Portfolio/workstreams/gnosis-morph-bench/05_repo_scaffold"` (local file URL, per PRD note that the public remote is still deferred; remote origin points at `https://github.com/Zer0pa/Morph-Bench.git`)
-- primary clone root: `/tmp/blind-clone-1777002228/clone`
-- primary venv: `/tmp/blind-clone-1777002228/clone/.venv` (python3.11)
+- source (primary clone): `"<LOCAL_MONOREPO_ROOT>/workstreams/gnosis-morph-bench/05_repo_scaffold"` (local file URL, per PRD note that the public remote is still deferred; remote origin points at `https://github.com/Zer0pa/Morph-Bench.git`)
+- primary clone root: `<TMP_BLIND_CLONE_ROOT>/clone`
+- primary venv: `<TMP_BLIND_CLONE_ROOT>/clone/.venv` (python3.11)
 - python_version: `Python 3.11.15`
-- secondary clone root: `/workspace/blind-clone-<epoch>/clone` on RunPod pod `7k3riasglemecu`
+- secondary clone root: `/workspace/blind-clone-<epoch>/clone` on RunPod pod `<RUNPOD_POD_ID>`
 - remote declared by clone: `https://github.com/Zer0pa/Morph-Bench.git`
 
 ## Primary (macOS) run
@@ -18,17 +18,17 @@ Date: 2026-04-24
 ### Step 1 — Work root
 
 ```
-CLONE_ROOT=/tmp/blind-clone-1777002228
+CLONE_ROOT=<TMP_BLIND_CLONE_ROOT>
 mkdir -p "$CLONE_ROOT"
 ```
 
 ### Step 2 — Clone source HEAD
 
 ```
-git -C "/Users/zer0palab/Gnosis Portfolio/workstreams/gnosis-morph-bench/05_repo_scaffold" rev-parse HEAD
+git -C "<LOCAL_MONOREPO_ROOT>/workstreams/gnosis-morph-bench/05_repo_scaffold" rev-parse HEAD
 → 0c323026ba0195d3c615916a952fb2f5a8d40745
-git clone "/Users/zer0palab/Gnosis Portfolio/workstreams/gnosis-morph-bench/05_repo_scaffold" "$CLONE_ROOT/clone"
-→ Cloning into '/tmp/blind-clone-1777002228/clone'... done.
+git clone "<LOCAL_MONOREPO_ROOT>/workstreams/gnosis-morph-bench/05_repo_scaffold" "$CLONE_ROOT/clone"
+→ Cloning into '<TMP_BLIND_CLONE_ROOT>/clone'... done.
 git -C "$CLONE_ROOT/clone" rev-parse HEAD
 → 0c323026ba0195d3c615916a952fb2f5a8d40745   # matches source
 ```
@@ -212,13 +212,13 @@ Carried back as `artifacts/blind_clone/03-01_forbidden_pattern_scan.txt`
 
 ## Secondary (RunPod) run
 
-Pod: `7k3riasglemecu` at `root@38.80.152.147:34587`. SSH with
-`ssh -i ~/.ssh/id_ed25519 -p 34587 root@38.80.152.147`.
+Pod: `<RUNPOD_POD_ID>` at `root@<RUNPOD_HOST>:<RUNPOD_PORT>`. SSH with
+`ssh -i <OPERATOR_SSH_KEY> -p 34587 root@<RUNPOD_HOST>`.
 
 ### Step S-1 — Connect and probe interpreters
 
 ```
-ssh ... -p 34587 root@38.80.152.147 → CONNECT_OK
+ssh ... -p 34587 root@<RUNPOD_HOST> → CONNECT_OK
 uname -a         → Linux b7fb18eddf65 6.8.0-100-generic #100-Ubuntu SMP ...
 python3 --version → Python 3.8.10   (legacy symlink /usr/bin/python3 → python3.8)
 pip3 --version   → pip 25.1.1 from /usr/local/lib/python3.13/dist-packages/pip (python 3.13)
@@ -256,10 +256,10 @@ traceable.
 ### Step S-2 — Fresh work root and clone from PUBLIC remote
 
 ```
-CLONE_ROOT=/workspace/blind-clone-1777002679
+CLONE_ROOT=<RUNPOD_BLIND_CLONE_ROOT>
 mkdir -p "$CLONE_ROOT"
 git clone https://github.com/Zer0pa/Morph-Bench.git "$CLONE_ROOT/clone"
-→ Cloning into '/workspace/blind-clone-1777002679/clone'... done.
+→ Cloning into '<RUNPOD_BLIND_CLONE_ROOT>/clone'... done.
 git -C "$CLONE_ROOT/clone" rev-parse HEAD
 → 0c323026ba0195d3c615916a952fb2f5a8d40745   # matches macOS primary
 git -C "$CLONE_ROOT/clone" remote get-url origin

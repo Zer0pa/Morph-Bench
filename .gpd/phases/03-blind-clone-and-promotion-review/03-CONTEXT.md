@@ -60,8 +60,8 @@ Rationale:
   outside the `.venv` already bound to `05_repo_scaffold`.
 - Round-trip is fast (no SSH), so failures surface immediately.
 
-**Secondary blind-clone surface: RunPod pod `7k3riasglemecu`
-(`ssh -i ~/.ssh/id_ed25519 -p 34587 root@38.80.152.147`).**
+**Secondary blind-clone surface: RunPod pod `<RUNPOD_POD_ID>`
+(`ssh -i <OPERATOR_SSH_KEY> -p 34587 root@<RUNPOD_HOST>`).**
 
 Rationale and caveat:
 

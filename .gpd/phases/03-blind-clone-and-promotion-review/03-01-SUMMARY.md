@@ -16,7 +16,7 @@ artifacts:
 primary_commit_sha_of_clone_source: 0c323026ba0195d3c615916a952fb2f5a8d40745
 primary_python_version: Python 3.11.15
 secondary_python_version: Python 3.11.13
-secondary_env: RunPod pod 7k3riasglemecu (root@38.80.152.147:34587)
+secondary_env: RunPod pod <RUNPOD_POD_ID> (root@<RUNPOD_HOST>:<RUNPOD_PORT>)
 contract_results:
   claims:
     - id: claim-clean-install
@@ -133,10 +133,10 @@ secondary path, cross-env byte-equality between clones PASSED).
 
 **Clone provenance:** commit SHA `0c323026ba0195d3c615916a952fb2f5a8d40745`.
 Primary environment: macOS Darwin 24.6.0 x86_64, `/usr/local/bin/python3.11`
-(`Python 3.11.15`), fresh venv at `/tmp/blind-clone-1777002228/clone/.venv`.
-Secondary environment: RunPod pod `7k3riasglemecu`, Linux Ubuntu
+(`Python 3.11.15`), fresh venv at `<TMP_BLIND_CLONE_ROOT>/clone/.venv`.
+Secondary environment: RunPod pod `<RUNPOD_POD_ID>`, Linux Ubuntu
 `6.8.0-100-generic`, `/usr/bin/python3.11` (`Python 3.11.13`), fresh venv
-at `/workspace/blind-clone-1777002679/clone/.venv`.
+at `<RUNPOD_BLIND_CLONE_ROOT>/clone/.venv`.
 
 ## Acceptance test results (with evidence paths)
 

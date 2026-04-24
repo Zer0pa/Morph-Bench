@@ -27,7 +27,7 @@ lands behind it. The admitted Phase 3c live replay is NOT in scope for Phase
 `03-CONTEXT.md` (phase framing, environment choice rationale, hard
 constraints), `03-01-PLAN.md` (blind-clone verification — primary macOS
 clone into `/tmp/blind-clone-<epoch>/` on Python >= 3.10; secondary
-RunPod clone on pod `7k3riasglemecu` that honestly reports the Python
+RunPod clone on pod `<RUNPOD_POD_ID>` that honestly reports the Python
 3.8.10 floor gap; 2 tasks; 6 contract claims; 9 acceptance tests; only
 carry-back is `artifacts/blind_clone/03-01_*`), and `03-02-PLAN.md`
 (promotion-readiness documentation — authors `docs/PROMOTION_READINESS.md`
@@ -57,7 +57,7 @@ that cannot be removed locally or on admitted surfaces.
   `artifacts/smoke/smoke_report.json`, `python -m gnosis_morph_bench replay`
   shape check, `pytest -q tests/` == 32 passed, external forbidden-pattern
   grep under `src/gnosis_morph_bench/`. Secondary run: RunPod pod
-  `7k3riasglemecu` with reported Python 3.8.10 floor gap and an explicit
+  `<RUNPOD_POD_ID>` with reported Python 3.8.10 floor gap and an explicit
   install-Python-3.11 attempt documented in the transcript.
 - Plan 03-02 queued: author `docs/PROMOTION_READINESS.md` anchored to the
   03-01 transcript disposition; update `TODO.md` cross-references; no

@@ -1,7 +1,7 @@
 You are the autonomous executor for `gnosis-morph-bench`.
 
 Repo root:
-`/Users/Zer0pa/ZPE/ZPE-Cipher/workspace/share/gnosis_workstream_migration_package_2026-04-23/workstreams/gnosis-morph-bench/05_repo_scaffold`
+`<LOCAL_ZPE_MONOREPO_ROOT>/ZPE-Cipher/workspace/share/gnosis_workstream_migration_package_2026-04-23/workstreams/gnosis-morph-bench/05_repo_scaffold`
 
 Write scope:
 the repo root above only

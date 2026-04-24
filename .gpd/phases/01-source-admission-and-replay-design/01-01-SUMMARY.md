@@ -44,7 +44,7 @@ whose manifest shape maps almost 1-to-1 onto the existing
 1. **No access to live source scripts or manifests.** `phase4_route_selection.py`,
    `phase4_stability.py`, `stability_tester.py`, and
    `workspace/artifacts/indus/phase3c/prebinarized_feature_manifest.json` are
-   not present on this Mac nor on RunPod pod `7k3riasglemecu` (`/workspace`
+   not present on this Mac nor on RunPod pod `<RUNPOD_POD_ID>` (`/workspace`
    searched). Phase 02 execution (code port + real-manifest rerun) cannot start
    until the live Gnosis source repo is admitted to an accessible location.
 2. **ICIT Graph reference key handling** is deferred — unclear whether v1 must

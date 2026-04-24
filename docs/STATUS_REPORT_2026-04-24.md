@@ -76,8 +76,8 @@ Plan summaries: [02-01](../.gpd/phases/02-neutral-module-extraction/02-01-SUMMAR
 Two plans, both executed:
 
 **03-01 — Blind clone verification** (3 commits)
-- macOS primary: `/tmp/blind-clone-1777002228/`, Python 3.11.15, fresh clone of `Zer0pa/Morph-Bench`, fresh venv, `pip install -e .`, `python -m gnosis_morph_bench smoke`, `python -m gnosis_morph_bench replay`, `pytest -q` → **32 passed in 3.53s**.
-- RunPod secondary: pod `7k3riasglemecu`, `/workspace/blind-clone-1777002679/`, Python 3.11.13 via `/usr/bin/python3.11` (pod image ships 3.9–3.13 alongside the default 3.8.10), **32 passed in 9.50s**.
+- macOS primary: `<TMP_BLIND_CLONE_ROOT>/`, Python 3.11.15, fresh clone of `Zer0pa/Morph-Bench`, fresh venv, `pip install -e .`, `python -m gnosis_morph_bench smoke`, `python -m gnosis_morph_bench replay`, `pytest -q` → **32 passed in 3.53s**.
+- RunPod secondary: pod `<RUNPOD_POD_ID>`, `<RUNPOD_BLIND_CLONE_ROOT>/`, Python 3.11.13 via `/usr/bin/python3.11` (pod image ships 3.9–3.13 alongside the default 3.8.10), **32 passed in 9.50s**.
 - Smoke output SHA-256 matches byte-for-byte across macOS and RunPod: `020f97b8…c184e`.
 - Artifacts under [`artifacts/blind_clone/`](../artifacts/blind_clone/) (transcripts, env dumps, clone-side smoke/replay output, pytest logs, forbidden-pattern scan).
 

@@ -79,7 +79,7 @@ Plans:
 
 - [ ] **03-01**: Blind-clone verification — primary macOS clone into
       `/tmp/blind-clone-<epoch>/` with fresh venv on Python >= 3.10; secondary
-      RunPod clone on pod `7k3riasglemecu` that reports the Python 3.8.10
+      RunPod clone on pod `<RUNPOD_POD_ID>` that reports the Python 3.8.10
       floor gap honestly. Emits `artifacts/blind_clone/03-01_transcript.md`
       and five carry-back evidence files. Covers the executable subset of
       PRD-P3 "Replay And Blind Clone"; the admitted live Phase 3c replay is

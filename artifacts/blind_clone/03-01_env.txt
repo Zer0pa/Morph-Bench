@@ -4,13 +4,13 @@
 Python 3.11.15
 
 ### pip --version
-pip 26.0.1 from /private/tmp/blind-clone-1777002228/clone/.venv/lib/python3.11/site-packages/pip (python 3.11)
+pip 26.0.1 from /private<TMP_BLIND_CLONE_ROOT>/clone/.venv/lib/python3.11/site-packages/pip (python 3.11)
 
 ### uname -a
 Darwin Prinivens-MacBook-Pro.local 24.6.0 Darwin Kernel Version 24.6.0: Fri Feb 27 19:33:24 PST 2026; root:xnu-11417.140.69.709.8~1/RELEASE_X86_64 x86_64
 
 ### venv root
-/tmp/blind-clone-1777002228/clone/.venv
+<TMP_BLIND_CLONE_ROOT>/clone/.venv
 
 ### python3.11 path
 /usr/local/bin/python3.11
@@ -20,7 +20,7 @@ Darwin Prinivens-MacBook-Pro.local 24.6.0 Darwin Kernel Version 24.6.0: Fri Feb 
 ### pip list (post-install)
 Package            Version Editable project location
 ------------------ ------- -----------------------------------------
-gnosis-morph-bench 0.1.0   /private/tmp/blind-clone-1777002228/clone
+gnosis-morph-bench 0.1.0   /private<TMP_BLIND_CLONE_ROOT>/clone
 joblib             1.5.3
 numpy              2.4.4
 packaging          26.1
@@ -32,7 +32,7 @@ threadpoolctl      3.6.0
 wheel              0.47.0
 
 
-## secondary (RunPod pod 7k3riasglemecu)
+## secondary (RunPod pod <RUNPOD_POD_ID>)
 
 ### starting-state probe
 python3 --version  →  Python 3.8.10   (legacy symlink /usr/bin/python3 → python3.8)
@@ -56,7 +56,7 @@ SHELL              →  /bin/bash
 ### post-install pip list (secondary)
 Package            Version Editable project location
 ------------------ ------- ---------------------------------------
-gnosis-morph-bench 0.1.0   /workspace/blind-clone-1777002679/clone
+gnosis-morph-bench 0.1.0   <RUNPOD_BLIND_CLONE_ROOT>/clone
 iniconfig          2.3.0
 joblib             1.5.3
 numpy              2.4.4
