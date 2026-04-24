@@ -47,6 +47,9 @@ artifacts/**/*.h5
 artifacts/**/*.bin
 artifacts/**/*.pt
 
+# HF fetch-back cache (pulled via gnosis_morph_bench.hf_cache; never committed)
+artifacts/hf_cache/
+
 # Local runs
 runs/
 logs/
