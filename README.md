@@ -57,7 +57,7 @@ Blocked-4 (committed smoke byte-reference re-freeze) closed on
 | Acquisition surface | `workstreams/gnosis-morph-bench/05_repo_scaffold/` inside the migration package |
 | Current authority artifact | Source-repo Phase 4 bundle: `workspace/artifacts/indus/phase4/{publishable_finding.md, phase4_governing_verdict.md, governing_route_selection.json, stability_report.json, dt05_replay.json, icit_reference_frozen.json}` |
 | Evidence status | `PARTIAL` |
-| License | `OWNER_DEFERRED` — see [`LICENSE_PLACEHOLDER.md`](LICENSE_PLACEHOLDER.md) |
+| License | `OWNER_DEFERRED` — see [`PRIVATE_INTERNAL_LICENSE_NOTICE.md`](PRIVATE_INTERNAL_LICENSE_NOTICE.md) and [`LICENSE_PLACEHOLDER.md`](LICENSE_PLACEHOLDER.md) |
 | Primary contact | `OWNER_DEFERRED` |
 
 ## CLI Surface
@@ -175,3 +175,12 @@ Gaps that will close when owner inputs land:
 
 All such items are enumerated, with unblock conditions, in
 [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
+
+## License
+
+This repository is INTERNAL / PRIVATE. No public license is granted unless
+and until a canonical `LICENSE` file is added by Zer0pa. See
+[`PRIVATE_INTERNAL_LICENSE_NOTICE.md`](PRIVATE_INTERNAL_LICENSE_NOTICE.md)
+for the full notice and
+[`docs/LEGAL_REVIEW_PREP.md`](docs/LEGAL_REVIEW_PREP.md) for the questions
+currently before Zer0pa legal.

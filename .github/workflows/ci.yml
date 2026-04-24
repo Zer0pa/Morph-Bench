@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Keep this workflow narrow:
+# - install the package
+# - run the repo-local pytest suite
+# - no HF asset fetches
+# - no blind-clone (that is a local/RunPod verification, not CI)
+# - no public artifact uploads
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: install package with dev extras
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[dev]'
+
+      - name: run pytest
+        run: pytest -q
