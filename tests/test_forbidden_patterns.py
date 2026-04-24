@@ -159,3 +159,39 @@ def test_positive_control_lint_is_live() -> None:
         f"positive control tripped only {len(hits)} hits, "
         f"expected >= {len(FORBIDDEN_PATTERNS)}"
     )
+
+
+# ---------------------------------------------------------------------------
+# Plan 02-02: confirm replay.py is in the scan set and a bad replay.py line
+# would be caught.
+# ---------------------------------------------------------------------------
+
+
+def test_replay_module_is_in_scan_set() -> None:
+    """The walk-based lint picks up replay.py without code changes."""
+    scanned = {p.name for p in _iter_python_files(PACKAGE_ROOT)}
+    assert "replay.py" in scanned, (
+        "replay.py must be in the forbidden-pattern scan set; if the lint "
+        "was manually enumerating files it would miss 02-02's new module."
+    )
+
+
+def test_positive_control_bad_replay_line_is_detected() -> None:
+    """A fake replay.py line carrying a forbidden pattern is detected.
+
+    This guards against a future refactor that narrows the scan root and
+    silently excludes a newly added module.
+    """
+    bad_replay_text = "\n".join(
+        [
+            '"""Fake replay.py with a forbidden import."""',
+            "from " + _MONOREPO_HELPER + " import helpers",
+            "def run_replay_record(manifest, config):",
+            "    return None",
+        ]
+    )
+    hits = _scan_text(bad_replay_text, FORBIDDEN_PATTERNS)
+    pids = {pid for pid, _, _ in hits}
+    assert "phase3_common_import" in pids, (
+        "positive-control bad-replay stanza should trip phase3_common_import"
+    )
