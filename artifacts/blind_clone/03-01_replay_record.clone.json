@@ -1,0 +1,157 @@
+{
+  "best_route": "route_clear",
+  "config": {
+    "n_clusters": 3,
+    "null_repeats": 16,
+    "reference_key": "family",
+    "seed": 42
+  },
+  "generated_utc": "2026-04-24T03:46:24+00:00",
+  "manifest_name": "tiny-smoke",
+  "record_type": "replay_record_v1",
+  "reference_freeze": {
+    "assignments": {
+      "1": "alpha",
+      "2": "alpha",
+      "3": "alpha",
+      "4": "beta",
+      "5": "beta",
+      "6": "beta",
+      "7": "gamma",
+      "8": "gamma",
+      "9": "gamma"
+    },
+    "item_count": 9,
+    "reference_key": "family",
+    "sha256": "ebfffd56bf433200c646f8d215a4832385f7ab80ed55ab78655495aa56aa360c"
+  },
+  "reference_key": "family",
+  "route_results": [
+    {
+      "dim": 2,
+      "labels_by_item": {
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "n_clusters": 3,
+      "n_items": 9,
+      "nmi": 1.0,
+      "null_mean": 0.262887,
+      "null_std": 0.139107,
+      "reference_key": "family",
+      "route_name": "route_clear",
+      "sigma": 5.298892,
+      "silhouette": 0.960196
+    },
+    {
+      "dim": 2,
+      "labels_by_item": {
+        "1": 2,
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "n_clusters": 3,
+      "n_items": 9,
+      "nmi": 0.58951,
+      "null_mean": 0.335139,
+      "null_std": 0.164373,
+      "reference_key": "family",
+      "route_name": "route_blurry",
+      "sigma": 1.547524,
+      "silhouette": 0.569896
+    }
+  ],
+  "schema_version": 1,
+  "stability": {
+    "modes": {
+      "deterministic_replay": {
+        "all_identical": true,
+        "hashes": [
+          "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31",
+          "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31",
+          "8128468760997c55454b7e2d4abaa7d39767cf293721989abbd41942b5dc7a31"
+        ],
+        "mode": "deterministic_replay",
+        "repeats": 3,
+        "route_name": "route_clear"
+      },
+      "k_sensitivity": {
+        "entries": [
+          {
+            "clipped": false,
+            "effective_k": 2,
+            "jaccard": 0.5,
+            "offset": -1,
+            "requested_k": 2
+          },
+          {
+            "clipped": false,
+            "effective_k": 4,
+            "jaccard": 0.777778,
+            "offset": 1,
+            "requested_k": 4
+          }
+        ],
+        "k_base": 3,
+        "mode": "k_sensitivity",
+        "offsets": [
+          -1,
+          1
+        ],
+        "route_name": "route_clear"
+      },
+      "leave_fraction_out": {
+        "fraction": 0.25,
+        "max_jaccard": 1.0,
+        "mean_jaccard": 1.0,
+        "min_jaccard": 1.0,
+        "mode": "leave_fraction_out",
+        "repeats": 6,
+        "route_name": "route_clear"
+      },
+      "noise_injection": {
+        "max_jaccard": 1.0,
+        "mean_jaccard": 1.0,
+        "min_jaccard": 1.0,
+        "mode": "noise_injection",
+        "noise_sigma": 0.05,
+        "repeats": 6,
+        "route_name": "route_clear"
+      },
+      "seed_variance": {
+        "baseline_seed": 42,
+        "jaccards": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_jaccard": 1.0,
+        "mean_jaccard": 1.0,
+        "min_jaccard": 1.0,
+        "mode": "seed_variance",
+        "route_name": "route_clear",
+        "seeds": [
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    "route_name": "route_clear"
+  }
+}
