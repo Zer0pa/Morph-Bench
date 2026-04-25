@@ -110,7 +110,7 @@ Blind-clone verification (cross-environment): see [`artifacts/blind_clone/03-01_
 │   ├── replay/                        # default replay output dir (gitignored content)
 │   └── blind_clone/                   # cross-env blind-clone transcripts
 ├── docs/                              # promotion readiness, HF custody, legal prep, family contracts
-└── code/                              # placeholder for future code organization
+└── code/                              # code-facing surface notes and current limits
 ```
 
 ## Quick Start
