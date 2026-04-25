@@ -163,7 +163,7 @@ transcript and is honest to name.
 
 - **Blocker:** No `LICENSE` file exists at repo root. The current state
   is a placeholder marker at
-  [`LICENSE_PLACEHOLDER.md`](../LICENSE_PLACEHOLDER.md), which explicitly
+  [`NOTICE.md`](../NOTICE.md), which explicitly
   says it is not the legal authority. The repo cannot be promoted
   publicly until canonical license text lands.
 - **Owner:** `OWNER_DEFERRED`, with authority pointer
@@ -178,7 +178,7 @@ transcript and is honest to name.
   same license identity.
 - **Unblock condition:** owner supplies canonical license text (MIT,
   Apache-2.0, a proprietary license, or whatever the owner chooses) AND
-  authorizes removal of `LICENSE_PLACEHOLDER.md` or its retention as
+  authorizes removal of `NOTICE.md` or its retention as
   migration history.
 
 ### Blocked-3: Heavy-data release policy for image-bearing assets
@@ -269,7 +269,7 @@ up.
 The repo remains **private** until canonical license text lands.
 
 No fabricated license is admitted by this document.
-[`LICENSE_PLACEHOLDER.md`](../LICENSE_PLACEHOLDER.md) is the current
+[`NOTICE.md`](../NOTICE.md) is the current
 terminal marker and is preserved unchanged by Plan 03-02. Per
 [`RELEASING.md §Owner Inputs`](../RELEASING.md), `license identity:
 OWNER_DEFERRED` is the real state. This posture means:
@@ -280,7 +280,7 @@ OWNER_DEFERRED` is the real state. This posture means:
 - Public promotion cannot proceed under any interpretation of this
   document until Blocked-2 closes.
 - A future `LICENSE` file landing MAY or MAY NOT remove
-  `LICENSE_PLACEHOLDER.md`; that decision is part of the unblock and
+  `NOTICE.md`; that decision is part of the unblock and
   belongs to the owner.
 
 ## Data Release Posture
@@ -388,4 +388,4 @@ named terms."
   (Phase 3c manifest, LICENSE, heavy-data release policy) enumerated;
   one local housekeeping blocker (smoke byte-reference re-freeze)
   enumerated for transparency. No LICENSE file fabricated.
-  `LICENSE_PLACEHOLDER.md` preserved unchanged.
+  `NOTICE.md` preserved unchanged.

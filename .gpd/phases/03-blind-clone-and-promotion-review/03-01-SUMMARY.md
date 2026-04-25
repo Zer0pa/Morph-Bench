@@ -198,5 +198,5 @@ Items 3, 4, 5 are the three mandatory named external blockers that Plan
 
 Plan 03-02: author `docs/PROMOTION_READINESS.md` anchored to this
 transcript's Disposition line, enumerate PASS-NOW / BLOCKED / DEFERRED
-items honestly, preserve `LICENSE_PLACEHOLDER.md` unchanged, update
+items honestly, preserve `NOTICE.md` unchanged, update
 `TODO.md` with cross-references.

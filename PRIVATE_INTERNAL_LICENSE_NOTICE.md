@@ -20,7 +20,7 @@ This repository is distributed to internal collaborators and authorized reviewer
 
 ## Relationship to other files in this repo
 
-- `LICENSE_PLACEHOLDER.md` — owner-deferred canonical license status. When Zer0pa legal chooses the canonical license matrix (see `docs/LEGAL_REVIEW_PREP.md`), that file will be replaced by a real `LICENSE` file and this notice may be revised or retired.
+- `NOTICE.md` — owner-deferred canonical license status. When Zer0pa legal chooses the canonical license matrix (see `docs/LEGAL_REVIEW_PREP.md`), that file will be replaced by a real `LICENSE` file and this notice may be revised or retired.
 - `docs/PROMOTION_READINESS.md` — `Blocked-2` names canonical LICENSE text as a gate to public promotion. This notice documents what is true in the meantime.
 - `docs/LEGAL_REVIEW_PREP.md` — the questions Zer0pa legal is being asked before any public license choice is made.
 

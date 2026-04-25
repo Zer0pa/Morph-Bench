@@ -462,7 +462,7 @@ PASS modulo `generated_utc`.
    - Owner: `OWNER_DEFERRED` per `../../01_prd_and_authority/AUTHORITY_CHAIN.md`.
 
 4. **Canonical LICENSE text is OWNER_DEFERRED.** The clone carries
-   `LICENSE_PLACEHOLDER.md` only; no real LICENSE file. This was true at
+   `NOTICE.md` only; no real LICENSE file. This was true at
    the start of Phase 03 and remains true after. Not a blind-clone
    failure; a promotion-readiness blocker carried into Plan 03-02.
    - Unblock produces: a `LICENSE` file at the repo root with canonical

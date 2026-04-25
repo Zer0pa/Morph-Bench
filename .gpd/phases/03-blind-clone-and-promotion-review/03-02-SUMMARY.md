@@ -25,7 +25,7 @@ contract_results:
       evidence: "§Deferred By Scope names three scope-decisions: cuneiform adapter work (pointer: SOURCE_BOUNDARY.md §Live Source Families + PRD §Phase P2/P3), public promotion (pointer: PRD-P4 exit gate), and v2 stability battery modes (pointer: STABILITY_BATTERY_v1 §Non-Claims). None are BLOCKED on external input."
     - id: claim-license-not-fabricated
       verdict: verified
-      evidence: "No LICENSE, LICENSE.md, or LICENSE.txt exists at repo root (git ls-files). LICENSE_PLACEHOLDER.md diff is empty (git diff HEAD~3 -- LICENSE_PLACEHOLDER.md returns nothing). §License Posture in the new doc contains the exact phrase OWNER_DEFERRED and the word private in 'repo remains private until canonical license text lands'."
+      evidence: "No LICENSE, LICENSE.md, or LICENSE.txt exists at repo root (git ls-files). NOTICE.md diff is empty (git diff HEAD~3 -- NOTICE.md returns nothing). §License Posture in the new doc contains the exact phrase OWNER_DEFERRED and the word private in 'repo remains private until canonical license text lands'."
     - id: claim-trust-boundary-explicit
       verdict: verified
       evidence: "§Trust Boundary contains an 8-row markdown table with two columns: 'Consumers Can Trust (repo-custody, clone-reproducible)' and 'Source Authority Only (NOT provable from this clone)'. Smoke artifact, 32-case pytest suite, console_scripts are in the left column. Live Phase 4 NMI 0.5793, Sigma 5.65, mean Jaccard 0.4351, and the Replay 3/3 quadruple are all in the right column, as required by PUBLIC_AUDIT_LIMITS.md."
@@ -54,7 +54,7 @@ contract_results:
       evidence: "§Deferred By Scope names cuneiform adapter work and public promotion (plus a third: v2 stability battery modes), each with a phase or workstream pointer."
     - id: test-no-license-fabrication
       outcome: PASS
-      evidence: "git ls-files | grep -iE '^LICENSE(\\.|$)' returns only LICENSE_PLACEHOLDER.md (unchanged). §License Posture contains OWNER_DEFERRED and 'private'."
+      evidence: "git ls-files | grep -iE '^LICENSE(\\.|$)' returns only NOTICE.md (unchanged). §License Posture contains OWNER_DEFERRED and 'private'."
     - id: test-trust-boundary-table-present
       outcome: PASS
       evidence: "Table present with 8 rows, 2 columns. Live Phase 4 values all under Source Authority Only. Smoke and pytest under Consumers Can Trust."
@@ -64,7 +64,7 @@ contract_results:
   forbidden_proxies:
     - id: fp-fabricated-license
       status: rejected
-      evidence: "No LICENSE file introduced. LICENSE_PLACEHOLDER.md untouched. OWNER_DEFERRED markers preserved."
+      evidence: "No LICENSE file introduced. NOTICE.md untouched. OWNER_DEFERRED markers preserved."
     - id: fp-live-phase4-numbers-as-pass-now
       status: rejected
       evidence: "Live Phase 4 values 0.5793, 5.65, 0.4351, 3/3 appear ONLY under §Trust Boundary 'Source Authority Only' column. Automated lint confirmed none appear in §Pass Now."
@@ -104,7 +104,7 @@ contract_results:
       note: "PUBLIC_AUDIT_LIMITS.md cited as the source of the Trust Boundary table structure."
     - id: ref-license-placeholder
       status: satisfied
-      note: "LICENSE_PLACEHOLDER.md referenced in License Posture; preserved unchanged (required_action: preserve)."
+      note: "NOTICE.md referenced in License Posture; preserved unchanged (required_action: preserve)."
     - id: ref-authority-chain
       status: satisfied
       note: "../../01_prd_and_authority/AUTHORITY_CHAIN.md cited in Blocked-1 as the owner pointer."
@@ -147,7 +147,7 @@ anchor was **PASS** (primary macOS + secondary RunPod both green).
    Unblock produces `LICENSE` at repo root plus coherent updates to
    README, GOVERNANCE, RELEASING, and LEGAL_BOUNDARIES.
    Unblock condition: owner supplies canonical license text and
-   authorizes removal (or retention as history) of LICENSE_PLACEHOLDER.md.
+   authorizes removal (or retention as history) of NOTICE.md.
 
 3. **Blocked-3: Heavy-data release policy for image-bearing assets** —
    OWNER_DEFERRED; owner pointer `RELEASING.md §Owner Inputs`.
@@ -163,7 +163,7 @@ local and not a promotion gate; recorded for transparency.
 
 - No LICENSE file was introduced anywhere in the tree.
   `git ls-files LICENSE LICENSE.md LICENSE.txt` returns nothing.
-- `LICENSE_PLACEHOLDER.md` diff is empty relative to pre-Phase-03 HEAD.
+- `NOTICE.md` diff is empty relative to pre-Phase-03 HEAD.
 - `docs/PROMOTION_READINESS.md §License Posture` contains the exact
   phrase `OWNER_DEFERRED` and the word `private` describing the current
   repo state.

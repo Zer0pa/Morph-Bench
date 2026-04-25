@@ -42,7 +42,7 @@ Phase 03 (GPD-internal) covers:
   and
   `gnosis-morph-bench-adapter-indus-phase4 = gnosis_morph_bench.adapters.indus_phase4:main`.
 - The legal surface today is a placeholder:
-  `LICENSE_PLACEHOLDER.md` (not a license), plus
+  `NOTICE.md` (not a license), plus
   `OWNER_DEFERRED_*` markers in `RELEASING.md`.
 - `DATA_POLICY.md`, `SOURCE_BOUNDARY.md`, `PUBLIC_AUDIT_LIMITS.md` are already
   aligned to the "do-not-vendor-heavy-data" and "no-public-promotion-yet"
@@ -107,7 +107,7 @@ Blockers are never hidden behind prose softening.
 - Phase 03 does not invent or inline a LICENSE. Option (b) from the
   directive is adopted: `docs/PROMOTION_READINESS.md` documents that the
   repo remains private until canonical license text lands, and
-  `LICENSE_PLACEHOLDER.md` stays unchanged.
+  `NOTICE.md` stays unchanged.
 - Phase 03 does not touch the cuneiform family, does not add new
   stability-battery modes, and does not edit any module under
   `src/gnosis_morph_bench/` unless the blind clone uncovers a genuine
@@ -168,6 +168,6 @@ but the clean case is 03-01 → 03-02.
 - `PRD_GNOSIS_MORPH_BENCH_2026-04-23.md` §4 (Phase table P3 and P4)
 - `SOURCE_BOUNDARY.md`, `DATA_POLICY.md`, `PUBLIC_AUDIT_LIMITS.md`,
   `RELEASING.md`
-- `LICENSE_PLACEHOLDER.md` (as the thing NOT to fabricate away)
+- `NOTICE.md` (as the thing NOT to fabricate away)
 - `.gpd/phases/02-neutral-module-extraction/02-02-SUMMARY.md`
 - `artifacts/smoke/smoke_report.json` (the committed byte-reference)
