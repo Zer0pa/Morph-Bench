@@ -10,15 +10,14 @@
 
 | Metric | Value |
 |---|---|
-| `pytest -q` (clean Python 3.11 venv) | `37 passed in 55.63s` (`fbf98ee`, 2026-04-25) |
-| GitHub Actions CI on `main` | `success` ([run 24902422608](https://github.com/Zer0pa/Morph-Bench/actions/runs/24902422608)) |
+| `pytest -q` (clean Python 3.11 venv) | `37 passed` (local closeout verification, 2026-04-25) |
+| GitHub Actions CI on `main` | pytest workflow configured at [`.github/workflows/ci.yml`](.github/workflows/ci.yml); latest status checked during closeout |
 | Forbidden-monorepo-pattern lint hits | `0 / 6 patterns` across `src/gnosis_morph_bench/` |
 | `ADAPTER_CONTRACT_v1.md` MUST-clause coverage | `9 / 9` |
 | Committed smoke report SHA-256 | `020f97b83b2948c2cd529b975010e6e5132799d89e395539d6f6f928c97c184e` |
 | Cross-environment smoke byte-equality | `PASS` (macOS 3.11.15 ↔ Linux/RunPod 3.11.13) |
 | Deterministic replay `all_identical` (synthetic fixture) | `True` (3/3) |
 | Tracked-file leak scan (concrete RunPod IPs / SSH commands / local home paths) | `0 hits` |
-| Commits on `origin/main` | `35` |
 
 These are repo-truth metrics, not product or scientific claims. Live Indus Phase 4 measured values (NMI 0.5793, Sigma 5.65, Jaccard 0.4351, Replay 3/3) remain source-authority citations; see [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md) trust boundary.
 
@@ -26,7 +25,7 @@ These are repo-truth metrics, not product or scientific claims. Live Indus Phase
 
 - The neutral benchmark contract (`BenchmarkManifest`) round-trips cleanly through `load_manifest` / `evaluate_route` / `freeze_reference` / `deterministic_replay` / `leave_fraction_out` / the four added stability modes.
 - The Indus Phase 4 v1 adapter satisfies every MUST clause of [`docs/family/ADAPTER_CONTRACT_v1.md`](docs/family/ADAPTER_CONTRACT_v1.md), enforced by [`tests/test_adapter_contract_coverage.py`](tests/test_adapter_contract_coverage.py).
-- The forbidden-pattern lint catches every hidden-import / path-coupling pattern enumerated in [`02_source_inventory/PATH_REWRITE_LEDGER.md`](../02_source_inventory/PATH_REWRITE_LEDGER.md), self-tested via a positive control in [`tests/test_forbidden_patterns.py`](tests/test_forbidden_patterns.py).
+- The forbidden-pattern lint catches the hidden-import / path-coupling patterns named by the adapter contract, self-tested via a positive control in [`tests/test_forbidden_patterns.py`](tests/test_forbidden_patterns.py).
 - The smoke and replay outputs are byte-identical across macOS and Linux at the documented Python 3.11 floor — verified end-to-end through fresh-clone install, see [`artifacts/blind_clone/`](artifacts/blind_clone/).
 
 ## What We Don't Claim
@@ -80,8 +79,8 @@ Blind-clone verification (cross-environment): see [`artifacts/blind_clone/03-01_
 | Legal review prep (questions for Zer0pa legal) | [`docs/LEGAL_REVIEW_PREP.md`](docs/LEGAL_REVIEW_PREP.md) |
 | HF storage strategy | [`docs/HF_STORAGE.md`](docs/HF_STORAGE.md) |
 | Status report (2026-04-24) | [`docs/STATUS_REPORT_2026-04-24.md`](docs/STATUS_REPORT_2026-04-24.md) |
-| Authority chain (live Phase 4 source authority) | [`../01_prd_and_authority/AUTHORITY_CHAIN.md`](../01_prd_and_authority/AUTHORITY_CHAIN.md) |
-| Source inventory and path-rewrite ledger | [`../02_source_inventory/SOURCE_INVENTORY.md`](../02_source_inventory/SOURCE_INVENTORY.md), [`../02_source_inventory/PATH_REWRITE_LEDGER.md`](../02_source_inventory/PATH_REWRITE_LEDGER.md) |
+| Live Phase 4 source-authority boundary | [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md), [`docs/STATUS_REPORT_2026-04-24.md`](docs/STATUS_REPORT_2026-04-24.md) |
+| Forbidden-pattern lint evidence | [`tests/test_forbidden_patterns.py`](tests/test_forbidden_patterns.py), [`artifacts/blind_clone/03-01_forbidden_pattern_scan.txt`](artifacts/blind_clone/03-01_forbidden_pattern_scan.txt) |
 | Public-audit boundaries | [`PUBLIC_AUDIT_LIMITS.md`](PUBLIC_AUDIT_LIMITS.md) |
 | Blind-clone transcript (macOS + Linux) | [`artifacts/blind_clone/`](artifacts/blind_clone/) |
 
@@ -111,8 +110,7 @@ Blind-clone verification (cross-environment): see [`artifacts/blind_clone/03-01_
 │   ├── replay/                        # default replay output dir (gitignored content)
 │   └── blind_clone/                   # cross-env blind-clone transcripts
 ├── docs/                              # promotion readiness, HF custody, legal prep, family contracts
-├── code/                              # placeholder for future code organization
-└── 02_source_inventory/, 04_evidence_manifest/ via parent workstream package
+└── code/                              # placeholder for future code organization
 ```
 
 ## Quick Start
