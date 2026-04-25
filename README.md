@@ -90,7 +90,6 @@ Blind-clone verification (cross-environment): see [`artifacts/blind_clone/03-01_
 ```
 .
 ├── NOTICE.md                          # root legal posture (private/internal)
-├── PRIVATE_INTERNAL_LICENSE_NOTICE.md # longer private notice (pre-NOTICE.md)
 ├── PRD_GNOSIS_MORPH_BENCH_2026-04-23.md
 ├── README.md
 ├── pyproject.toml                     # Python ≥ 3.10, deps: numpy, scikit-learn
