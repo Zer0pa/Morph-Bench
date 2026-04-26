@@ -13,8 +13,8 @@ This register is the single authoritative record of which Hugging Face repos are
 
 | HF repo ID | type | visibility | exists? | last_commit_sha | file_count | rights_class | consuming_github_repo | notes |
 |---|---|---|---|---|---|---|---|---|
-| `Zer0pa/gnosis-morph-bench-artifacts` | dataset | private | **YES — VERIFIED 2026-04-24** | `4fdd0208665dd9fe964bc4562b1e058dcf1f1eec` | 3 | internal / owner-deferred-license | `Zer0pa/Morph-Bench` | Placeholder only. Files: `.gitattributes`, `MANIFEST.json` (literal `{"artifacts": []}`), `README.md`. `usedStorage=0`. `cardData.license=other`. Intended for adapter run records + admitted Phase 3c manifests once Blocked-1 clears. |
-| `Zer0pa/gnosis-morph-bench-authority-bundle` | dataset | private | **YES — VERIFIED 2026-04-24** | `584ef65183f61e61b904f332fa492d05bfc089b0` | 3 | source-authority / restricted (mirror of live Phase 4 authority bundle) | `Zer0pa/Morph-Bench` | Placeholder only. Files: `.gitattributes`, `MANIFEST.json`, `README.md`. `usedStorage=0`. `cardData.license=other`. Intended as a read-only mirror of `governing_route_selection.json`, `stability_report.json`, `dt05_replay.json`, `icit_reference_frozen.json` once Blocked-3 (heavy-data release policy) clears. |
+| `Zer0pa/gnosis-morph-bench-artifacts` | dataset | private | **YES — VERIFIED 2026-04-26** | `f8bf149a15d78d738221a3b00469fdc2b8572de5` | 3 | internal / owner-deferred-license | `Zer0pa/Morph-Bench` | Placeholder only. Files: `.gitattributes`, `MANIFEST.json` (literal `{"artifacts": []}`), `README.md`. `cardData.license=other`. Card updated 2026-04-26 to HF Lane Execution Brief §5 template (Gnosis family rules, no SAL wording). Intended for adapter run records + admitted Phase 3c manifests once Blocked-1 clears. |
+| `Zer0pa/gnosis-morph-bench-authority-bundle` | dataset | private | **YES — VERIFIED 2026-04-26** | `094eb8c95b5e2758303fc4771cb04e30ef014e11` | 3 | source-authority / restricted (mirror of live Phase 4 authority bundle) | `Zer0pa/Morph-Bench` | Placeholder only. Files: `.gitattributes`, `MANIFEST.json`, `README.md`. `cardData.license=other`. Card updated 2026-04-26 to HF Lane Execution Brief §5 template; documents that admitted artefacts inherit BOTH Zer0pa private-internal posture AND each upstream artefact's rights class (whichever is more restrictive controls). Intended as a read-only mirror of `governing_route_selection.json`, `stability_report.json`, `dt05_replay.json`, `icit_reference_frozen.json` once Blocked-3 (heavy-data release policy) clears. |
 
 ## Reviewer Discrepancy Analysis
 
@@ -67,6 +67,17 @@ curl -s -w "HTTP:%{http_code}\n" -H "Authorization: Bearer $HF_TOKEN" \
 
 HTTP 200 + payload indicates the repo exists and is visible to the token. HTTP 404 indicates the repo does not exist OR is invisible to the token (HF API does not distinguish between "doesn't exist" and "exists but you can't see it" for privacy reasons).
 
+## Architect-Prime Cleanup Status
+
+Per HF Lane Execution Brief §3, `Architect-Prime` namespace was scanned for any Morph-Bench drift on 2026-04-26 with the production token:
+
+- `GET /api/datasets?author=Architect-Prime&limit=100` → **0 datasets** total visible to this token (filter for `morph` or `bench` keywords: 0 hits).
+- `GET /api/models?author=Architect-Prime&limit=100` → **0 models** total.
+- `GET /api/spaces?author=Architect-Prime&limit=100` → **0 spaces** total.
+
+No Architect-Prime cleanup needed for the Morph-Bench lane. If Architect-Prime drift is later discovered by a different token or via an out-of-band path, apply HF Lane Execution Brief §3 decision order at that time.
+
 ## Change Log
 
 - **2026-04-24** — first authored. Both repos verified present on HF under the production token. Reviewer-side invisibility flagged as a likely token-scope issue rather than a custody failure.
+- **2026-04-26** — HF Lane Execution Brief 2026-04-26 pass. Updated both HF dataset cards to the §5 template (Gnosis family rules: no SAL wording, no open-source claims, blockers/no-go context preserved). New `last_commit_sha` recorded above for each repo. Architect-Prime namespace confirmed empty for this lane. Visibility decisions: both repos remain PRIVATE per Wave 2 non-negotiables and §4.4 Gnosis table ("first plausible public candidate later", not now).
