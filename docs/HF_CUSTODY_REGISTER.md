@@ -67,17 +67,25 @@ curl -s -w "HTTP:%{http_code}\n" -H "Authorization: Bearer $HF_TOKEN" \
 
 HTTP 200 + payload indicates the repo exists and is visible to the token. HTTP 404 indicates the repo does not exist OR is invisible to the token (HF API does not distinguish between "doesn't exist" and "exists but you can't see it" for privacy reasons).
 
-## Architect-Prime Cleanup Status
+## Architect-Prime Posture (Storage Routing)
 
-Per HF Lane Execution Brief §3, `Architect-Prime` namespace was scanned for any Morph-Bench drift on 2026-04-26 with the production token:
+The Gnosis HF Storage Execution Brief 2026-04-26 supersedes the earlier "Architect-Prime is a cleanup target" framing. Architect-Prime is now the **canonical heavy private store** for Gnosis lanes (brief §1.2). Re-verified state for the Morph-Bench lane on 2026-04-26 with the production token:
 
-- `GET /api/datasets?author=Architect-Prime&limit=100` → **0 datasets** total visible to this token (filter for `morph` or `bench` keywords: 0 hits).
-- `GET /api/models?author=Architect-Prime&limit=100` → **0 models** total.
-- `GET /api/spaces?author=Architect-Prime&limit=100` → **0 spaces** total.
+- `GET /api/datasets/Architect-Prime/gnosis-morph-bench-artifacts` → HTTP 404 (does not exist).
+- `GET /api/datasets/Architect-Prime/gnosis-morph-bench-authority-bundle` → HTTP 404 (does not exist).
+- `GET /api/datasets?author=Architect-Prime&limit=200` → 18 datasets visible, all ZPE-lane (zpe-video, zpe-neuro, zpe-robotics, etc.); **0 morph/bench matches**. The earlier "0 total" reading from the Wave 3 register was a token-visibility artefact at that scan time, not a fact about the namespace.
 
-No Architect-Prime cleanup needed for the Morph-Bench lane. If Architect-Prime drift is later discovered by a different token or via an out-of-band path, apply HF Lane Execution Brief §3 decision order at that time.
+**Routing decision for this lane:** the two `Architect-Prime/*` heavy-tier repos remain **not-yet-created** because no heavy content has been admitted. Per brief §3 ("if a repo does not yet exist on Architect-Prime, create it only if the lane actually has heavy content worth storing there"), both will be created on first heavy admission only. Both Zer0pa cards now document the routing rule so reviewers understand the planned split.
+
+**Storage-routing register:**
+
+| GitHub repo | Lightweight tier (Zer0pa) | Heavy tier (Architect-Prime) | Heavy-tier status |
+|---|---|---|---|
+| `Zer0pa/Morph-Bench` | `Zer0pa/gnosis-morph-bench-artifacts` (private, exists) | `Architect-Prime/gnosis-morph-bench-artifacts` | **planned, not yet created** — create on first heavy admission |
+| `Zer0pa/Morph-Bench` | `Zer0pa/gnosis-morph-bench-authority-bundle` (private, exists) | `Architect-Prime/gnosis-morph-bench-authority-bundle` | **planned, not yet created** — create when upstream rights-class clears under Blocked-3 |
 
 ## Change Log
 
 - **2026-04-24** — first authored. Both repos verified present on HF under the production token. Reviewer-side invisibility flagged as a likely token-scope issue rather than a custody failure.
 - **2026-04-26** — HF Lane Execution Brief 2026-04-26 pass. Updated both HF dataset cards to the §5 template (Gnosis family rules: no SAL wording, no open-source claims, blockers/no-go context preserved). New `last_commit_sha` recorded above for each repo. Architect-Prime namespace confirmed empty for this lane. Visibility decisions: both repos remain PRIVATE per Wave 2 non-negotiables and §4.4 Gnosis table ("first plausible public candidate later", not now).
+- **2026-04-26 (later same day)** — Gnosis HF Storage Execution Brief 2026-04-26 pass. Re-verified: `Architect-Prime/{gnosis-morph-bench-artifacts, gnosis-morph-bench-authority-bundle}` both return HTTP 404 (do not exist). Re-uploaded both Zer0pa cards with the §5.1 "Heavy artefacts" routing block stating the canonical heavy store is `Architect-Prime/*` once heavy admission occurs. New HF SHAs: artifacts → `b47d7c555eae...`, authority-bundle → `c6ecefedd4b7...`. No Architect-Prime repos created in this pass (no heavy content to admit). `docs/HF_STORAGE.md` rewritten to reflect the three-tier model (GitHub / Zer0pa lightweight / Architect-Prime heavy) and the brief's routing thresholds.

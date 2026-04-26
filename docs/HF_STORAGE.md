@@ -12,46 +12,113 @@ with [`PROMOTION_READINESS.md`](PROMOTION_READINESS.md).
 
 ## Split
 
+Storage is a three-tier model (per the Gnosis HF Storage Execution
+Brief 2026-04-26 §1.2 + §3):
+
 - **GitHub** ([`https://github.com/Zer0pa/Morph-Bench`](https://github.com/Zer0pa/Morph-Bench))
   carries all code, docs, tests, tiny synthetic fixtures, neutral
-  adapter-run records, and the committed smoke byte-reference. Upper
-  size ceiling is enforced implicitly by the DATA_POLICY's
-  "may-carry" list.
-- **Hugging Face (org `Zer0pa`)** carries adapter run records against
-  admitted production inputs, and a read-only mirror of the live
-  Phase 4 authority bundle — both guarded by SHA-256 pinning. Neither
-  HF repo stores raw corpora or image-bearing payloads while Blocked-3
-  from [`PROMOTION_READINESS.md`](PROMOTION_READINESS.md) is open.
+  adapter-run records that fit within the DATA_POLICY's "may-carry"
+  list, and the committed smoke byte-reference. Upper size ceiling
+  is enforced implicitly by the DATA_POLICY.
+- **Hugging Face `Zer0pa/*` (lightweight discovery surface)** carries
+  manifests, indices, README cards, schema files, comparator tables,
+  proof indexes, and small curated artefacts useful for review and
+  discovery. This is the first place a reviewer looks. SHA-256 pinning
+  applies to every admitted file.
+- **Hugging Face `Architect-Prime/*` (canonical heavy private store)**
+  carries the heavy bytes — adapter run records against admitted
+  production inputs, replay-output bundles, raw or bulky evidence
+  payloads, the read-only mirror of the live Phase 4 authority
+  bundle, and any artefact meeting the routing thresholds below.
+  Created on first heavy admission; not yet created today (no heavy
+  content has been admitted). **Hard rule: never made public** per
+  brief §1.3.
+
+Neither HF tier stores raw corpora or image-bearing payloads while
+Blocked-3 from [`PROMOTION_READINESS.md`](PROMOTION_READINESS.md) is
+open.
+
+## Routing Thresholds
+
+Per Gnosis HF Storage Execution Brief 2026-04-26 §4. Default to these
+when in doubt:
+
+- single file > 1 MB → heavy tier (`Architect-Prime/*`);
+- lane payload > 100 MB total → heavy tier;
+- model weight of any size → heavy tier;
+- many-file directory with meaningful aggregate weight → heavy tier;
+- small JSON / Markdown / schema / manifest / index → lightweight
+  (`Zer0pa/*`);
+- if a payload is small AND useful for discovery, dual-host on both
+  tiers (org for discovery, AP for canonical custody) when the byte
+  cost of duplication is trivial.
 
 ## HF Dataset Repos
 
-Two private dataset repos are provisioned under the `Zer0pa` HF org.
+### Lightweight tier — `Zer0pa/*` (org discovery surface)
 
-### `Zer0pa/gnosis-morph-bench-artifacts`
+Two private dataset repos are provisioned under the `Zer0pa` HF org.
+Both currently hold lightweight cards + empty `MANIFEST.json` only.
+
+#### `Zer0pa/gnosis-morph-bench-artifacts`
 
 - URL: [https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-artifacts](https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-artifacts)
-- Visibility: **private** until Blocked-2 (canonical LICENSE) closes.
-- **Stores:** adapter run records (`artifacts/replay/indus_phase4_live_<date>.json`
-  and sibling `indus_phase4_live_<date>_run.json`) once Blocked-1 admits
-  a consumable Phase 3c feature manifest; future cuneiform adapter run
-  records once that family is admitted per
-  [`SOURCE_BOUNDARY.md`](../SOURCE_BOUNDARY.md).
-- **Does NOT store:** raw corpora; image-bearing benchmark payloads;
-  training data; review-pack artifacts; anything covered by the
-  DATA_POLICY "must NOT yet carry" list.
+- Tier: **lightweight discovery surface**.
+- Visibility: **private** until orchestrator approval AND Blocked-2.
+- **Stores:** the manifest index, README card, schema descriptors, and
+  small curated proof summaries that point a reviewer at the heavy
+  bytes living in `Architect-Prime/gnosis-morph-bench-artifacts`. May
+  also dual-host particularly important small artefacts where the byte
+  cost is trivial.
+- **Does NOT store:** heavy adapter run records, replay-output
+  bundles, raw corpora, image-bearing payloads, training data, or
+  anything meeting the routing-threshold "heavy" criteria above.
 
-### `Zer0pa/gnosis-morph-bench-authority-bundle`
+#### `Zer0pa/gnosis-morph-bench-authority-bundle`
 
 - URL: [https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-authority-bundle](https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-authority-bundle)
-- Visibility: **private** until Blocked-2 (canonical LICENSE) closes.
-- **Stores:** a read-only mirror of the live Phase 4 authority bundle
-  once owner-admitted, specifically
-  `governing_route_selection.json`, `stability_report.json`,
-  `dt05_replay.json`, `icit_reference_frozen.json` — each with a
-  companion SHA-256 in the repo-root `MANIFEST.json`.
-- **Does NOT store:** raw corpora, image payloads, any artifact the
-  `DATA_POLICY.md` section "must NOT yet carry" lists, any file that
-  the source authority has not explicitly cleared for mirror.
+- Tier: **lightweight discovery surface for the authority mirror**.
+- Visibility: **private** until orchestrator approval AND Blocked-2.
+- **Stores:** the manifest index and README card describing the
+  intended mirror of the live Phase 4 authority bundle. The actual
+  mirror bytes (`governing_route_selection.json`,
+  `stability_report.json`, `dt05_replay.json`,
+  `icit_reference_frozen.json`) live in
+  `Architect-Prime/gnosis-morph-bench-authority-bundle` once admitted,
+  per the brief's heavy-tier routing for sensitive content regardless
+  of byte size.
+- **Does NOT store:** any image payload, any artefact the
+  `DATA_POLICY.md` "must NOT yet carry" list excludes, any file the
+  source authority has not explicitly cleared for mirror.
+
+### Heavy tier — `Architect-Prime/*` (canonical private store)
+
+Two `Architect-Prime` dataset repos are reserved by the routing
+contract but **not yet created** (no heavy artefacts have been
+admitted). Both will be created on first heavy admission per brief
+§6 Step 4.
+
+#### `Architect-Prime/gnosis-morph-bench-artifacts` (planned)
+
+- Tier: **canonical heavy private store**.
+- Visibility: **private indefinitely** per brief §1.3 hard rule.
+- **Will store:** adapter run records against admitted production
+  inputs (`artifacts/replay/indus_phase4_live_<date>.json` and run
+  records); replay-output bundles; bulky benchmark dumps; future
+  cuneiform-family heavy artefacts when that adapter ratifies.
+- **Will NOT store:** raw image-bearing corpora until Blocked-3
+  rights-class clears; any artefact bypassing the SHA-256 manifest
+  pin.
+
+#### `Architect-Prime/gnosis-morph-bench-authority-bundle` (planned)
+
+- Tier: **canonical heavy private mirror of upstream authority**.
+- Visibility: **private indefinitely** per brief §1.3 hard rule.
+- **Will store:** SHA-pinned mirror of the four upstream Phase 4
+  authority bundle files once owner-admitted; companion
+  upstream-parity SHA records.
+- **Will NOT store:** any artefact the upstream authority chain
+  has not cleared for mirror.
 
 ## SHA-256 Pinning
 
