@@ -19,9 +19,9 @@ The operator directive that drove this migration:
 
 ## Active Register
 
-| HF repo ID | type | visibility | exists? | last_commit_sha (2026-04-27) | files | usedStorage | rights_class | consuming_github_repo | role |
+| HF repo ID | type | visibility | exists? | last_commit_sha | files | usedStorage | rights_class | consuming_github_repo | role |
 |---|---|---|---|---|---|---|---|---|---|
-| `Architect-Prime/gnosis-morph-bench-artifacts` | dataset | private (indefinitely) | **YES — VERIFIED 2026-04-27** | `4b6e0a53b794...` | 4 (`.gitattributes`, `MANIFEST.json`, `README.md`, `snapshots/morph_evidence_snapshot_2026-04-27T00-43-33Z.tar.gz`) | 132,442 bytes | internal / owner-deferred-license | `Zer0pa/Morph-Bench` | canonical custody for adapter run records, replay-output bundles, and periodic operational-safety evidence-tree snapshots |
+| `Architect-Prime/gnosis-morph-bench-artifacts` | dataset | private (indefinitely) | **YES — VERIFIED 2026-04-27 (post-mirror pass)** | `985d39d71368...` | 5 (`.gitattributes`, `MANIFEST.json`, `README.md`, `snapshots/morph_evidence_snapshot_2026-04-27T00-43-33Z.tar.gz`, `snapshots/morph_workstream_package_2026-04-27T10-29-06Z.tar.gz`) | 145,984 bytes | internal / owner-deferred-license | `Zer0pa/Morph-Bench` | canonical custody for adapter run records, replay-output bundles, evidence-tree snapshots, and the local-only workstream-parent governance pack |
 | `Architect-Prime/gnosis-morph-bench-authority-bundle` | dataset | private (indefinitely) | **YES — VERIFIED 2026-04-27** | `d1d1b3bb5f17...` | 3 (`.gitattributes`, `MANIFEST.json`, `README.md`) | 4,930 bytes | source-authority / restricted | `Zer0pa/Morph-Bench` | canonical custody for the read-only mirror of the live Phase 4 authority bundle (admission pending `Blocked-3`) |
 
 ## Retired Repos (Deleted 2026-04-27)
@@ -39,16 +39,23 @@ All four return HTTP 404 to direct path GETs as of 2026-04-27 verification.
 
 Snapshots are non-credential tarballs of the consuming GitHub repo's evidence and state trees. They make local-machine catastrophic loss recoverable from `GitHub clone + AP snapshot fetch` alone. Each snapshot is a complete recovery base.
 
-| Snapshot | sha256 | bytes | consuming GitHub commit | admitted_utc | location |
-|---|---|---|---|---|---|
-| `morph_evidence_snapshot_2026-04-27T00-43-33Z.tar.gz` | `9b104a0c85c520eb14fd41a47de3d1beefbf1b5d5afb6c4248ca3fa02bd4ae43` | 121,119 | `d533d198784c04c3170614c6da9908059da70f87` | 2026-04-27T00:43:33Z | `Architect-Prime/gnosis-morph-bench-artifacts/snapshots/` |
+| Snapshot | kind | sha256 | bytes | consuming GitHub commit | admitted_utc | location |
+|---|---|---|---|---|---|---|
+| `morph_evidence_snapshot_2026-04-27T00-43-33Z.tar.gz` | evidence_tree (artifacts/, docs/, .gpd/, fixtures, root governance from inside the GitHub repo) | `9b104a0c85c520eb14fd41a47de3d1beefbf1b5d5afb6c4248ca3fa02bd4ae43` | 121,119 | `d533d198784c04c3170614c6da9908059da70f87` | 2026-04-27T00:43:33Z | `Architect-Prime/gnosis-morph-bench-artifacts/snapshots/` |
+| `morph_workstream_package_2026-04-27T10-29-06Z.tar.gz` | workstream_package (00_brief, 01_prd_and_authority, 02_source_inventory, 03_data_policy, 04_evidence_manifest, 06_handover — sibling dirs to the GitHub repo, NOT tracked by git, were Mac-only before this snapshot) | `77e6672c0911dc2031c0924581630fb3ed3adc49bd8079eebeb04f4d90b88b9d` | 13,542 | `bac604f72cb7450a3f75e1d9ea31cc8398bc2b57` | 2026-04-27T10:29:06Z | `Architect-Prime/gnosis-morph-bench-artifacts/snapshots/` |
 
 Snapshot integrity verification (HF round-trip):
 
 ```text
-local snapshot sha256:    9b104a0c85c520eb14fd41a47de3d1beefbf1b5d5afb6c4248ca3fa02bd4ae43
-hf-roundtrip sha256:      9b104a0c85c520eb14fd41a47de3d1beefbf1b5d5afb6c4248ca3fa02bd4ae43
-integrity:                PASS
+evidence_tree (2026-04-27T00-43-33Z):
+  local sha256:           9b104a0c85c520eb14fd41a47de3d1beefbf1b5d5afb6c4248ca3fa02bd4ae43
+  hf-roundtrip sha256:    9b104a0c85c520eb14fd41a47de3d1beefbf1b5d5afb6c4248ca3fa02bd4ae43
+  integrity:              PASS (re-verified 2026-04-27 post-mirror pass; prior snapshot still intact)
+
+workstream_package (2026-04-27T10-29-06Z):
+  local sha256:           77e6672c0911dc2031c0924581630fb3ed3adc49bd8079eebeb04f4d90b88b9d
+  hf-roundtrip sha256:    77e6672c0911dc2031c0924581630fb3ed3adc49bd8079eebeb04f4d90b88b9d
+  integrity:              PASS
 ```
 
 Snapshot trigger cadence and procedure documented in `docs/HF_STORAGE.md` §Operational-Safety Snapshot Protocol.
