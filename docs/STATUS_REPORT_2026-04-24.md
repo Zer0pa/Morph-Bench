@@ -101,8 +101,8 @@ Plan summaries: [03-01](../.gpd/phases/03-blind-clone-and-promotion-review/03-01
 | Workstream-level `06_handover/HANDOVER_NOTES.md` handback section appended | ✓ DONE | workstream tree (not in git custody) |
 
 HF URLs (both private until Blocked-2 clears):
-- https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-artifacts
-- https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-authority-bundle
+- https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-artifacts
+- https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-authority-bundle
 
 ---
 

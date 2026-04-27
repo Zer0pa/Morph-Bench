@@ -53,7 +53,7 @@ def test_fetch_artifact_writes_cache_and_verifies_sha(tmp_path: Path) -> None:
     opener = _StubOpener(payload)
 
     result = hf_cache.fetch_artifact(
-        repo="Zer0pa/gnosis-morph-bench-artifacts",
+        repo="Architect-Prime/gnosis-morph-bench-artifacts",
         artifact_path="replay/example.json",
         expected_sha256=expected_sha,
         cache_dir=tmp_path,
@@ -61,7 +61,7 @@ def test_fetch_artifact_writes_cache_and_verifies_sha(tmp_path: Path) -> None:
         opener_factory=_factory_for(opener),
     )
 
-    assert result.path == tmp_path / "Zer0pa/gnosis-morph-bench-artifacts/replay/example.json"
+    assert result.path == tmp_path / "Architect-Prime/gnosis-morph-bench-artifacts/replay/example.json"
     assert result.path.is_file()
     assert result.path.read_bytes() == payload
     assert result.sha256 == expected_sha
@@ -71,7 +71,7 @@ def test_fetch_artifact_writes_cache_and_verifies_sha(tmp_path: Path) -> None:
     assert opener.last_request is not None
     assert opener.last_request.headers.get("Authorization") == "Bearer fake-token"
     assert opener.last_request.full_url == (
-        "https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-artifacts"
+        "https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-artifacts"
         "/resolve/main/replay/example.json"
     )
 
@@ -84,12 +84,12 @@ def test_fetch_artifact_raises_on_sha_mismatch_and_removes_partial(
     opener = _StubOpener(payload)
 
     expected_cache_path = (
-        tmp_path / "Zer0pa/gnosis-morph-bench-artifacts/replay/bad.json"
+        tmp_path / "Architect-Prime/gnosis-morph-bench-artifacts/replay/bad.json"
     )
 
     with pytest.raises(hf_cache.Sha256MismatchError) as excinfo:
         hf_cache.fetch_artifact(
-            repo="Zer0pa/gnosis-morph-bench-artifacts",
+            repo="Architect-Prime/gnosis-morph-bench-artifacts",
             artifact_path="replay/bad.json",
             expected_sha256=bogus_sha,
             cache_dir=tmp_path,
@@ -106,7 +106,7 @@ def test_fetch_artifact_raises_on_sha_mismatch_and_removes_partial(
 def test_fetch_artifact_rejects_non_hex_sha(tmp_path: Path) -> None:
     with pytest.raises(ValueError):
         hf_cache.fetch_artifact(
-            repo="Zer0pa/gnosis-morph-bench-artifacts",
+            repo="Architect-Prime/gnosis-morph-bench-artifacts",
             artifact_path="replay/x.json",
             expected_sha256="not-a-hex-string",
             cache_dir=tmp_path,
@@ -116,7 +116,7 @@ def test_fetch_artifact_rejects_non_hex_sha(tmp_path: Path) -> None:
 def test_fetch_artifact_rejects_wrong_length_sha(tmp_path: Path) -> None:
     with pytest.raises(ValueError):
         hf_cache.fetch_artifact(
-            repo="Zer0pa/gnosis-morph-bench-artifacts",
+            repo="Architect-Prime/gnosis-morph-bench-artifacts",
             artifact_path="replay/x.json",
             expected_sha256="abc123",
             cache_dir=tmp_path,
@@ -131,7 +131,7 @@ def test_fetch_artifact_omits_auth_when_no_token(
     monkeypatch.delenv("HF_TOKEN", raising=False)
 
     result = hf_cache.fetch_artifact(
-        repo="Zer0pa/gnosis-morph-bench-artifacts",
+        repo="Architect-Prime/gnosis-morph-bench-artifacts",
         artifact_path="replay/public.json",
         expected_sha256=hashlib.sha256(payload).hexdigest(),
         cache_dir=tmp_path,

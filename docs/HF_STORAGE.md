@@ -1,138 +1,110 @@
 # Hugging Face Storage Strategy
 
 This doc specifies how the Gnosis Morph-Bench project divides storage
-between GitHub and Hugging Face, following the working agreement
-**"GitHub for code, HF for large datasets and artefacts"**. It is
-authoritative for where any given artifact class lives, how it is
-pinned, and how consumers fetch it. It does NOT override
-[`DATA_POLICY.md`](../DATA_POLICY.md) or the workstream-level
-[`../../06_handover/DATA_POLICY.md`](../../../06_handover/DATA_POLICY.md);
-every storage choice here must be consistent with those policies and
-with [`PROMOTION_READINESS.md`](PROMOTION_READINESS.md).
+between GitHub and Hugging Face. It is authoritative for where any
+given artifact class lives, how it is pinned, and how consumers
+fetch it. It does NOT override [`DATA_POLICY.md`](../DATA_POLICY.md)
+or [`PROMOTION_READINESS.md`](PROMOTION_READINESS.md); every storage
+choice here must be consistent with both.
 
-## Split
+**As of 2026-04-27, the Zer0pa org is NOT used for Morph-Bench HF
+storage.** Per operator directive, all canonical artefact custody for
+this lane lives under the `Architect-Prime` HF user namespace. The
+two `Zer0pa/*` dataset repos that previously existed have been
+deleted. This is mission-critical operational safety: GitHub holds
+code, `Architect-Prime/*` holds artefact and evidence custody, and
+between the two a local-machine catastrophic loss is recoverable.
 
-Storage is a three-tier model (per the Gnosis HF Storage Execution
-Brief 2026-04-26 §1.2 + §3):
+## Two-Source Recovery Posture
 
-- **GitHub** ([`https://github.com/Zer0pa/Morph-Bench`](https://github.com/Zer0pa/Morph-Bench))
-  carries all code, docs, tests, tiny synthetic fixtures, neutral
-  adapter-run records that fit within the DATA_POLICY's "may-carry"
-  list, and the committed smoke byte-reference. Upper size ceiling
-  is enforced implicitly by the DATA_POLICY.
-- **Hugging Face `Zer0pa/*` (lightweight discovery surface)** carries
-  manifests, indices, README cards, schema files, comparator tables,
-  proof indexes, and small curated artefacts useful for review and
-  discovery. This is the first place a reviewer looks. SHA-256 pinning
-  applies to every admitted file.
-- **Hugging Face `Architect-Prime/*` (canonical heavy private store)**
-  carries the heavy bytes — adapter run records against admitted
-  production inputs, replay-output bundles, raw or bulky evidence
-  payloads, the read-only mirror of the live Phase 4 authority
-  bundle, and any artefact meeting the routing thresholds below.
-  Created on first heavy admission; not yet created today (no heavy
-  content has been admitted). **Hard rule: never made public** per
-  brief §1.3.
+Working assumption: the local Mac may die unrecoverably at any time.
+Everything of value MUST live on at least one remote that survives
+that loss.
 
-Neither HF tier stores raw corpora or image-bearing payloads while
-Blocked-3 from [`PROMOTION_READINESS.md`](PROMOTION_READINESS.md) is
-open.
+| Asset class | Authoritative remote | Recovery procedure |
+|---|---|---|
+| Code, tests, docs, configs, .gpd state, plans, summaries, transcripts, fixtures | GitHub `Zer0pa/Morph-Bench` (private) | `git clone https://github.com/Zer0pa/Morph-Bench.git` |
+| Adapter run records, replay-output bundles, periodic evidence-tree snapshots, future heavy artefacts | HF `Architect-Prime/gnosis-morph-bench-artifacts` (private, canonical) | `huggingface-cli download` against pinned SHAs in `MANIFEST.json` |
+| Source-authority mirror of live Phase 4 bundle (when admitted under `Blocked-3`) | HF `Architect-Prime/gnosis-morph-bench-authority-bundle` (private, canonical) | `huggingface-cli download` against pinned SHAs |
+| HF token, SSH keys, machine-local operational state | NOT replicated; not stored anywhere remotely | regenerate per `docs/HF_CUSTODY_REGISTER.md` and operator guidance |
 
-## Routing Thresholds
-
-Per Gnosis HF Storage Execution Brief 2026-04-26 §4. Default to these
-when in doubt:
-
-- single file > 1 MB → heavy tier (`Architect-Prime/*`);
-- lane payload > 100 MB total → heavy tier;
-- model weight of any size → heavy tier;
-- many-file directory with meaningful aggregate weight → heavy tier;
-- small JSON / Markdown / schema / manifest / index → lightweight
-  (`Zer0pa/*`);
-- if a payload is small AND useful for discovery, dual-host on both
-  tiers (org for discovery, AP for canonical custody) when the byte
-  cost of duplication is trivial.
+No third storage tier. No Zer0pa-org HF presence. No machine-local-only
+asset of recovery value.
 
 ## HF Dataset Repos
 
-### Lightweight tier — `Zer0pa/*` (org discovery surface)
+Two private dataset repos under `Architect-Prime` carry all HF custody
+for this lane.
 
-Two private dataset repos are provisioned under the `Zer0pa` HF org.
-Both currently hold lightweight cards + empty `MANIFEST.json` only.
+### `Architect-Prime/gnosis-morph-bench-artifacts`
 
-#### `Zer0pa/gnosis-morph-bench-artifacts`
+- URL: [https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-artifacts](https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-artifacts)
+- Visibility: **private indefinitely** per Gnosis HF Storage Execution Brief 2026-04-26 §1.3.
+- **Stores:** adapter run records (`artifacts/replay/indus_phase4_live_<date>.json` and run records) once `Blocked-1` admits a consumable Phase 3c feature manifest; replay-output bundles; periodic operational-safety snapshots of the consuming GitHub repo's `artifacts/`, `docs/`, `.gpd/`, `fixtures/`, `tests/fixtures/` trees plus root `NOTICE.md`, `README.md`, PRD, and `pyproject.toml`; future cuneiform-family adapter run records once admitted.
+- **Does NOT store:** raw corpora; image-bearing benchmark payloads; training data; review-pack artifacts; anything covered by `DATA_POLICY.md` "must NOT yet carry"; HF tokens or any secrets.
 
-- URL: [https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-artifacts](https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-artifacts)
-- Tier: **lightweight discovery surface**.
-- Visibility: **private** until orchestrator approval AND Blocked-2.
-- **Stores:** the manifest index, README card, schema descriptors, and
-  small curated proof summaries that point a reviewer at the heavy
-  bytes living in `Architect-Prime/gnosis-morph-bench-artifacts`. May
-  also dual-host particularly important small artefacts where the byte
-  cost is trivial.
-- **Does NOT store:** heavy adapter run records, replay-output
-  bundles, raw corpora, image-bearing payloads, training data, or
-  anything meeting the routing-threshold "heavy" criteria above.
+### `Architect-Prime/gnosis-morph-bench-authority-bundle`
 
-#### `Zer0pa/gnosis-morph-bench-authority-bundle`
+- URL: [https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-authority-bundle](https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-authority-bundle)
+- Visibility: **private indefinitely** per Gnosis HF Storage Execution Brief 2026-04-26 §1.3.
+- **Stores:** a read-only mirror of the live Phase 4 authority bundle once owner-admitted, specifically `governing_route_selection.json`, `stability_report.json`, `dt05_replay.json`, `icit_reference_frozen.json` — each with a companion SHA-256 in the repo-root `MANIFEST.json` and parity-checked against the upstream-declared SHA.
+- **Does NOT store:** raw corpora, image payloads, any artifact `DATA_POLICY.md` excludes, any file the source authority has not explicitly cleared for mirror.
 
-- URL: [https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-authority-bundle](https://huggingface.co/datasets/Zer0pa/gnosis-morph-bench-authority-bundle)
-- Tier: **lightweight discovery surface for the authority mirror**.
-- Visibility: **private** until orchestrator approval AND Blocked-2.
-- **Stores:** the manifest index and README card describing the
-  intended mirror of the live Phase 4 authority bundle. The actual
-  mirror bytes (`governing_route_selection.json`,
-  `stability_report.json`, `dt05_replay.json`,
-  `icit_reference_frozen.json`) live in
-  `Architect-Prime/gnosis-morph-bench-authority-bundle` once admitted,
-  per the brief's heavy-tier routing for sensitive content regardless
-  of byte size.
-- **Does NOT store:** any image payload, any artefact the
-  `DATA_POLICY.md` "must NOT yet carry" list excludes, any file the
-  source authority has not explicitly cleared for mirror.
+## Operational-Safety Snapshot Protocol
 
-### Heavy tier — `Architect-Prime/*` (canonical private store)
+Periodic non-credential snapshots of the consuming GitHub repo's
+evidence and state trees go to `Architect-Prime/gnosis-morph-bench-artifacts`
+under `snapshots/morph_evidence_snapshot_<UTC-iso-stamp>.tar.gz`.
+Snapshot procedure:
 
-Two `Architect-Prime` dataset repos are reserved by the routing
-contract but **not yet created** (no heavy artefacts have been
-admitted). Both will be created on first heavy admission per brief
-§6 Step 4.
+```bash
+SNAPDATE=$(date -u +%Y-%m-%dT%H-%M-%SZ)
+SNAPHEAD=$(git rev-parse HEAD)
+tar --no-xattrs \
+  --exclude='.venv' --exclude='__pycache__' --exclude='.pytest_cache' \
+  --exclude='*.egg-info' --exclude='.gpd/state.json.bak' --exclude='.gpd/.state-write-intent' \
+  -czf /tmp/morph_evidence_snapshot_${SNAPDATE}.tar.gz \
+  artifacts/ docs/ .gpd/ tests/fixtures/ fixtures/ \
+  NOTICE.md README.md PRD_GNOSIS_MORPH_BENCH_2026-04-23.md pyproject.toml
+SNAPSHA=$(shasum -a 256 /tmp/morph_evidence_snapshot_${SNAPDATE}.tar.gz | cut -d' ' -f1)
+# upload with HfApi.upload_file or huggingface-cli upload, then update MANIFEST.json
+```
 
-#### `Architect-Prime/gnosis-morph-bench-artifacts` (planned)
+Trigger cadence:
 
-- Tier: **canonical heavy private store**.
-- Visibility: **private indefinitely** per brief §1.3 hard rule.
-- **Will store:** adapter run records against admitted production
-  inputs (`artifacts/replay/indus_phase4_live_<date>.json` and run
-  records); replay-output bundles; bulky benchmark dumps; future
-  cuneiform-family heavy artefacts when that adapter ratifies.
-- **Will NOT store:** raw image-bearing corpora until Blocked-3
-  rights-class clears; any artefact bypassing the SHA-256 manifest
-  pin.
+- after every commit that materially changes `artifacts/`, `.gpd/`, or `docs/`;
+- before any potentially destructive local operation;
+- at minimum weekly while Mac is the primary work environment;
+- on any explicit operator directive.
 
-#### `Architect-Prime/gnosis-morph-bench-authority-bundle` (planned)
-
-- Tier: **canonical heavy private mirror of upstream authority**.
-- Visibility: **private indefinitely** per brief §1.3 hard rule.
-- **Will store:** SHA-pinned mirror of the four upstream Phase 4
-  authority bundle files once owner-admitted; companion
-  upstream-parity SHA records.
-- **Will NOT store:** any artefact the upstream authority chain
-  has not cleared for mirror.
+Each snapshot is a complete recovery base — older snapshots may be
+pruned by the operator without losing recoverability, since each one
+plus the corresponding GitHub commit fully reconstitutes the working
+state.
 
 ## SHA-256 Pinning
 
-Every artifact pushed to either HF repo carries a SHA-256 recorded at
+Every artifact pushed to either AP repo carries a SHA-256 recorded at
 the repo root `MANIFEST.json`. The manifest shape is:
 
 ```json
 {
+  "schema_version": 1,
+  "consuming_github_repo": "Zer0pa/Morph-Bench",
+  "consuming_github_commit": "<full sha at admission time>",
+  "manifest_purpose": "<short description>",
+  "spelling_convention": "artifact (US English)",
   "artifacts": [
     {
       "path": "<relative path inside the HF repo>",
       "sha256": "<hex SHA-256 of the file bytes>",
-      "source_authority": "<workstream-local source path the file mirrors, if applicable>",
-      "admitted_utc": "<ISO-8601 admission timestamp>"
+      "size_bytes": <int>,
+      "kind": "<operational_safety_snapshot | adapter_run_record | replay_bundle | source_authority_mirror | ...>",
+      "source_provenance": "<workstream-local source path or build command>",
+      "consuming_github_commit": "<sha tying admission to a specific repo state>",
+      "admitted_utc": "<ISO-8601 admission timestamp>",
+      "rights_class": "<internal / owner-deferred-license | source-authority / restricted | ...>",
+      "purpose": "<why this artefact is admitted>"
     }
   ]
 }
@@ -148,24 +120,19 @@ enforces this.
 
 ## Fetch-Back Convention
 
-- Fetched artifacts land in `artifacts/hf_cache/<repo_name>/<artifact_path>`
-  under repo custody.
-- `artifacts/hf_cache/` is gitignored — HF fetches are a local
-  materialization, never a repo-custody commit.
-- Fetch scripts verify the SHA-256 before declaring the fetch
-  successful; mismatch is a hard failure.
-- Authentication uses `HF_TOKEN` from env (or
-  `~/.cache/huggingface/token`, which is what the `huggingface-cli login`
-  flow writes). No token is ever committed to either repo.
+- Fetched artifacts land in `artifacts/hf_cache/<repo_name>/<artifact_path>` under repo custody.
+- `artifacts/hf_cache/` is gitignored — HF fetches are a local materialization, never a repo-custody commit.
+- Fetch scripts verify the SHA-256 before declaring the fetch successful; mismatch is a hard failure.
+- Authentication uses `HF_TOKEN` from env (or `~/.cache/huggingface/token`, which is what the `huggingface-cli login` flow writes). No token is ever committed to either repo.
 
-## Private-Until-License Posture
+## Privacy Posture
 
-Both HF repos remain **private** until Blocked-2 (canonical LICENSE)
-from [`PROMOTION_READINESS.md`](PROMOTION_READINESS.md) closes. Making
-either HF repo public before a canonical LICENSE exists would violate
-the license posture of the GitHub repo and of the workstream
-DATA_POLICY. Flipping either HF repo to public therefore requires the
-same owner decision that produces a canonical `LICENSE` file.
+Both AP repos remain **private indefinitely** per Gnosis HF Storage
+Execution Brief 2026-04-26 §1.3 hard rule: "never make an
+`Architect-Prime` Gnosis repo public." Even if the consuming GitHub
+repo flips public after legal review, the AP-side custody store stays
+private. There is no scenario in which an `Architect-Prime/*` Gnosis
+dataset becomes a public surface.
 
 ## Consumer Authentication
 
@@ -177,13 +144,12 @@ export HF_TOKEN="$(cat ~/.cache/huggingface/token)"
 huggingface-cli login   # writes ~/.cache/huggingface/token
 ```
 
-The staged repo never ships an `HF_TOKEN`. Token rotation is handled
-by the HF user-settings page for `Architect-Prime`; the `Zer0pa` org
-carries no bot token today.
+The staged repo never ships an `HF_TOKEN`. Tokens are owner-managed.
 
 ## Out Of Scope
 
 This doc does NOT admit new storage back-ends (S3, GCS, Zenodo, etc.)
 without a governance decision. If a future phase needs one, it must be
 added to this doc, to `DATA_POLICY.md`, and to `PROMOTION_READINESS.md`
-together.
+together. The Zer0pa HF org is explicitly not a back-end for this
+lane and will not be added back without a written operator reversal.

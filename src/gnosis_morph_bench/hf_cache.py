@@ -101,7 +101,7 @@ def fetch_artifact(
     Parameters
     ----------
     repo:
-        ``<org>/<name>`` form, e.g. ``"Zer0pa/gnosis-morph-bench-artifacts"``.
+        ``<org-or-user>/<name>`` form, e.g. ``"Architect-Prime/gnosis-morph-bench-artifacts"``.
     artifact_path:
         Path inside the HF repo, e.g.
         ``"replay/indus_phase4_live_2026-05-01.json"``.
