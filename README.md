@@ -1,6 +1,28 @@
-> **Notice:** This is a private internal repository. See `NOTICE.md`.
-
 # Gnosis Morph Bench
+
+## Licensing
+
+This repository is part of the Zer0pa Gnosis Portfolio.
+
+**Code** in this repository is licensed under the Apache License 2.0. See
+`LICENSE` for the full text. SPDX identifier: `Apache-2.0`.
+
+**Documentation, reports, and written materials** are licensed under Creative
+Commons Attribution 4.0 International. SPDX identifier: `CC-BY-4.0`. Canonical
+terms: <https://creativecommons.org/licenses/by/4.0/>.
+
+**Data and fixtures** are handled per dataset and artifact family. See
+`DATA_POLICY.md` for this repository's data boundary. The code license does not
+license raw corpora, image-bearing cultural-heritage assets, private HF
+artifacts, model weights, endpoint logs, or operational transcripts.
+
+**Trademarks** - "Gnosis", "Zer0pa Gnosis", and distinctive sub-marks are
+trademarks of Zer0pa. Apache-2.0 and CC-BY-4.0 do not grant trademark rights.
+See `TRADEMARKS.md`.
+
+Public visibility is a separate repository-setting action. The license files in
+this repo define the intended open-source/open-documentation terms for released
+Gnosis code and written materials; they do not publish rights-gated data.
 
 ## What This Is
 
@@ -32,7 +54,7 @@ These are repo-truth metrics, not product or scientific claims. Live Indus Phase
 
 - That the live Indus Phase 4 measured values have been reproduced from repo custody. They have not. Live rerun is blocked on admitted Phase 3c manifest access (`Blocked-1`).
 - That the synthetic smoke path constitutes proof of any live finding.
-- That this repo is ready for public release. It is not. See `Commercial Readiness` below.
+- That this repo is ready for a public visibility flip. It is not; data and artifact gates remain. See `Commercial Readiness` below.
 - That the cuneiform benchmark family is in scope for the v1 adapter contract. It is explicitly deferred to a separate future contract once the first real Indus replay lands.
 - That this repo carries any descriptor, kernel, image-preprocessing, or domain-verdict ownership. Those belong to other Gnosis lanes.
 
@@ -40,10 +62,10 @@ These are repo-truth metrics, not product or scientific claims. Live Indus Phase
 
 `STAGED`.
 
-The repo-local benchmark framework is usable today on synthetic fixtures with a deterministic, cross-environment, lint-clean surface. Public promotion is gated on three external owner-decisions enumerated in [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md):
+The repo-local benchmark framework is usable today on synthetic fixtures with a deterministic, cross-environment, lint-clean surface. Public promotion is gated on the remaining release-boundary decisions enumerated in [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md):
 
 - `Blocked-1`: admitted Indus Phase 3c feature manifest access.
-- `Blocked-2`: canonical license decision (see [`docs/LEGAL_REVIEW_PREP.md`](docs/LEGAL_REVIEW_PREP.md)).
+- `Blocked-2`: visibility, claims, and repo-manager release review.
 - `Blocked-3`: heavy-data release policy for image-bearing assets.
 
 `Blocked-4` (smoke byte-reference re-freeze) closed on 2026-04-24.
@@ -88,7 +110,7 @@ Blind-clone verification (cross-environment): see [`artifacts/blind_clone/03-01_
 
 ```
 .
-├── NOTICE.md                          # root legal posture (private/internal)
+├── NOTICE                          # Apache-2.0 code and CC-BY-4.0 docs posture
 ├── PRD_GNOSIS_MORPH_BENCH_2026-04-23.md
 ├── README.md
 ├── pyproject.toml                     # Python ≥ 3.10, deps: numpy, scikit-learn

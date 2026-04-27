@@ -17,5 +17,4 @@ The staged repo must not yet carry:
 - image-bearing benchmark payloads
 - review-pack artifacts
 
-Public promotion remains blocked until canonical license text is supplied and
-the release boundary for image-bearing assets is written explicitly.
+Public promotion no longer depends on missing license text: repository code is Apache-2.0 and documentation is CC-BY-4.0. Public promotion still depends on the release boundary for image-bearing and rights-gated assets being written explicitly.

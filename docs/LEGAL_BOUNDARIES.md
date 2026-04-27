@@ -2,27 +2,37 @@
 
 ## Authority
 
-The final legal authority for this repo will be the `LICENSE` file once the
-owner supplies canonical text. Until then, treat unresolved legal details as
-`OWNER_DEFERRED`.
+The legal authority for repository code is `LICENSE` (Apache License 2.0).
+Documentation, reports, and written materials are released under Creative
+Commons Attribution 4.0 International unless a narrower file-level notice says
+otherwise.
+
+`NOTICE` records attribution, trademark, third-party, and data-boundary notes.
+`DATA_POLICY.md` controls whether data, fixtures, corpora, model weights, or
+image-bearing artifacts may be redistributed.
 
 ## Public Summary Rules
 
-- Do not claim broader rights than the final license grants.
-- Do not describe domain findings as if they were protected product-specific
-  novelty of this repo.
-- Do not turn roadmap intent into redistribution permission.
+- Do not claim rights broader than Apache-2.0 for code and CC-BY-4.0 for docs.
+- Do not imply that code openness licenses raw corpora, cultural-heritage
+  imagery, private HF artifacts, endpoint logs, or model weights.
+- Do not describe a blocked scientific claim as closed merely because the repo
+  has a public license.
+- Keep claim, no-go, and retraction language aligned with the README and proof
+  anchors.
 
 ## Current Public Boundary
 
 | Topic | Current Public Statement | Source Of Authority |
 |---|---|---|
-| License identity | `OWNER_DEFERRED` | missing final `LICENSE` |
-| Commercial use | `OWNER_DEFERRED` | owner-supplied license needed |
-| Redistribution | docs and synthetic fixtures only until the data boundary closes | `DATA_POLICY.md` and future license |
-| Novelty or protected scope | benchmark and replay logic only, not domain verdicts | sovereign PRD and future license |
+| Code license | Apache-2.0 | `LICENSE` |
+| Documentation and reports | CC-BY-4.0 | `README.md`, `NOTICE` |
+| Data and fixtures | repo-specific; not automatically licensed | `DATA_POLICY.md` |
+| Model weights and checkpoints | separate release required | `DATA_POLICY.md`, HF custody registers |
+| Trademarks | not granted by Apache-2.0 or CC-BY-4.0 | `TRADEMARKS.md` |
 
-## Owner Inputs Still Needed
+## Inputs Still Needed Before Visibility Flip
 
-- final license text
-- public redistribution decision for any later heavy benchmark assets
+- final public/non-public visibility decision for this repo
+- data/artifact scrub for any rights-gated assets
+- third-party dependency re-audit before a tagged public release

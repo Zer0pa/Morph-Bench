@@ -1,0 +1,20 @@
+Gnosis Portfolio - Morph-Bench
+Copyright (c) Zer0pa
+
+This product includes software and associated materials developed by Zer0pa.
+Use is governed by the Apache License 2.0 for code and the Creative Commons
+Attribution 4.0 International license for documentation, reports, and written
+materials, except where a file, artifact, dataset, model, or third-party
+component states different terms.
+
+The "Gnosis" name, the "Zer0pa Gnosis" mark, and distinctive sub-marks of this
+Portfolio are trademarks of Zer0pa. The Apache 2.0 license does not grant
+trademark rights. See TRADEMARKS.md.
+
+Third-party components are listed in THIRD_PARTY_NOTICES.md and remain governed
+by their respective licenses.
+
+Data, fixtures, corpora, image-bearing cultural-heritage assets, private HF
+artifacts, model weights, endpoint logs, and operational transcripts are not
+licensed merely because this repository's code is Apache-2.0. See DATA_POLICY.md
+for the repository-specific data boundary.
