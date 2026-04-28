@@ -5,6 +5,11 @@
 **Audience:** GitHub reviewers evaluating the staged repo and the work that landed under this execution window
 **Scope of this report:** what the agent executed, what passed, what was declined, and what remains owner-blocked.
 
+> Historical report. It records the 2026-04-24 execution window and preserves
+> the blocker vocabulary that was true then. Current promotion, license, and
+> website-sync posture lives in `docs/PROMOTION_READINESS.md`, `README.md`,
+> `DATA_POLICY.md`, and `.gpd/STATE.md`.
+
 This document is a snapshot of the execution run. It is not a substitute for the authoritative artifacts it references — it is an index into them.
 
 ---
@@ -21,7 +26,7 @@ The four roadmap phases under `05_repo_scaffold/.gpd/ROADMAP.md` are complete:
 | 03 | Blind Clone & Promotion Review | ✓ DONE | blind-clone PASS on macOS + RunPod; `docs/PROMOTION_READINESS.md` authored |
 
 **Staged gate per [`PRD_GNOSIS_MORPH_BENCH_2026-04-23.md`](../PRD_GNOSIS_MORPH_BENCH_2026-04-23.md) §5:** PASS.
-**Public promotion gate:** BLOCKED on three owner-deferred items enumerated in §7 of this report and fully in [`docs/PROMOTION_READINESS.md`](./PROMOTION_READINESS.md).
+**Public promotion gate at this report date:** BLOCKED on three owner-deferred items enumerated in §7 of this report. Current gate state is maintained in [`docs/PROMOTION_READINESS.md`](./PROMOTION_READINESS.md).
 
 ---
 
@@ -100,7 +105,7 @@ Plan summaries: [03-01](../.gpd/phases/03-blind-clone-and-promotion-review/03-01
 | README synced to current phase/CLI state | ✓ DONE | `b93be9b` |
 | Workstream-level `06_handover/HANDOVER_NOTES.md` handback section appended | ✓ DONE | workstream tree (not in git custody) |
 
-HF URLs (both private until Blocked-2 clears):
+HF URLs (2026-04-24 historical note: both were private under the then-open Blocked-2 status):
 - https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-artifacts
 - https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-authority-bundle
 
@@ -122,23 +127,26 @@ This repo does **not** claim:
 - that the live Indus Phase 4 measured values (NMI 0.5793, Sigma 5.65, Jaccard 0.4351, Replay 3/3) have been reproduced here — those remain **source authority**, cited from [`01_prd_and_authority/AUTHORITY_CHAIN.md`](../../01_prd_and_authority/AUTHORITY_CHAIN.md), until an admitted live-manifest replay happens under repo custody;
 - that the synthetic smoke path constitutes proof of the live finding;
 - that the cuneiform benchmark family is in scope for the current adapter contract (it is explicitly deferred to a separate future contract);
-- that the repo is ready for public promotion (it is not — three external blockers remain, per §7).
+- that the repo is ready for public promotion as of 2026-04-24 (it was not — three external blockers remained, per §7).
 
 This posture is enforced in [`README.md`](../README.md), [`docs/PROMOTION_READINESS.md`](./PROMOTION_READINESS.md), every plan SUMMARY under `.gpd/phases/`, and the adapter contract itself.
 
 ---
 
-## 7. Remaining Blockers (OWNER_DEFERRED)
+## 7. Historical Remaining Blockers As Of 2026-04-24 (OWNER_DEFERRED)
 
-These cannot self-unblock. Each has a named unblock condition and an owner pointer in [`docs/PROMOTION_READINESS.md`](./PROMOTION_READINESS.md).
+These could not self-unblock at the time this report was written. Current
+blocker status is maintained in [`docs/PROMOTION_READINESS.md`](./PROMOTION_READINESS.md).
 
 | ID | Blocker | Unblock artifact when resolved | Gate unblocked |
 |---|---|---|---|
 | **Blocked-1** | Admitted Indus Phase 3c feature manifest access (path + SHA-256 + authority chain linkage) | `artifacts/replay/indus_phase4_live_<date>.json` under repo custody, plus adapter-run record | PRD §4 "Replay from repo custody" |
-| **Blocked-2** | Canonical LICENSE text | `LICENSE` at repo root + coherent README / GOVERNANCE / RELEASING / LEGAL_BOUNDARIES updates | Public promotion; HF repos flip to public |
+| **Blocked-2** | Canonical LICENSE text | `LICENSE` at repo root + coherent README / GOVERNANCE / RELEASING / LEGAL_BOUNDARIES updates | Public promotion language; current HF visibility remains a separate data/artifact policy decision |
 | **Blocked-3** | Heavy-data release policy for image-bearing assets | `DATA_POLICY.md` §Image-Bearing Release appendix | Any vendoring decision for the Phase 4 authority bundle |
 
-One further item was self-unblockable and is now closed (Blocked-4, committed smoke byte-reference drift — refreshed in commit `10e0e9d`).
+Blocked-2 has since been resolved by the 2026-04-28 license rollout. One
+further item was self-unblockable and is now closed (Blocked-4, committed smoke
+byte-reference drift — refreshed in commit `10e0e9d`).
 
 ---
 
@@ -147,7 +155,7 @@ One further item was self-unblockable and is now closed (Blocked-4, committed sm
 - Work ran under the Get Physics Done (GPD) framework adapted to a benchmark-harness extraction workstream. Physics-specific protocols (dimensional analysis, limiting-case checks, perturbative expansion) were substituted with code-contract soundness checks, forbidden-pattern lint, and synthetic-fixture round-trip verification.
 - Subagents used: `gpd-planner` for each phase plan, `gpd-executor` for each plan execution. No subagent was granted authority to silently drop a blocker — every blocker became a named unblock item.
 - The author did not clone or reference the live monorepo source scripts (`phase4_route_selection.py`, `phase4_stability.py`, `stability_tester.py`) at any point. Those scripts are not on this Mac nor on the RunPod pod. All Phase 02 code was implemented from the adapter contract, the source inventory descriptions, and the existing starter package — not by translating code we cannot see.
-- The author did not fabricate a LICENSE or promote any owner-deferred item to "done". When the choice was between producing a plausible-looking artifact and preserving a blocker, the blocker was preserved.
+- The author did not fabricate a LICENSE or promote any owner-deferred item to "done" during the 2026-04-24 execution window. When the choice was between producing a plausible-looking artifact and preserving a blocker, the blocker was preserved.
 
 ---
 

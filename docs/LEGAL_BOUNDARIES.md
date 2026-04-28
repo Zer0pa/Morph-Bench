@@ -33,6 +33,6 @@ image-bearing artifacts may be redistributed.
 
 ## Inputs Still Needed Before Visibility Flip
 
-- final public/non-public visibility decision for this repo
+- repo-manager visibility action for this repo
 - data/artifact scrub for any rights-gated assets
 - third-party dependency re-audit before a tagged public release

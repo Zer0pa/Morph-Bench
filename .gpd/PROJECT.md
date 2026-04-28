@@ -122,7 +122,8 @@ monorepo layout.`
 
 ### Target Environment Or Venue
 
-`Private staged repo first, public promotion only after replay and legal gates.`
+`Open code/docs posture with named replay, data, and visibility gates; website
+sync only after repo-orchestrator review.`
 
 ### Computational Or Operational Environment
 
@@ -150,3 +151,6 @@ See `.gpd/REQUIREMENTS.md`.
 | -------- | --------- | ------- |
 | Keep a tiny synthetic smoke path in-repo | Needed for a real standalone install gate | `ADOPTED` |
 | Keep heavy corpora outside the staged repo | Prevents false completeness and rights drift | `ADOPTED` |
+| Treat Apache-2.0 code and CC-BY-4.0 docs as settled | License rollout closed the code/docs blocker without touching data rights | `ADOPTED` |
+| Keep data/artifact release separate from license posture | Prevents private HF, image-bearing assets, logs, or live replay inputs from being promoted by implication | `ADOPTED` |
+| Defer Ops-Gates consumption until self-green | A red gate repo cannot be load-bearing for this lane | `ADOPTED` |

@@ -2,8 +2,8 @@
 
 ## Goal
 
-Prove that the staged repo installs and that the neutral smoke benchmark can
-run without the live monorepo layout.
+Prove that the repo installs and that the neutral smoke benchmark can run
+without the live monorepo layout.
 
 ## Commands
 

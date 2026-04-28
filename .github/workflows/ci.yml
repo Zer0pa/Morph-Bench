@@ -31,5 +31,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[dev]'
 
+      - name: repo hygiene scan
+        run: |
+          set -euo pipefail
+          if git grep -ni "priniven" -- . ':!LICENSE' ':!.github/workflows/ci.yml' ':!AUDITOR_PLAYBOOK.md'; then
+            echo "operator-name leakage detected"
+            exit 1
+          fi
+          if git grep -nE '/Users/|38\.80\.152\.147|7k3riasglemecu|AKIA[0-9A-Z]{16}|xox[abp]-|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----' -- . ':!.github/workflows/ci.yml' ':!AUDITOR_PLAYBOOK.md'; then
+            echo "concrete local path or secret-shaped leakage detected"
+            exit 1
+          fi
+
       - name: run pytest
         run: pytest -q

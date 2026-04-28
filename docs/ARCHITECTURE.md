@@ -2,8 +2,8 @@
 
 ## Purpose
 
-This file maps where technical truth lives in the staged `gnosis-morph-bench`
-repo and where cited source-repo authority is still required.
+This file maps where technical truth lives in `gnosis-morph-bench` and where
+cited source authority is still required.
 
 ## System Snapshot
 
@@ -12,15 +12,15 @@ repo and where cited source-repo authority is still required.
 | Public docs | front door, governance, audit limits, migration boundary | `README.md`, `GOVERNANCE.md`, `PUBLIC_AUDIT_LIMITS.md`, `SOURCE_BOUNDARY.md`, `DATA_POLICY.md` |
 | Code or runtime | schema loader, route evaluator, stability helpers, smoke CLI | `src/gnosis_morph_bench/` |
 | Evidence artifacts | on-demand synthetic smoke report | `artifacts/smoke/` after local execution |
-| Source authority outside repo custody | live Phase 4 methods findings and cuneiform benchmark manifest family | cited paths in `../01_prd_and_authority/AUTHORITY_CHAIN.md` and `../04_evidence_manifest/` |
+| Source authority outside repo custody | live Phase 4 methods findings and cuneiform benchmark manifest family | summarized in `docs/PROMOTION_READINESS.md` and `PUBLIC_AUDIT_LIMITS.md` until admitted artifacts land |
 
 ## Component Map
 
 | Component | Responsibility | Inputs | Outputs | Notes |
 |---|---|---|---|---|
 | `schema.py` | load and validate the neutral benchmark manifest | JSON manifest | typed manifest objects and reference freeze payloads | current scope is synthetic and corpus-neutral |
-| `benchmark.py` | route evaluation with NMI, null separation, and silhouette | manifest, route name, reference key, cluster config | per-route score payloads | derived from live route-selection logic, but simplified for the starter |
-| `stability.py` | leave-out Jaccard and deterministic replay checks | manifest, route name, reference key, cluster config | stability and replay payloads | starter version is fixture-focused |
+| `benchmark.py` | route evaluation with NMI, null separation, and silhouette | manifest, route name, reference key, cluster config | per-route score payloads | repo-local methods surface |
+| `stability.py` | five-mode stability battery | manifest, route name, reference key, cluster config | stability and replay payloads | deterministic replay plus perturbation modes |
 | `cli.py` | runnable smoke command | fixture path and output path | JSON smoke report | minimum staged acceptance surface |
 
 ## Authority Artifacts
@@ -28,8 +28,8 @@ repo and where cited source-repo authority is still required.
 | Artifact | Path | Why It Matters | Public? |
 |---|---|---|---|
 | Sovereign repo PRD | `../PRD_GNOSIS_MORPH_BENCH_2026-04-23.md` | Defines scope, gates, and anti-overclaim posture | `YES` |
-| Source authority chain | `../../01_prd_and_authority/AUTHORITY_CHAIN.md` | Names the control canon and live source-repo artifacts | `YES` inside the package |
-| Evidence manifest | `../../04_evidence_manifest/evidence_manifest.json` | Freezes the cited authority bundle and hashes | `YES` inside the package |
+| Promotion readiness | `../docs/PROMOTION_READINESS.md` | Names pass-now evidence and open gates | `YES` |
+| Public audit limits | `../PUBLIC_AUDIT_LIMITS.md` | States what a clone cannot prove | `YES` |
 | Smoke fixture | `../fixtures/tiny_benchmark_manifest.json` | Small runnable manifest for install verification | `YES` |
 
 ## Truth Surface Boundaries
@@ -42,6 +42,5 @@ repo and where cited source-repo authority is still required.
 
 ## Known Gaps
 
-- The live Phase 4 and cuneiform helper logic is not fully ported into this
-  repo yet.
-- Source-repo scientific artifacts are cited, not rerun from local custody.
+- The live Phase 4 rerun is blocked on admitted Phase 3c manifest custody.
+- The cuneiform adapter contract is deferred by scope.

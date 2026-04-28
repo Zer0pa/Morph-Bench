@@ -8,9 +8,15 @@ SPDX identifier: `CC-BY-4.0` (this document is documentation, not code).
 
 ## [Unreleased]
 
+### Added
+- Repo-orchestrator greenlight wave: crafted front door, current authority map,
+  public-audit boundary, stale-current-surface scan, and CI hygiene scan.
+
 ### Changed
 - `docs/PROMOTION_READINESS.md` — Blocked-2 (LICENSE) marked CLOSED; license posture section updated to Apache-2.0 + CC-BY-4.0 settled.
 - `README.md` — live-window banner added; headline-first §1 metric prose + honest-blocker line added; Commercial Readiness section expanded with Posture row; "What We Don't Claim" updated to reflect new visibility-is-default posture; §11 Upcoming Workstreams section added with 4-category taxonomy.
+- `.gpd/STATE.md`, `.gpd/ROADMAP.md`, `.gpd/state.json`, and `.gpd/DECISIONS.md` now reflect current greenlight state instead of the old license-deferred phase-planning state.
+- `DATA_POLICY.md`, `PUBLIC_AUDIT_LIMITS.md`, `AUDITOR_PLAYBOOK.md`, and `docs/PROMOTION_READINESS.md` now separate code/docs licensing from data, artifact, HF, and live-replay gates.
 
 ---
 

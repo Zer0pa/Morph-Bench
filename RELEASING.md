@@ -20,6 +20,9 @@ license boundary all agree.
 - `PUBLIC_AUDIT_LIMITS.md` still reflects the actual custody boundary.
 - `docs/ARCHITECTURE.md` and `code/README.md` reflect the package layout.
 - License references are correct for the release being published.
+- Data and artifact references still match `DATA_POLICY.md`.
+- The repo hygiene scan has zero operator-name, concrete local-path, or secret
+  pattern hits.
 - No domain-specific scientific result is implied as repo-custody proof unless
   rerun artifacts exist here.
 
@@ -34,6 +37,8 @@ license boundary all agree.
 ## Owner Inputs
 
 - versioning scheme: `0.y.z until source-custody replay passes`
-- release notes location: `OWNER_DEFERRED_ADD_CHANGELOG_BEFORE_FIRST_RELEASE`
-- license identity: `OWNER_DEFERRED`
+- release notes location: `CHANGELOG.md`
+- license identity: `Apache-2.0 code / CC-BY-4.0 docs`
 - downstream compatibility promise: `NO_STABILITY_PROMISE_BEFORE_REAL_EXTRACTION`
+- public visibility action: `repo-manager decision; do not infer from license`
+- heavy-data/image-bearing release: `BLOCKED_UNTIL_DATA_POLICY_APPENDIX`

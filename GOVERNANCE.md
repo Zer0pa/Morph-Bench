@@ -2,8 +2,9 @@
 
 ## Scope
 
-This document defines how `gnosis-morph-bench` states truth, separates staged
-repo proof from cited source authority, and decides promotion readiness.
+This document defines how `gnosis-morph-bench` states truth, separates
+repo-custody proof from cited source authority, and decides promotion
+readiness.
 
 ## Truth Hierarchy
 
@@ -24,6 +25,7 @@ repo proof from cited source authority, and decides promotion readiness.
 | `UNVERIFIED` | Claimed or proposed, but not closed |
 | `INFERRED` | Reasonable interpretation, not direct proof |
 | `OWNER_DEFERRED` | Requires owner-supplied input before closure |
+| `SOURCE_AUTHORITY_ONLY` | Cited upstream authority exists, but the claim is not reproduced from this repo |
 
 If the repo uses a Commercial Readiness `Verdict` field, use only:
 `STAGED`, `PASS`, `PARTIAL`, `BLOCKED`, `FAIL`, or `INCONCLUSIVE`.
@@ -35,7 +37,7 @@ If the repo uses a Commercial Readiness `Verdict` field, use only:
 | PRD amendments | Owner or delegated repo maintainer | Threshold changes must be explicit |
 | Promoted public claims | Owner or delegated repo maintainer | No proxy-only closure |
 | Release approval | Owner or delegated repo maintainer | Must satisfy `RELEASING.md` |
-| Legal statements | Owner only until license text exists | Must match final license text |
+| Legal statements | Owner or delegated repo maintainer | Must match `LICENSE`, `NOTICE`, and `docs/LEGAL_BOUNDARIES.md` |
 
 ## Claim Discipline
 

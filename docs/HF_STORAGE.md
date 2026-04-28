@@ -23,7 +23,7 @@ that loss.
 
 | Asset class | Authoritative remote | Recovery procedure |
 |---|---|---|
-| Code, tests, docs, configs, .gpd state, plans, summaries, transcripts, fixtures | GitHub `Zer0pa/Morph-Bench` (private) | `git clone https://github.com/Zer0pa/Morph-Bench.git` |
+| Code, tests, docs, configs, .gpd state, plans, summaries, transcripts, fixtures | GitHub `Zer0pa/Morph-Bench` (internal until repo-manager visibility action) | `git clone https://github.com/Zer0pa/Morph-Bench.git` |
 | Adapter run records, replay-output bundles, periodic evidence-tree snapshots, future heavy artefacts | HF `Architect-Prime/gnosis-morph-bench-artifacts` (private, canonical) | `huggingface-cli download` against pinned SHAs in `MANIFEST.json` |
 | Source-authority mirror of live Phase 4 bundle (when admitted under `Blocked-3`) | HF `Architect-Prime/gnosis-morph-bench-authority-bundle` (private, canonical) | `huggingface-cli download` against pinned SHAs |
 | HF token, SSH keys, machine-local operational state | NOT replicated; not stored anywhere remotely | regenerate per `docs/HF_CUSTODY_REGISTER.md` and operator guidance |
@@ -40,7 +40,7 @@ for this lane.
 
 - URL: [https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-artifacts](https://huggingface.co/datasets/Architect-Prime/gnosis-morph-bench-artifacts)
 - Visibility: **private indefinitely** per Gnosis HF Storage Execution Brief 2026-04-26 §1.3.
-- **Stores:** adapter run records (`artifacts/replay/indus_phase4_live_<date>.json` and run records) once `Blocked-1` admits a consumable Phase 3c feature manifest; replay-output bundles; periodic operational-safety snapshots of the consuming GitHub repo's `artifacts/`, `docs/`, `.gpd/`, `fixtures/`, `tests/fixtures/` trees plus root `NOTICE.md`, `README.md`, PRD, and `pyproject.toml`; future cuneiform-family adapter run records once admitted.
+- **Stores:** adapter run records (`artifacts/replay/indus_phase4_live_<date>.json` and run records) once `Blocked-1` admits a consumable Phase 3c feature manifest; replay-output bundles; periodic operational-safety snapshots of the consuming GitHub repo's `artifacts/`, `docs/`, `.gpd/`, `fixtures/`, `tests/fixtures/` trees plus root `NOTICE`, `README.md`, PRD, and `pyproject.toml`; future cuneiform-family adapter run records once admitted.
 - **Does NOT store:** raw corpora; image-bearing benchmark payloads; training data; review-pack artifacts; anything covered by `DATA_POLICY.md` "must NOT yet carry"; HF tokens or any secrets.
 
 ### `Architect-Prime/gnosis-morph-bench-authority-bundle`
@@ -65,7 +65,7 @@ tar --no-xattrs \
   --exclude='*.egg-info' --exclude='.gpd/state.json.bak' --exclude='.gpd/.state-write-intent' \
   -czf /tmp/morph_evidence_snapshot_${SNAPDATE}.tar.gz \
   artifacts/ docs/ .gpd/ tests/fixtures/ fixtures/ \
-  NOTICE.md README.md PRD_GNOSIS_MORPH_BENCH_2026-04-23.md pyproject.toml
+  NOTICE README.md PRD_GNOSIS_MORPH_BENCH_2026-04-23.md pyproject.toml
 SNAPSHA=$(shasum -a 256 /tmp/morph_evidence_snapshot_${SNAPDATE}.tar.gz | cut -d' ' -f1)
 # upload with HfApi.upload_file or huggingface-cli upload, then update MANIFEST.json
 ```
@@ -103,7 +103,7 @@ the repo root `MANIFEST.json`. The manifest shape is:
       "source_provenance": "<workstream-local source path or build command>",
       "consuming_github_commit": "<sha tying admission to a specific repo state>",
       "admitted_utc": "<ISO-8601 admission timestamp>",
-      "rights_class": "<internal / owner-deferred-license | source-authority / restricted | ...>",
+      "rights_class": "<internal / restricted-custody | source-authority / restricted | ...>",
       "purpose": "<why this artefact is admitted>"
     }
   ]

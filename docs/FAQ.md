@@ -2,8 +2,9 @@
 
 ## What is this repo?
 
-It is the staged extraction target for the neutral benchmark and replay layer
-behind the Gnosis reference-bottleneck finding.
+It is the benchmark and replay framework for the neutral Gnosis methods layer.
+It packages route scoring, null metrics, stability checks, deterministic
+replay, and the first Indus Phase 4 adapter boundary.
 
 ## How does this relate to the wider Zer0pa portfolio?
 
@@ -12,15 +13,16 @@ only benchmark and replay logic, not domain-specific scientific claims.
 
 ## What is actually verified here?
 
-The staged repo installs, exposes a synthetic benchmark schema, and runs a tiny
-smoke benchmark. The live Phase 4 methods finding is cited source authority but
-not yet rerun from this repo's custody.
+The package installs, the synthetic benchmark schema runs end-to-end, adapter
+contract coverage is tested, and the synthetic smoke path has blind-clone
+evidence across macOS and Linux. The live Phase 4 methods finding is cited
+source authority but not yet rerun from this repo's custody.
 
 ## What is still unknown or deferred?
 
-Full extraction parity with the live Phase 4 and cuneiform helper scripts,
-blind-clone success on a clean checkout, final license text, and public data
-release posture.
+Live Phase 4 rerun from Morph custody, heavy-data/image-bearing release terms,
+and the cuneiform adapter contract remain open or deferred. Code/docs license
+posture is settled; data and private artifacts remain separate.
 
 ## Why does public documentation mention audit limits?
 

@@ -1,114 +1,101 @@
 {
   "project_reference": {
-    "project_md_updated": null,
-    "core_research_question": null,
-    "current_focus": "Phase 03 is planned. Plan 03-01 (blind-clone verification)"
+    "project_md_updated": "2026-04-28",
+    "core_research_question": "Can the benchmark and replay logic behind the live Phase 4 finding be extracted into a standalone methods repo that installs and runs from repo custody while keeping domain verdicts outside the boundary?",
+    "current_focus": "Repo-orchestrator greenlight readiness for Morph-Bench as the benchmark/replay framework and first public-planning candidate."
   },
-  "project_contract": null,
+  "project_contract": {
+    "authority_metric": "repo-local methods framework is operationally coherent without promoting source-authority, data, or live replay claims",
+    "false_progress_to_reject": [
+      "synthetic smoke treated as live scientific proof",
+      "license closure treated as data/artifact release",
+      "Ops-Gates treated as load-bearing before its own canonical CI is green",
+      "historical blind-clone evidence treated as current-branch CI proof"
+    ]
+  },
   "position": {
     "current_phase": "03",
-    "current_phase_name": null,
-    "total_phases": null,
-    "current_plan": null,
-    "total_plans_in_phase": null,
-    "status": "Milestone complete",
-    "last_activity": "2026-04-24",
-    "last_activity_desc": "Phase 03 complete",
-    "progress_percent": 65,
+    "current_phase_name": "Greenlight readiness and promotion boundary",
+    "total_phases": 4,
+    "current_plan": "greenlight hygiene wave",
+    "total_plans_in_phase": 1,
+    "status": "STAGED",
+    "last_activity": "2026-04-28",
+    "last_activity_desc": "Front-door, promotion-readiness, data/license boundary, CI hygiene, and GPD state refresh for repo-orchestrator review.",
+    "progress_percent": 80,
     "paused_at": null
   },
   "active_calculations": [
-    "Plan 03-01 queued: blind-clone verification. Primary run: macOS",
-    "Plan 03-02 queued: author `docs/PROMOTION_READINESS.md` anchored to the"
+    "Verify this branch with repo hygiene scan, stale-language scan, pytest -q, and smoke output written outside the repo.",
+    "Keep package/test/fixture logic unchanged in this wave unless verification falsifies the greenlight claim.",
+    "Defer Ops-Gates consumption until Gnosis-Ops-Gates is self-green and exposes a pinned Morph-compatible profile."
   ],
   "intermediate_results": [
-    "The staged repo is installable and exposes a corpus-neutral starter contract.",
-    "Source-repo authority is cited cleanly without being misrepresented as",
-    "First repo-custody replay target is frozen to the Indus Phase 4 source",
-    "v1 adapter contract names every path-rewrite-ledger forbidden pattern and"
+    "Repo is installable and exposes a corpus-neutral benchmark/replay contract.",
+    "Source authority is cited without being represented as Morph-Bench repo-custody proof.",
+    "Indus Phase 4 remains the first repo-custody replay target.",
+    "Apache-2.0 code and CC-BY-4.0 docs posture is separate from data and artifact rights."
   ],
   "open_questions": [
-    "Can an admitted copy of the Phase 3c feature manifest be made accessible to",
-    "Does the v1 adapter need a second reference key (ICIT Graph) before Phase",
-    "Which cuneiform helper subset will belong in this repo versus the consuming"
+    "Can an admitted copy of the Phase 3c feature manifest be made accessible without vendoring heavy or image-bearing data?",
+    "What explicit policy governs public admission of private HF artifacts, endpoint logs, corpora, and image-bearing payloads?",
+    "Which cuneiform helper subset belongs in this repo once a second-family adapter is authorized?",
+    "What exact Ops-Gates profile should Morph consume once Ops-Gates is green?"
   ],
   "performance_metrics": {
     "rows": [
       {
-        "label": "Bootstrap initialization",
-        "duration": "current session",
+        "label": "Greenlight readiness wave",
+        "duration": "2026-04-28",
         "tasks": "1",
-        "files": "staged repo + workstream docs"
+        "files": "front door, operational docs, CI hygiene, .gpd state"
       }
     ]
   },
   "decisions": [
     {
       "phase": "00",
-      "summary": "keep heavy corpora outside the staged repo.",
-      "rationale": null
+      "summary": "keep heavy corpora outside the staged repo",
+      "rationale": "prevents false completeness and rights drift"
     },
     {
       "phase": "00",
-      "summary": "treat live Phase 4 metrics as source authority until rerun here.",
-      "rationale": null
+      "summary": "treat live Phase 4 metrics as source authority until rerun here",
+      "rationale": "avoids overclaiming repo-custody proof"
     },
     {
-      "phase": "00",
-      "summary": "use a synthetic smoke fixture as the minimum standalone install",
-      "rationale": null
+      "phase": "Greenlight 2026-04-28",
+      "summary": "license posture is settled for code/docs",
+      "rationale": "Apache-2.0 code and CC-BY-4.0 docs do not release data, artifacts, private HF custody, or live replay claims"
     },
     {
-      "phase": "01",
-      "summary": "first repo-custody replay target is the Indus Phase 4 source",
-      "rationale": null
-    },
-    {
-      "phase": "01",
-      "summary": "v1 adapter is design only",
-      "rationale": "no live code ported, no heavy data"
+      "phase": "Greenlight 2026-04-28",
+      "summary": "defer Ops-Gates CI consumption",
+      "rationale": "the gate repo must be self-green and expose a stable Morph invocation before it becomes load-bearing"
     }
   ],
   "approximations": [],
   "convention_lock": {
-    "metric_signature": null,
-    "fourier_convention": null,
-    "natural_units": null,
-    "gauge_choice": null,
-    "regularization_scheme": null,
-    "renormalization_scheme": null,
-    "coordinate_system": null,
-    "spin_basis": null,
-    "state_normalization": null,
-    "coupling_convention": null,
-    "index_positioning": null,
-    "time_ordering": null,
-    "commutation_convention": null,
-    "levi_civita_sign": null,
-    "generator_normalization": null,
-    "covariant_derivative_sign": null,
-    "gamma_matrix_convention": null,
-    "creation_annihilation_order": null,
     "custom_conventions": {}
   },
   "propagated_uncertainties": [],
   "pending_todos": [
-    "Run Plan 03-01: blind-clone verification (macOS primary, RunPod secondary).",
-    "Run Plan 03-02: author `docs/PROMOTION_READINESS.md` and update `TODO.md`",
-    "Obtain admitted access to the Phase 3c feature manifest for a future",
-    "Owner decision on canonical license text (OWNER_DEFERRED; carried as",
-    "Owner decision on heavy-data release policy for image-bearing assets",
-    "Draft a separate cuneiform adapter contract before any cuneiform work"
+    "Run and record branch verification: no package/test/fixture drift, hygiene scan, stale-current-surface scan, pytest -q, and smoke to /tmp.",
+    "Obtain admitted access to the Phase 3c feature manifest for repo-custody live replay.",
+    "Write the heavy-data/image-bearing release policy before any such payload enters a public repo or website surface.",
+    "Draft a cuneiform adapter contract only after explicit authorization or after the Indus live replay gate closes.",
+    "Adopt Ops-Gates in CI only after Gnosis-Ops-Gates self-CI is green and a pinned Morph-compatible profile is available."
   ],
   "blockers": [
-    "Final license text is still owner-deferred.",
-    "Real-source replay is still pending; Phase 02 is blocked on admitted"
+    "Real-source replay is still pending on admitted Phase 3c feature manifest custody.",
+    "Public rights for corpora, image-bearing payloads, endpoint logs, and private HF artifacts remain blocked on separate owner policy.",
+    "Ops-Gates cannot be load-bearing here while its own canonical CI is red."
   ],
   "session": {
-    "last_date": "`2026-04-24T00:00:00Z`",
-    "stopped_at": "Phase 03 planned with two plans (03-01 blind-clone",
-    "resume_file": "`.gpd/phases/03-blind-clone-and-promotion-review/03-01-PLAN.md`."
+    "last_date": "2026-04-28T00:00:00+02:00",
+    "stopped_at": "greenlight readiness branch under verification",
+    "resume_file": "docs/PROMOTION_READINESS.md"
   },
-  "_version": 1,
-  "_synced_at": "2026-04-24T04:07:55.831624+00:00"
+  "_version": 2,
+  "_synced_at": "2026-04-28T00:00:00+02:00"
 }

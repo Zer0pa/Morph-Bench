@@ -2,36 +2,40 @@
 
 ## Purpose
 
-This staged repo is a public-facing methods scaffold inside a migration package.
-A clone of this repo can establish only what the visible docs, code, and local
-fixtures support.
+A clone of this repo can establish only what its visible docs, code, fixtures,
+tests, and committed artifacts support. This file prevents website, README, or
+portfolio copy from upgrading cited authority into repo-custody proof.
 
 ## What A Public Audit Can Establish
 
-| Surface | What It Can Show |
+| Surface | What it can show |
 |---|---|
-| Source tree | The intended methods boundary, package shape, and smoke-path interfaces |
-| Local fixtures | The synthetic smoke benchmark schema and runner behavior |
-| Tagged or pinned snapshot | The exact staged repo state at inspection time |
-| Docs coherence | Whether the front door, architecture, data policy, and audit limits agree |
+| Source tree | Package shape, benchmark interfaces, adapter boundary, and CI commands |
+| Local fixtures | Synthetic benchmark schema and deterministic smoke behavior |
+| Test suite | Repo-local implementation and contract coverage |
+| Blind-clone artifacts | Cross-environment reproducibility for the synthetic path |
+| Docs coherence | Whether README, audit, architecture, data policy, and legal boundaries agree |
+| License files | Apache-2.0 code posture and CC-BY-4.0 documentation posture |
 
 ## What A Public Audit Cannot Establish
 
-| Missing Input | Why It Matters |
+| Missing input | Why it matters |
 |---|---|
-| Full live Phase 4 rerun from this repo | The current Phase 4 values still live in source-repo custody |
-| Heavy corpora and image-bearing benchmark payloads | They are intentionally not vendored here yet |
-| Final license text | Public rights remain owner-deferred until the canonical license is supplied |
+| Full live Phase 4 rerun from this repo | Current live values remain source-authority citations until `Blocked-1` clears |
+| Heavy corpora and image-bearing benchmark payloads | They are intentionally excluded from this repo today |
+| Private HF authority bundles | They are custody surfaces, not public release surfaces |
+| Domain verdicts for Indus or cuneiform | Those belong to their domain lanes |
 
-## Rules For Interpreting This Repo
+## Interpretation Rules
 
-- Do not infer repo-custody proof from cited source-repo artifacts.
-- Do not turn the roadmap into proof of delivery.
-- Do not describe Indus or cuneiform scientific findings as if they belong to
-  this repo intrinsically.
-- Treat `PARTIAL`, `UNKNOWN`, `UNVERIFIED`, and `OWNER_DEFERRED` as real states.
+- Do not infer repo-custody proof from cited source-authority artifacts.
+- Do not turn roadmap items into delivered evidence.
+- Do not describe Indus or cuneiform scientific findings as if Morph-Bench owns
+  them.
+- Treat `STAGED`, `PARTIAL`, `BLOCKED`, `UNKNOWN`, and `SOURCE_AUTHORITY_ONLY`
+  as real states.
 
 ## Disputes
 
-If a statement in this repo outruns its local evidence surface, open an
-evidence dispute and cite the exact file, line, and missing artifact path.
+If a statement outruns its local evidence surface, open an evidence dispute and
+cite the exact file, line, and missing artifact path.

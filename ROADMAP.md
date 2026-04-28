@@ -2,27 +2,36 @@
 
 ## How To Read This File
 
-This roadmap states extraction sequence and blockers. It is not itself proof of
-the live benchmark result.
+This roadmap states the extraction and promotion sequence. It is not proof of
+the live Indus benchmark result. Evidence lives in the paths named by the
+README and promotion-readiness docs.
 
-## Active Priorities
+## Current Position
 
-| Priority | Item | Why It Matters | Entry Gate | Evidence Needed | Status | Owner |
-|---|---|---|---|---|---|---|
-| P0 | Port live route-selection and stability helpers into `src/gnosis_morph_bench/` | The repo is not sovereign until the real methods logic lives here | staged scaffold exists | repo-local rerun artifacts and no hidden imports | `IN_PROGRESS` | `OWNER_DEFERRED` |
-| P1 | Add converters for admitted Indus and cuneiform manifest families | The schema contract is only useful if the live source families can map into it | P0 design settled | documented adapters and fixture-backed tests | `NOT_STARTED` | `OWNER_DEFERRED` |
-| P2 | Run blind-clone install plus smoke and one admitted replay path | Promotion cannot rest on local ambient state | P0 and P1 complete enough to rerun | clean temp-clone transcript | `NOT_STARTED` | `OWNER_DEFERRED` |
+| Area | State |
+|---|---|
+| Package and synthetic smoke path | `DONE` |
+| Indus Phase 4 v1 adapter against synthetic Phase-4-like fixtures | `DONE` |
+| Five-mode stability battery and replay record | `DONE` |
+| Blind-clone install and synthetic replay proof | `DONE` |
+| License posture for code/docs | `DONE` - Apache-2.0 code, CC-BY-4.0 docs |
+| Live Indus Phase 4 rerun from Morph custody | `BLOCKED` on admitted Phase 3c manifest |
+| Heavy-data/image-bearing release | `BLOCKED` on data admission policy |
+| Cuneiform adapter | `DEFERRED` until the first real Indus replay or explicit second-family authorization |
+| Ops-Gates CI consumption | `DEFERRED` until `Gnosis-Ops-Gates` self-CI is green and a Morph-compatible profile exists |
 
-## Deferred Or Blocked Work
+## Next Work
 
-| Item | Reason | Unblock Condition | Status |
-|---|---|---|---|
-| Public remote | canonical license text absent | owner supplies final license text and release boundary | `BLOCKED` |
-| Heavy benchmark vendoring | data rights and public-purpose boundary unresolved | explicit publish/fetch decision per asset family | `BLOCKED` |
-| Domain claim promotion | methods repo must not swallow consumer truth | domain repos rerun against this repo and keep custody boundaries explicit | `DEFERRED` |
+| Priority | Item | Evidence Needed | Status | Owner |
+|---|---|---|---|---|
+| P0 | Admit a consumable Phase 3c feature manifest | SHA-256 pinned JSON path and adapter-run record | `BLOCKED` | owner / repo researcher |
+| P1 | Run live Indus Phase 4 replay through Morph-Bench | `artifacts/replay/indus_phase4_live_<date>.json` plus run record | `BLOCKED` on P0 | repo researcher |
+| P2 | Finalize heavy-data/image-bearing release boundary | `DATA_POLICY.md` appendix naming asset classes and terms | `BLOCKED` | owner |
+| P3 | Add cuneiform adapter contract v2 | GPD plan and fixture-backed contract tests | `DEFERRED` | repo researcher |
+| P4 | Consume Ops-Gates in CI | Green Ops-Gates SHA plus Morph-compatible repo profile | `DEFERRED` | repo + ops-gates maintainers |
 
 ## Status Rules
 
-- Use `NOT_STARTED`, `IN_PROGRESS`, `BLOCKED`, `DEFERRED`, or `DONE`.
-- If a priority depends on owner input, say so plainly.
+- Use `DONE`, `BLOCKED`, `DEFERRED`, or `IN_PROGRESS`.
+- If a priority depends on owner input, name the input.
 - A synthetic smoke win is not equivalent to the live-source replay gate.

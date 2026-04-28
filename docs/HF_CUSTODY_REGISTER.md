@@ -21,7 +21,7 @@ The operator directive that drove this migration:
 
 | HF repo ID | type | visibility | exists? | last_commit_sha | files | usedStorage | rights_class | consuming_github_repo | role |
 |---|---|---|---|---|---|---|---|---|---|
-| `Architect-Prime/gnosis-morph-bench-artifacts` | dataset | private (indefinitely) | **YES — VERIFIED 2026-04-27 (post-mirror pass)** | `985d39d71368...` | 5 (`.gitattributes`, `MANIFEST.json`, `README.md`, `snapshots/morph_evidence_snapshot_2026-04-27T00-43-33Z.tar.gz`, `snapshots/morph_workstream_package_2026-04-27T10-29-06Z.tar.gz`) | 145,984 bytes | internal / owner-deferred-license | `Zer0pa/Morph-Bench` | canonical custody for adapter run records, replay-output bundles, evidence-tree snapshots, and the local-only workstream-parent governance pack |
+| `Architect-Prime/gnosis-morph-bench-artifacts` | dataset | private (indefinitely) | **YES — VERIFIED 2026-04-27 (post-mirror pass)** | `985d39d71368...` | 5 (`.gitattributes`, `MANIFEST.json`, `README.md`, `snapshots/morph_evidence_snapshot_2026-04-27T00-43-33Z.tar.gz`, `snapshots/morph_workstream_package_2026-04-27T10-29-06Z.tar.gz`) | 145,984 bytes | internal / restricted-custody | `Zer0pa/Morph-Bench` | canonical custody for adapter run records, replay-output bundles, evidence-tree snapshots, and the local-only workstream-parent governance pack |
 | `Architect-Prime/gnosis-morph-bench-authority-bundle` | dataset | private (indefinitely) | **YES — VERIFIED 2026-04-27** | `d1d1b3bb5f17...` | 3 (`.gitattributes`, `MANIFEST.json`, `README.md`) | 4,930 bytes | source-authority / restricted | `Zer0pa/Morph-Bench` | canonical custody for the read-only mirror of the live Phase 4 authority bundle (admission pending `Blocked-3`) |
 
 ## Retired Repos (Deleted 2026-04-27)
@@ -81,7 +81,7 @@ To make the AP-only recovery path stronger, future snapshots may add `src/` and 
 
 ## Rights Class Definitions
 
-- **internal / owner-deferred-license:** content is internal to Zer0pa, no redistribution rights granted to anyone outside Zer0pa, license to be decided as part of `Blocked-2` (canonical LICENSE) per `docs/PROMOTION_READINESS.md`.
+- **internal / restricted-custody:** content is internal to Zer0pa, no redistribution rights granted to anyone outside Zer0pa, and not made public by the repo's Apache-2.0 code / CC-BY-4.0 docs posture.
 - **source-authority / restricted:** content is a read-only mirror of live-source authority artifacts whose rights are governed by the originating data-rights chain. Redistribution blocked on `Blocked-3` (heavy-data release policy).
 
 ## SHA-256 Pinning Posture
