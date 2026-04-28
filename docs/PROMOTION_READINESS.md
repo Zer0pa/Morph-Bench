@@ -159,27 +159,27 @@ transcript and is honest to name.
   prose reference is insufficient — an actual consumable JSON path is
   required.
 
-### Blocked-2: Canonical LICENSE text
+### Blocked-2: Canonical LICENSE text — **CLOSED 2026-04-28**
 
-- **Blocker:** No `LICENSE` file exists at repo root. The current state
-  is a placeholder marker at
-  [`NOTICE.md`](../NOTICE.md), which explicitly
-  says it is not the legal authority. The repo cannot be promoted
-  publicly until canonical license text lands.
-- **Owner:** `OWNER_DEFERRED`, with authority pointer
-  [`RELEASING.md §Owner Inputs`](../RELEASING.md) line
-  `license identity: OWNER_DEFERRED`.
-- **Unblock produces:** a real `LICENSE` file at the repo root
-  containing canonical text, plus coherent updates to
-  [`README.md`](../README.md),
-  [`GOVERNANCE.md`](../GOVERNANCE.md),
-  [`RELEASING.md`](../RELEASING.md), and
-  [`docs/LEGAL_BOUNDARIES.md`](LEGAL_BOUNDARIES.md) that all cite the
-  same license identity.
-- **Unblock condition:** owner supplies canonical license text (MIT,
-  Apache-2.0, a proprietary license, or whatever the owner chooses) AND
-  authorizes removal of `NOTICE.md` or its retention as
-  migration history.
+- **Status:** CLOSED. Apache 2.0 `LICENSE` file landed at repo root on
+  2026-04-28 (commit `4f21ecb` — "legal: add Apache 2.0 open-source
+  posture for Gnosis"). The remaining Blocked-2 successor item is the
+  visibility / repo-manager release review, which closes when the
+  2026-04-28 public-refresh PR merges. See the `## Commercial Readiness`
+  section of [`README.md`](../README.md).
+- **What was blocked:** No `LICENSE` file existed at repo root. The
+  placeholder marker at [`NOTICE`](../NOTICE) was not the legal
+  authority.
+- **What landed:** Apache-2.0 canonical text at `LICENSE`. Per the
+  Gnosis portfolio posture (methodology / academic-adjacent), Apache-2.0
+  (code) + CC-BY-4.0 (docs) is the intentional license posture — not
+  SAL v7.0.
+- **History preserved:** `NOTICE` retained as migration-history marker.
+- **2026-04-28 ethos refresh note:** per operator directive 2026-04-28,
+  public visibility is now the default posture for Gnosis repos.
+  Visibility is no longer an earned gate; it is the starting posture.
+  Open scientific blockers (Blocked-1, Blocked-3) are surfaced honestly
+  but do not gate visibility.
 
 ### Blocked-3: Heavy-data release policy for image-bearing assets
 
@@ -266,22 +266,24 @@ up.
 
 ## License Posture
 
-The repo remains **private** until canonical license text lands.
+**Updated 2026-04-28.** Apache 2.0 `LICENSE` has landed at repo root.
+The Gnosis portfolio intentionally uses Apache-2.0 (code) + CC-BY-4.0
+(docs) — not SAL v7.0 — because Gnosis is methodology / academic-
+adjacent and the open license invites adoption and reuse. This posture
+is settled.
 
-No fabricated license is admitted by this document.
-[`NOTICE.md`](../NOTICE.md) is the current
-terminal marker and is preserved unchanged by Plan 03-02. Per
-[`RELEASING.md §Owner Inputs`](../RELEASING.md), `license identity:
-OWNER_DEFERRED` is the real state. This posture means:
+`NOTICE` is retained as migration-history documentation.
 
-- No permissive, source-available, or commercial terms are claimed as
-  final.
-- No `LICENSE` file at repo root.
-- Public promotion cannot proceed under any interpretation of this
-  document until Blocked-2 closes.
-- A future `LICENSE` file landing MAY or MAY NOT remove
-  `NOTICE.md`; that decision is part of the unblock and
-  belongs to the owner.
+Public visibility is now the default posture per the 2026-04-28 ethos
+refresh (operator directive). Open scientific blockers (Blocked-1,
+Blocked-3) are surfaced honestly in the README and this document but
+do not gate visibility.
+
+_Historical note (preserved):_ Prior to 2026-04-28, Blocked-2 described
+the absence of a LICENSE file as a public-visibility blocker. That
+condition is now closed. No fabricated license was admitted at that
+time; `NOTICE` was the terminal marker. This history is preserved in
+the `## Blocked On External Dependencies §Blocked-2` section above.
 
 ## Data Release Posture
 
@@ -332,21 +334,22 @@ above.
 
 ## Unblock Conditions Summary
 
-One-line digest of every Blocked item above so a reader scanning only
-this section sees the full unblock checklist:
+One-line digest of every Blocked item so a reader scanning only this
+section sees the full unblock checklist:
 
 - **Blocked-1 (Phase 3c manifest):** Owner-admitted access to a
   consumable Phase 3c feature manifest JSON with a stated SHA-256. →
   produces `artifacts/replay/indus_phase4_live_<date>.json`.
-- **Blocked-2 (LICENSE):** Owner-supplied canonical license text. →
-  produces `LICENSE` at repo root plus coherent updates across README,
-  GOVERNANCE, RELEASING, and LEGAL_BOUNDARIES.
+- **Blocked-2 (LICENSE):** ~~CLOSED 2026-04-28.~~ Apache 2.0 `LICENSE`
+  landed at repo root. Successor: visibility / repo-manager release
+  review closes when the 2026-04-28 public-refresh PR merges.
 - **Blocked-3 (heavy-data release policy):** Owner decision naming
   admitted image-bearing classes and per-class terms. → produces
   `DATA_POLICY.md §Image-Bearing Release` appendix.
 - **Blocked-4 (committed smoke byte-reference):** Researcher decision to
   re-freeze under the current serializer. → produces refreshed
   `artifacts/smoke/smoke_report.json` with sha256 `020f97b8…c184e`.
+  Not a promotion gate.
 
 Blocked-1, -2, -3 are external/owner-gated. Blocked-4 is local and does
 not gate promotion — it is listed here only so the blind-clone drift
@@ -354,30 +357,36 @@ source is named on a single canonical page.
 
 ## Owner Decisions Needed
 
-Three explicit decisions are needed from the owner before public
-promotion becomes feasible. Each points at
-[`RELEASING.md §Owner Inputs`](../RELEASING.md) as the authoritative
-surface for the decision.
+**Updated 2026-04-28.** Decision 1 (license identity) is closed.
+Public visibility is now the default posture. Remaining owner decisions:
 
-1. **License identity** (resolves Blocked-2).
-   [`RELEASING.md §Owner Inputs`](../RELEASING.md) line
-   `license identity: OWNER_DEFERRED`.
+1. ~~**License identity** (resolves Blocked-2)~~ — CLOSED 2026-04-28.
+   Apache-2.0 landed.
 
 2. **Heavy-data release policy** (resolves Blocked-3). The authoritative
    surface for the decision is
    [`RELEASING.md §Owner Inputs`](../RELEASING.md) together with
    [`DATA_POLICY.md`](../DATA_POLICY.md).
 
-3. **Public-promotion go/no-go timing** (resolves the Deferred-by-scope
-   "public promotion" item).
-   [`RELEASING.md §Owner Inputs`](../RELEASING.md) plus the outcome of
-   decisions 1 and 2.
+3. **Phase 3c manifest admission** (resolves Blocked-1).
+   Consumable Phase 3c feature manifest JSON with SHA-256, admitted to
+   this repo's custody so the live replay can run.
 
 These three decisions collapse the PRD-P4 gate from "private remote
 ready; public still optional" to "public promotion authorized under
 named terms."
 
 ## Change Log
+
+- 2026-04-28 — Public-refresh wave (ethos posture update). Apache 2.0
+  `LICENSE` landed 2026-04-28; Blocked-2 marked CLOSED. License Posture
+  section updated to reflect Apache-2.0 + CC-BY-4.0 as settled Gnosis
+  posture. Per operator directive 2026-04-28, public visibility is now
+  the default posture — visibility is no longer an earned gate. Blocked-1
+  and Blocked-3 remain open and are surfaced honestly. `README.md`
+  updated with live-window banner, headline-first metric, honest-blocker
+  line, and §11 Upcoming Workstreams. `docs/PROMOTION_READINESS.md`
+  updated accordingly. Note this 2026-04-28 ethos refresh wave landed.
 
 - 2026-04-24 — Initial authoring against blind-clone transcript HEAD
   `0c323026ba0195d3c615916a952fb2f5a8d40745`. Plan 03-01 disposition was
@@ -388,4 +397,4 @@ named terms."
   (Phase 3c manifest, LICENSE, heavy-data release policy) enumerated;
   one local housekeeping blocker (smoke byte-reference re-freeze)
   enumerated for transparency. No LICENSE file fabricated.
-  `NOTICE.md` preserved unchanged.
+  `NOTICE` preserved unchanged.

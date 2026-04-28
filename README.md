@@ -1,5 +1,7 @@
 # Gnosis Morph Bench
 
+> **Live window into the Zer0pa lab.** None of the work in this repo is a final release. Zer0pa GitHub repos are open as a matter of course for visibility and community participation. Always-in-beta is the posture: useful now, improving continuously. Open gates and honest blockers are surfaced in plain text below — see §5 "What We Don't Claim" and §11 "Upcoming Workstreams".
+
 ## Licensing
 
 This repository is part of the Zer0pa Gnosis Portfolio.
@@ -28,6 +30,10 @@ Gnosis code and written materials; they do not publish rights-gated data.
 
 `gnosis-morph-bench` is the benchmark-first methods lane of the Gnosis extraction program. It owns neutral route scoring, permutation-null metrics, a five-mode stability battery, deterministic replay, and SHA-256 reference-freeze helpers — without owning Indus or cuneiform scientific verdicts. Domain corpora connect through admitted adapters; the Indus Phase 4 v1 adapter is the first in-scope family.
 
+**Headline metric (repo-custody, clone-reproducible):** `37 passed` pytest in a clean Python 3.11 venv + byte-equality cross-environment smoke (macOS 3.11.15 ↔ Linux/RunPod 3.11.13) + `0/6` forbidden-monorepo-pattern lint hits + `9/9 ADAPTER_CONTRACT_v1` MUST-clause coverage. Evidence path: [`artifacts/blind_clone/`](artifacts/blind_clone/) and [`tests/`](tests/). Live Indus Phase 4 measured values (NMI 0.5793, Sigma 5.65, Jaccard 0.4351, Replay 3/3) are source-authority citations only — see [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md) trust boundary.
+
+**Honest blocker:** Live Indus Phase 4 reproduction is blocked on admitted Phase 3c manifest access (`Blocked-1`); heavy-data release policy for image-bearing assets is open (`Blocked-3`). The synthetic smoke is what runs end-to-end today. See `## Commercial Readiness` below and [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
+
 ## Key Metrics
 
 | Metric | Value |
@@ -52,21 +58,24 @@ These are repo-truth metrics, not product or scientific claims. Live Indus Phase
 
 ## What We Don't Claim
 
-- That the live Indus Phase 4 measured values have been reproduced from repo custody. They have not. Live rerun is blocked on admitted Phase 3c manifest access (`Blocked-1`).
+- That the live Indus Phase 4 measured values have been reproduced from repo custody. They have not. Live rerun is blocked on admitted Phase 3c manifest access (`Blocked-1`). Those values are source-authority citations, not Morph-Bench-proven values.
 - That the synthetic smoke path constitutes proof of any live finding.
-- That this repo is ready for a public visibility flip. It is not; data and artifact gates remain. See `Commercial Readiness` below.
+- That the heavy-data image-bearing asset release is unblocked. It is not; `Blocked-3` (heavy-data release policy) remains open. See `## Commercial Readiness` and [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
 - That the cuneiform benchmark family is in scope for the v1 adapter contract. It is explicitly deferred to a separate future contract once the first real Indus replay lands.
 - That this repo carries any descriptor, kernel, image-preprocessing, or domain-verdict ownership. Those belong to other Gnosis lanes.
 
 ## Commercial Readiness
 
-`STAGED`.
+| Field | Value |
+|---|---|
+| Verdict | `STAGED` |
+| Posture | `benchmark_methods_active_with_named_blockers` |
 
-The repo-local benchmark framework is usable today on synthetic fixtures with a deterministic, cross-environment, lint-clean surface. Public promotion is gated on the remaining release-boundary decisions enumerated in [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md):
+The repo-local benchmark framework is usable today on synthetic fixtures with a deterministic, cross-environment, lint-clean surface. Named blockers are surfaced below per the always-in-beta posture — open work is in-progress, not a reason to withhold visibility. Canonical blocker list: [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
 
 - `Blocked-1`: admitted Indus Phase 3c feature manifest access.
-- `Blocked-2`: visibility, claims, and repo-manager release review.
-- `Blocked-3`: heavy-data release policy for image-bearing assets.
+- `Blocked-2`: CLOSED — Apache 2.0 `LICENSE` landed 2026-04-28. (Previously: canonical license identity OWNER_DEFERRED.)
+- `Blocked-3`: heavy-data release policy for image-bearing assets — open.
 
 `Blocked-4` (smoke byte-reference re-freeze) closed on 2026-04-24.
 
@@ -166,3 +175,25 @@ For what is and is not promotable today: [`docs/PROMOTION_READINESS.md`](docs/PR
 For governance and status semantics: [`GOVERNANCE.md`](GOVERNANCE.md).
 
 For release protocol and owner inputs: [`RELEASING.md`](RELEASING.md).
+
+## Upcoming Workstreams
+
+Open work across four categories. "Useful now, improving continuously" — every item here is surfaced honestly, not an apology.
+
+### Operations / External Dependency
+
+- **Blocked-1 — Phase 3c manifest admission:** live Indus Phase 4 rerun from repo custody cannot proceed without an admitted Phase 3c feature manifest JSON with SHA-256. Owner-gated. When clear: produces `artifacts/replay/indus_phase4_live_<date>.json`.
+- **Blocked-3 — Heavy-data release policy:** image-bearing benchmark payloads cannot enter the repo until the release boundary is written (which asset classes, under what terms, storage location and size bound). Owner-gated. When clear: produces `DATA_POLICY.md §Image-Bearing Release` appendix.
+
+### Active Engineering
+
+- Cuneiform benchmark family adapter: deferred to a separate future contract per current scope decision; no active engineering until Blocked-1 live rerun lands and the v1 adapter is validated against a second source family.
+- Smoke byte-reference re-freeze: local housekeeping only; re-run smoke and commit the new byte-reference when convenient. Not a promotion gate.
+
+### Research-Deferred — Investigation Underway
+
+_(none currently — all research surface is defined by the v1 adapter contract and the 5-mode stability battery)_
+
+### Zero-Base Scientific Thinking — GPD Research and Planning Pending
+
+_(none currently — the Phase 04 cuneiform contract is the next planned GPD unit; not yet initiated)_

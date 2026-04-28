@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use gnosis-morph-bench in your research, please cite it as below."
+type: software
+title: "Gnosis Morph Bench"
+abstract: >
+  Benchmark-first methods lane for Gnosis extraction in the Zer0pa portfolio.
+  Provides neutral route scoring, permutation-null metrics, a five-mode
+  stability battery, deterministic replay, and SHA-256 reference-freeze
+  helpers. Methodology surface; no scientific verdict on any corpus.
+authors:
+  - name: "Zer0pa"
+    website: "https://github.com/Zer0pa"
+repository-code: "https://github.com/Zer0pa/Morph-Bench"
+license: Apache-2.0
+version: "0.3.0"
+date-released: "2026-04-28"
+keywords:
+  - gnosis
+  - benchmark
+  - null-controls
+  - replay
+  - stability
+  - falsification
+  - methods
+  - python
+  - nmi
+  - silhouette
