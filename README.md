@@ -1,53 +1,62 @@
 # Gnosis Morph Bench
 
-> **Live window into the Zer0pa lab.** None of the work in this repo is a final release. Zer0pa GitHub repos are open as a matter of course for visibility and community participation. Always-in-beta is the posture: useful now, improving continuously. Open gates and honest blockers are surfaced in plain text below — see §5 "What We Don't Claim" and §11 "Upcoming Workstreams".
-
-## Licensing
-
-This repository is part of the Zer0pa Gnosis Portfolio.
-
-**Code** in this repository is licensed under the Apache License 2.0. See
-`LICENSE` for the full text. SPDX identifier: `Apache-2.0`.
-
-**Documentation, reports, and written materials** are licensed under Creative
-Commons Attribution 4.0 International. SPDX identifier: `CC-BY-4.0`. Canonical
-terms: <https://creativecommons.org/licenses/by/4.0/>.
-
-**Data and fixtures** are handled per dataset and artifact family. See
-`DATA_POLICY.md` for this repository's data boundary. The code license does not
-license raw corpora, image-bearing cultural-heritage assets, private HF
-artifacts, model weights, endpoint logs, or operational transcripts.
-
-**Trademarks** - "Gnosis", "Zer0pa Gnosis", and distinctive sub-marks are
-trademarks of Zer0pa. Apache-2.0 and CC-BY-4.0 do not grant trademark rights.
-See `TRADEMARKS.md`.
-
-Public visibility is a separate repository-setting action. The license files in
-this repo define the intended open-source/open-documentation terms for released
-Gnosis code and written materials; they do not publish rights-gated data.
+> Live window into the Zer0pa lab. Benchmark methods are useful now, with live Indus replay blockers kept visible.
 
 ## What This Is
+
+Morph-Bench is a Gnosis benchmark-method lane: neutral route scoring, null metrics, stability battery, deterministic replay, and explicit Indus replay blockers.
 
 `gnosis-morph-bench` is the benchmark-first methods lane of the Gnosis extraction program. It owns neutral route scoring, permutation-null metrics, a five-mode stability battery, deterministic replay, and SHA-256 reference-freeze helpers — without owning Indus or cuneiform scientific verdicts. Domain corpora connect through admitted adapters; the Indus Phase 4 v1 adapter is the first in-scope family.
 
 **Headline metric (repo-custody, clone-reproducible):** `37 passed` pytest in a clean Python 3.11 venv + byte-equality cross-environment smoke (macOS 3.11.15 ↔ Linux/RunPod 3.11.13) + `0/6` forbidden-monorepo-pattern lint hits + `9/9 ADAPTER_CONTRACT_v1` MUST-clause coverage. Evidence path: [`artifacts/blind_clone/`](artifacts/blind_clone/) and [`tests/`](tests/). Live Indus Phase 4 measured values (NMI 0.5793, Sigma 5.65, Jaccard 0.4351, Replay 3/3) are source-authority citations only — see [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md) trust boundary.
 
-**Honest blocker:** Live Indus Phase 4 reproduction is blocked on admitted Phase 3c manifest access (`Blocked-1`); heavy-data release policy for image-bearing assets is open (`Blocked-3`). The synthetic smoke is what runs end-to-end today. See `## Commercial Readiness` below and [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
+**Honest blocker:** Live Indus Phase 4 reproduction is blocked on admitted Phase 3c manifest access (`Blocked-1`); heavy-data release policy for image-bearing assets is open (`Blocked-3`). The synthetic smoke is what runs end-to-end today. See `## Readiness` below and [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
+
+## Method Mechanics
+
+| Field | Value |
+| --- | --- |
+| Architecture | GNOSIS_BENCHMARK_METHOD |
+| Method | `BenchmarkManifest` route scoring, permutation nulls, stability battery, deterministic replay |
+| Adapter | Indus Phase 4 v1 adapter |
+| Runtime Surface | `src/gnosis_morph_bench/` + CLI smoke/replay commands |
+| Trust Boundary | synthetic smoke runs end-to-end; live Indus Phase 4 rerun remains blocked |
 
 ## Key Metrics
 
-| Metric | Value |
-|---|---|
-| `pytest -q` (clean Python 3.11 venv) | `37 passed` (local closeout verification, 2026-04-25) |
-| GitHub Actions CI on `main` | pytest workflow configured at [`.github/workflows/ci.yml`](.github/workflows/ci.yml); latest status checked during closeout |
-| Forbidden-monorepo-pattern lint hits | `0 / 6 patterns` across `src/gnosis_morph_bench/` |
-| `ADAPTER_CONTRACT_v1.md` MUST-clause coverage | `9 / 9` |
-| Committed smoke report SHA-256 | `020f97b83b2948c2cd529b975010e6e5132799d89e395539d6f6f928c97c184e` |
-| Cross-environment smoke byte-equality | `PASS` (macOS 3.11.15 ↔ Linux/RunPod 3.11.13) |
-| Deterministic replay `all_identical` (synthetic fixture) | `True` (3/3) |
-| Tracked-file leak scan (concrete RunPod IPs / SSH commands / local home paths) | `0 hits` |
+| Metric | Value | Baseline |
+| --- | --- | --- |
+| Pytest surface | 37 passed | clean Python 3.11 venv |
+| Forbidden-monorepo-pattern lint | 0 / 6 hits | adapter-contract lint |
+| Adapter contract coverage | 9 / 9 MUST clauses | `ADAPTER_CONTRACT_v1.md` |
+| Cross-environment smoke byte-equality | PASS | macOS 3.11.15 vs Linux/RunPod 3.11.13 |
 
-These are repo-truth metrics, not product or scientific claims. Live Indus Phase 4 measured values (NMI 0.5793, Sigma 5.65, Jaccard 0.4351, Replay 3/3) remain source-authority citations; see [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md) trust boundary.
+> Source: `artifacts/blind_clone/`, `tests/`, `docs/family/ADAPTER_CONTRACT_v1.md`, and `docs/PROMOTION_READINESS.md`.
+
+## Repo Identity
+
+| Field | Value |
+| --- | --- |
+| Identifier | Morph-Bench |
+| Repository | https://github.com/Zer0pa/Morph-Bench |
+| Portfolio | Gnosis |
+| Visibility | PUBLIC |
+| Default Branch | main |
+| Authority Source | `docs/PROMOTION_READINESS.md`; `artifacts/blind_clone/` |
+| License | Apache-2.0 code; CC-BY-4.0 docs |
+
+## Readiness
+
+| Field | Value |
+| --- | --- |
+| Verdict | STAGED |
+| Posture | `benchmark_methods_active_with_named_blockers` |
+| Checks | 37 pytest checks; lint-clean adapter contract |
+| Authority | `docs/PROMOTION_READINESS.md` |
+
+### Honest Blocker
+
+Live Indus Phase 4 reproduction is blocked on admitted Phase 3c manifest access, and heavy-data image-bearing release policy remains open.
 
 ## What We Prove
 
@@ -60,62 +69,52 @@ These are repo-truth metrics, not product or scientific claims. Live Indus Phase
 
 - That the live Indus Phase 4 measured values have been reproduced from repo custody. They have not. Live rerun is blocked on admitted Phase 3c manifest access (`Blocked-1`). Those values are source-authority citations, not Morph-Bench-proven values.
 - That the synthetic smoke path constitutes proof of any live finding.
-- That the heavy-data image-bearing asset release is unblocked. It is not; `Blocked-3` (heavy-data release policy) remains open. See `## Commercial Readiness` and [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
+- That the heavy-data image-bearing asset release is unblocked. It is not; `Blocked-3` (heavy-data release policy) remains open. See `## Readiness` and [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
 - That the cuneiform benchmark family is in scope for the v1 adapter contract. It is explicitly deferred to a separate future contract once the first real Indus replay lands.
 - That this repo carries any descriptor, kernel, image-preprocessing, or domain-verdict ownership. Those belong to other Gnosis lanes.
 
-## Commercial Readiness
+## Verification Status
 
-| Field | Value |
-|---|---|
-| Verdict | `STAGED` |
-| Posture | `benchmark_methods_active_with_named_blockers` |
-
-The repo-local benchmark framework is usable today on synthetic fixtures with a deterministic, cross-environment, lint-clean surface. Named blockers are surfaced below per the always-in-beta posture — open work is in-progress, not a reason to withhold visibility. Canonical blocker list: [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md).
-
-- `Blocked-1`: admitted Indus Phase 3c feature manifest access.
-- `Blocked-2`: CLOSED — Apache 2.0 `LICENSE` landed 2026-04-28. (Previously: canonical license identity OWNER_DEFERRED.)
-- `Blocked-3`: heavy-data release policy for image-bearing assets — open.
-
-`Blocked-4` (smoke byte-reference re-freeze) closed on 2026-04-24.
-
-## Tests and Verification
-
-Clean-venv local verification (Python 3.11):
-
-```bash
-python3.11 -m venv /tmp/gnosis-morph-closeout
-source /tmp/gnosis-morph-closeout/bin/activate
-python -m pip install -e '.[dev]'
-pytest -q
-git status --short
-```
-
-Expected: `37 passed`, working tree clean. Test suite covers: adapter CLI surface (11), adapter contract coverage (3), forbidden-pattern lint with positive control (2), CLI smoke + Phase-4-style end-to-end (4), stability modes battery (4), replay record shape (3), HF SHA-pinned cache loader (5), plus 5 supporting suites.
-
-CI: minimal pytest workflow at [`.github/workflows/ci.yml`](.github/workflows/ci.yml). No HF fetches, no blind-clone, no public uploads.
-
-Blind-clone verification (cross-environment): see [`artifacts/blind_clone/03-01_transcript.md`](artifacts/blind_clone/03-01_transcript.md) and [`.gpd/phases/03-blind-clone-and-promotion-review/03-01-SUMMARY.md`](.gpd/phases/03-blind-clone-and-promotion-review/03-01-SUMMARY.md).
+| Code | Check | Verdict |
+| --- | --- | --- |
+| V_01 | Clean Python 3.11 pytest: 37 passed | PASS |
+| V_02 | Adapter contract coverage: 9/9 MUST clauses | PASS |
+| V_03 | Forbidden-pattern lint with positive control | PASS |
+| V_04 | Cross-environment blind-clone byte equality | PASS |
+| V_05 | Live Indus Phase 4 rerun from repo custody | BLOCKED |
 
 ## Proof Anchors
 
-| Anchor | Path |
-|---|---|
-| Sovereign PRD | [`PRD_GNOSIS_MORPH_BENCH_2026-04-23.md`](PRD_GNOSIS_MORPH_BENCH_2026-04-23.md) |
-| Adapter contract v1 (Indus Phase 4) | [`docs/family/ADAPTER_CONTRACT_v1.md`](docs/family/ADAPTER_CONTRACT_v1.md) |
-| Stability battery v1 | [`docs/family/STABILITY_BATTERY_v1.md`](docs/family/STABILITY_BATTERY_v1.md) |
-| First replay target decision | [`docs/family/FIRST_REPLAY_TARGET_DECISION.md`](docs/family/FIRST_REPLAY_TARGET_DECISION.md) |
-| Promotion readiness (named blockers) | [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md) |
-| HF custody register | [`docs/HF_CUSTODY_REGISTER.md`](docs/HF_CUSTODY_REGISTER.md) |
-| Legal review prep (questions for Zer0pa legal) | [`docs/LEGAL_REVIEW_PREP.md`](docs/LEGAL_REVIEW_PREP.md) |
-| HF storage strategy | [`docs/HF_STORAGE.md`](docs/HF_STORAGE.md) |
-| Status report (2026-04-24) | [`docs/STATUS_REPORT_2026-04-24.md`](docs/STATUS_REPORT_2026-04-24.md) |
-| Live Phase 4 source-authority boundary | [`docs/PROMOTION_READINESS.md`](docs/PROMOTION_READINESS.md), [`docs/STATUS_REPORT_2026-04-24.md`](docs/STATUS_REPORT_2026-04-24.md) |
-| Forbidden-pattern lint evidence | [`tests/test_forbidden_patterns.py`](tests/test_forbidden_patterns.py), [`artifacts/blind_clone/03-01_forbidden_pattern_scan.txt`](artifacts/blind_clone/03-01_forbidden_pattern_scan.txt) |
-| Public-audit boundaries | [`PUBLIC_AUDIT_LIMITS.md`](PUBLIC_AUDIT_LIMITS.md) |
-| Blind-clone transcript (macOS + Linux) | [`artifacts/blind_clone/`](artifacts/blind_clone/) |
+| Path | State |
+| --- | --- |
+| `PRD_GNOSIS_MORPH_BENCH_2026-04-23.md` | VERIFIED |
+| `docs/family/ADAPTER_CONTRACT_v1.md` | VERIFIED |
+| `docs/family/STABILITY_BATTERY_v1.md` | VERIFIED |
+| `docs/PROMOTION_READINESS.md` | VERIFIED |
+| `artifacts/blind_clone/03-01_transcript.md` | VERIFIED |
+| `tests/test_adapter_contract_coverage.py` | VERIFIED |
 
 ## Repo Shape
+
+| Field | Value |
+| --- | --- |
+| Proof Anchors | 6 display anchors |
+| Portfolio | Gnosis |
+| Package | gnosis-morph-bench |
+| Primary Source | `src/gnosis_morph_bench/` |
+| Tests | `tests/` |
+| Artifacts | `artifacts/blind_clone/`; `artifacts/smoke/` |
+| Support Sections | Licensing; Quick Start; Upcoming Workstreams |
+
+| Field | Value |
+| --- | --- |
+| Proof Anchors | 6 display anchors |
+| Portfolio | Gnosis |
+| Package | gnosis-morph-bench |
+| Primary Source | `src/gnosis_morph_bench/` |
+| Tests | `tests/` |
+| Artifacts | `artifacts/blind_clone/`; `artifacts/smoke/` |
+| Support Sections | Licensing; Quick Start; Upcoming Workstreams |
 
 ```
 .
@@ -143,6 +142,30 @@ Blind-clone verification (cross-environment): see [`artifacts/blind_clone/03-01_
 ├── docs/                              # promotion readiness, HF custody, legal prep, family contracts
 └── code/                              # code-facing surface notes and current limits
 ```
+
+## Licensing
+
+This repository is part of the Zer0pa Gnosis Portfolio.
+
+**Code** in this repository is licensed under the Apache License 2.0. See
+`LICENSE` for the full text. SPDX identifier: `Apache-2.0`.
+
+**Documentation, reports, and written materials** are licensed under Creative
+Commons Attribution 4.0 International. SPDX identifier: `CC-BY-4.0`. Canonical
+terms: <https://creativecommons.org/licenses/by/4.0/>.
+
+**Data and fixtures** are handled per dataset and artifact family. See
+`DATA_POLICY.md` for this repository's data boundary. The code license does not
+license raw corpora, image-bearing cultural-heritage assets, private HF
+artifacts, model weights, endpoint logs, or operational transcripts.
+
+**Trademarks** - "Gnosis", "Zer0pa Gnosis", and distinctive sub-marks are
+trademarks of Zer0pa. Apache-2.0 and CC-BY-4.0 do not grant trademark rights.
+See `TRADEMARKS.md`.
+
+Public visibility is a separate repository-setting action. The license files in
+this repo define the intended open-source/open-documentation terms for released
+Gnosis code and written materials; they do not publish rights-gated data.
 
 ## Quick Start
 
