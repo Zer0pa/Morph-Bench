@@ -1,0 +1,9 @@
+{
+  "title": "Gnosis Morph Bench",
+  "description": "Benchmark-first methods lane for Gnosis extraction in the Zer0pa portfolio: neutral route scoring, null metrics, stability battery, deterministic replay.",
+  "creators": [{ "name": "Zer0pa" }],
+  "license": "Apache-2.0",
+  "keywords": ["benchmark", "falsification", "gnosis", "methods", "morph-bench", "null-controls", "python", "replay"],
+  "upload_type": "software",
+  "access_right": "open"
+}
