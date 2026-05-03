@@ -14,6 +14,11 @@ dependencies = [
   "scikit-learn>=1.5",
 ]
 
+[project.urls]
+Homepage = "https://github.com/Zer0pa/Morph-Bench"
+Repository = "https://github.com/Zer0pa/Morph-Bench"
+Issues = "https://github.com/Zer0pa/Morph-Bench/issues"
+
 [project.scripts]
 gnosis-morph-bench-smoke = "gnosis_morph_bench.cli:main"
 gnosis-morph-bench-adapter-indus-phase4 = "gnosis_morph_bench.adapters.indus_phase4:main"
