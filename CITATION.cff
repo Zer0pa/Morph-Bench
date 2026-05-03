@@ -12,8 +12,8 @@ authors:
     website: "https://github.com/Zer0pa"
 repository-code: "https://github.com/Zer0pa/Morph-Bench"
 license: Apache-2.0
-version: "0.3.0"
-date-released: "2026-04-28"
+version: "0.1.0"
+date-released: "2026-05-04"
 keywords:
   - gnosis
   - benchmark
